@@ -23,5 +23,3 @@ bld/
 # NUNIT
 *.VisualState.xml
 TestResult.xml
-
-/LIMS.WebApp/obj/Debug/
