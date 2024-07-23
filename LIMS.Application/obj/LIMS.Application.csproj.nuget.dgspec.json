@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Shashank\\source\\repos\\ShashankSaini203\\LIMS-WebApp\\LIMS.Application\\LIMS.Application.csproj": {}
+    "C:\\Users\\Shashank\\Source\\Repos\\ShashankSaini203\\LIMS-WebApp\\LIMS.Application\\LIMS.Application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Shashank\\source\\repos\\ShashankSaini203\\LIMS-WebApp\\LIMS.Application\\LIMS.Application.csproj": {
+    "C:\\Users\\Shashank\\Source\\Repos\\ShashankSaini203\\LIMS-WebApp\\LIMS.Application\\LIMS.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Shashank\\source\\repos\\ShashankSaini203\\LIMS-WebApp\\LIMS.Application\\LIMS.Application.csproj",
+        "projectUniqueName": "C:\\Users\\Shashank\\Source\\Repos\\ShashankSaini203\\LIMS-WebApp\\LIMS.Application\\LIMS.Application.csproj",
         "projectName": "LIMS.Application",
-        "projectPath": "C:\\Users\\Shashank\\source\\repos\\ShashankSaini203\\LIMS-WebApp\\LIMS.Application\\LIMS.Application.csproj",
+        "projectPath": "C:\\Users\\Shashank\\Source\\Repos\\ShashankSaini203\\LIMS-WebApp\\LIMS.Application\\LIMS.Application.csproj",
         "packagesPath": "C:\\Users\\Shashank\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Shashank\\source\\repos\\ShashankSaini203\\LIMS-WebApp\\LIMS.Application\\obj\\",
         "projectStyle": "PackageReference",
