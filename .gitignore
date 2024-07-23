@@ -23,3 +23,14 @@ bld/
 # NUNIT
 *.VisualState.xml
 TestResult.xml
+/LIMS.WebApp/obj/Debug/net8.0/apphost.exe
+/LIMS.WebApp/obj/Debug/net8.0/LIMS.WebApp.AssemblyInfo.cs
+/LIMS.WebApp/obj/Debug/net8.0/LIMS.WebApp.AssemblyInfoInputs.cache
+/LIMS.WebApp/obj/Debug/net8.0/LIMS.WebApp.dll
+/LIMS.WebApp/obj/Debug/net8.0/LIMS.WebApp.pdb
+/LIMS.WebApp/obj/Debug/net8.0/LIMS.WebApp.sourcelink.json
+/LIMS.WebApp/obj/Debug/net8.0/refint/LIMS.WebApp.dll
+/LIMS.WebApp/bin/Debug/net8.0/LIMS.WebApp.dll
+/LIMS.WebApp/bin/Debug/net8.0/LIMS.WebApp.exe
+/LIMS.WebApp/bin/Debug/net8.0/LIMS.WebApp.pdb
+/LIMS.WebApp/obj/Debug/net8.0/ref/LIMS.WebApp.dll
