@@ -5,8 +5,6 @@ VisualStudioVersion = 17.8.34322.80
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LIMS.WebApp", "LIMS.WebApp\LIMS.WebApp.csproj", "{3FC09268-7A52-421B-9DF5-EA33C09CC66B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LIMS.Domain", "LIMS.Domain\LIMS.Domain.csproj", "{944C16FC-3BFF-4E30-B8D7-2736A4DB66BA}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{3FC09268-7A52-421B-9DF5-EA33C09CC66B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3FC09268-7A52-421B-9DF5-EA33C09CC66B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3FC09268-7A52-421B-9DF5-EA33C09CC66B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{944C16FC-3BFF-4E30-B8D7-2736A4DB66BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{944C16FC-3BFF-4E30-B8D7-2736A4DB66BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{944C16FC-3BFF-4E30-B8D7-2736A4DB66BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{944C16FC-3BFF-4E30-B8D7-2736A4DB66BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
