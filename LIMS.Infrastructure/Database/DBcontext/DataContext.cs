@@ -10,6 +10,9 @@ namespace LIMS.Infrastructure.Database.DBcontext
 {
     public class DataContext : DbContext
     {
+        public DataContext(DbContextOptions<DataContext> options) : base(options)
+        {     
+        }
         public DbSet<Instrument> Instruments { get; set; }
         public DbSet<CalibrationRecord> CalibrationRecords { get; set; }
         public DbSet<Laboratory> Laboratories { get; set; }
