@@ -14,7 +14,11 @@
     <Folder Include="Repository\Commands\CalibrationRecord\" />
     <Folder Include="Repository\Commands\Technician\" />
     <Folder Include="Repository\Commands\OrderDetails\" />
-    <Folder Include="Repository\Queries\" />
+    <Folder Include="Repository\Queries\CalibrationRecord\" />
+    <Folder Include="Repository\Queries\Instrument\" />
+    <Folder Include="Repository\Queries\Laboratory\" />
+    <Folder Include="Repository\Queries\OrderDetails\" />
+    <Folder Include="Repository\Queries\Technician\" />
   </ItemGroup>
 
   <ItemGroup>
