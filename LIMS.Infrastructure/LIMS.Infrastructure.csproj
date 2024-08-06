@@ -9,7 +9,6 @@
   <ItemGroup>
     <Folder Include="Database\DBConnector\" />
     <Folder Include="Database\SQLiteDB\" />
-    <Folder Include="Repository\Commands\Laboratory\" />
     <Folder Include="Repository\Commands\Instrument\" />
     <Folder Include="Repository\Commands\CalibrationRecord\" />
     <Folder Include="Repository\Commands\Technician\" />
