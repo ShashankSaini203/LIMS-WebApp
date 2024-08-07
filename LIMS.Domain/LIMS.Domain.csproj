@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\Repository\Commands\BaseCommand\" />
     <Folder Include="Interfaces\Repository\Query\BaseQuery\" />
   </ItemGroup>
 
