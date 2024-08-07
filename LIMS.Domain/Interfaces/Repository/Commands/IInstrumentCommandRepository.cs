@@ -3,7 +3,7 @@ using LIMS.Domain.Models;
 
 namespace LIMS.Domain.Interfaces.Repository.Commands
 {
-    public interface IInstrumentCommandRepository : IBaseCommandRepository<Laboratory>
+    public interface IInstrumentCommandRepository : IBaseCommandRepository<Instrument>
     {
     }
 }
