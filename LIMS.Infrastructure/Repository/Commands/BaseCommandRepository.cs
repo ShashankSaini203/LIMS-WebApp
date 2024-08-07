@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LIMS.Domain.Interfaces.Repository.Commands.BaseCommand;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +7,21 @@ using System.Threading.Tasks;
 
 namespace LIMS.Infrastructure.Repository.Commands
 {
-    public class BaseCommandRepository
+    public class BaseCommandRepository<T> : IBaseCommandRepository<T>
     {
-            
+        public Task<T> CreateLaboratoryAsync(T entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<T> DeleteLaboratoryAsync(int entityId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual Task<T> UpdateLaboratoryAsync(T entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
