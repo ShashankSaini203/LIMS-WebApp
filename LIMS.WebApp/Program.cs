@@ -1,4 +1,6 @@
+using Autofac;
 using LIMS.Infrastructure.Database.DBcontext;
+using LIMS.WebApp;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +10,10 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DataContext>(options =>
 {
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
+builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
+{
+    containerBuilder.RegisterModule(new ApplicationModule());
 });
 var app = builder.Build();
 

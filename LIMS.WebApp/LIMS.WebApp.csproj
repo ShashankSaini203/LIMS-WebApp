@@ -18,8 +18,4 @@
     <ProjectReference Include="..\LIMS.Infrastructure\LIMS.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ApplicationModule\" />
-  </ItemGroup>
-
 </Project>
