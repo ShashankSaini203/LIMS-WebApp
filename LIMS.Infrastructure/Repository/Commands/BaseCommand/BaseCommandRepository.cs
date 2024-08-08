@@ -1,14 +1,16 @@
 ﻿using LIMS.Domain.Interfaces.Repository.Commands.BaseCommand;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using LIMS.Infrastructure.Database.DBcontext;
 
 namespace LIMS.Infrastructure.Repository.Commands.BaseCommand
 {
     public class BaseCommandRepository<T> : IBaseCommandRepository<T>
     {
+        private readonly DataContext _dataContext;
+
+        public BaseCommandRepository(DataContext dataContext)
+        {
+            _dataContext = dataContext;
+        }
         public Task<T> CreateLaboratoryAsync(T entity)
         {
             throw new NotImplementedException();
