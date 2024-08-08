@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LIMS.Infrastructure.Repository.Commands
+namespace LIMS.Infrastructure.Repository.Commands.BaseCommand
 {
     public class BaseCommandRepository<T> : IBaseCommandRepository<T>
     {

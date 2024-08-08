@@ -9,15 +9,7 @@
   <ItemGroup>
     <Folder Include="Database\DBConnector\" />
     <Folder Include="Database\SQLiteDB\" />
-    <Folder Include="Repository\Commands\Instrument\" />
-    <Folder Include="Repository\Commands\CalibrationRecord\" />
-    <Folder Include="Repository\Commands\Technician\" />
-    <Folder Include="Repository\Commands\OrderDetails\" />
-    <Folder Include="Repository\Queries\CalibrationRecord\" />
-    <Folder Include="Repository\Queries\Instrument\" />
-    <Folder Include="Repository\Queries\Laboratory\" />
-    <Folder Include="Repository\Queries\OrderDetails\" />
-    <Folder Include="Repository\Queries\Technician\" />
+    <Folder Include="Repository\Queries\" />
   </ItemGroup>
 
   <ItemGroup>
