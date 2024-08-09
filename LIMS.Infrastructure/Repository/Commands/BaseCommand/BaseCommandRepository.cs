@@ -11,9 +11,18 @@ namespace LIMS.Infrastructure.Repository.Commands.BaseCommand
         {
             _dataContext = dataContext;
         }
-        public Task<T> CreateLaboratoryAsync(T entity)
+
+        public async Task<T> CreateAsync(T entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await _dataContext.Set<T>().AddAsync(entity);
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message, ex);
+            }
         }
 
         public Task<T> DeleteLaboratoryAsync(int entityId)

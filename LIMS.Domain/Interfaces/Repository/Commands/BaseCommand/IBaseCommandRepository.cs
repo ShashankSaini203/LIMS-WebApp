@@ -2,10 +2,10 @@
 {
     public interface IBaseCommandRepository<T>
     {
-        Task<T> CreateLaboratoryAsync(T entity);
+        Task<T> CreateAsync(T entity);
 
-        Task<T> UpdateLaboratoryAsync(T entity);
+        Task<T> UpdateAsync(T entity);
 
-        Task<T> DeleteLaboratoryAsync(int entityId);
+        Task<T> DeleteAsync(int entityId);
     }
 }
