@@ -1,9 +1,10 @@
 ﻿using LIMS.Domain.Interfaces.Repository.Commands.BaseCommand;
 using LIMS.Infrastructure.Database.DBcontext;
+using Microsoft.EntityFrameworkCore.Storage.Json;
 
 namespace LIMS.Infrastructure.Repository.Commands.BaseCommand
 {
-    public class BaseCommandRepository<T> : IBaseCommandRepository<T>
+    public class BaseCommandRepository<T> : IBaseCommandRepository<T> where T : class
     {
         private readonly DataContext _dataContext;
 
@@ -12,11 +13,13 @@ namespace LIMS.Infrastructure.Repository.Commands.BaseCommand
             _dataContext = dataContext;
         }
 
-        public async Task<T> CreateAsync(T entity)
+        public virtual async Task<T> CreateAsync(T entity)
         {
             try
             {
-                await _dataContext.Set<T>().AddAsync(entity);
+                var addedEntity = await _dataContext.Set<T>().AddAsync(entity);
+                await _dataContext.SaveChangesAsync();
+                return addedEntity.Entity;
 
             }
             catch (Exception ex)
@@ -25,14 +28,31 @@ namespace LIMS.Infrastructure.Repository.Commands.BaseCommand
             }
         }
 
-        public Task<T> DeleteLaboratoryAsync(int entityId)
+        public virtual async Task DeleteAsync(T entityId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _dataContext.Set<T>().Remove(entityId);
+                await _dataContext.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message, ex);
+            }
         }
 
-        public virtual Task<T> UpdateLaboratoryAsync(T entity)
+        public virtual async Task<T> UpdateAsync(T entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var entityEntry = _dataContext.Set<T>().Update(entity);
+                await _dataContext.SaveChangesAsync();
+                return entityEntry.Entity;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message, ex);
+            }
         }
     }
 }

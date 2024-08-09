@@ -6,6 +6,6 @@
 
         Task<T> UpdateAsync(T entity);
 
-        Task<T> DeleteAsync(int entityId);
+        Task DeleteAsync(int entityId);
     }
 }
