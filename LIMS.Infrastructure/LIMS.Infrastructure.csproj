@@ -9,10 +9,11 @@
   <ItemGroup>
     <Folder Include="Database\DBConnector\" />
     <Folder Include="Database\SQLiteDB\" />
-    <Folder Include="Repository\Queries\" />
+    <Folder Include="Repository\Queries\BaseQuery\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.1.35" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.7">
