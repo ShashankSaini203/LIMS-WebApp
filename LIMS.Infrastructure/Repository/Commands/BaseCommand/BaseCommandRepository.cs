@@ -28,11 +28,11 @@ namespace LIMS.Infrastructure.Repository.Commands.BaseCommand
             }
         }
 
-        public virtual async Task DeleteAsync(T entityId)
+        public virtual async Task DeleteAsync(T entity)
         {
             try
             {
-                _dataContext.Set<T>().Remove(entityId);
+                _dataContext.Set<T>().Remove(entity);
                 await _dataContext.SaveChangesAsync();
             }
             catch (Exception ex)
