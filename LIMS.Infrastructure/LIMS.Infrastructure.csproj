@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Database\DBConnector\" />
     <Folder Include="Database\SQLiteDB\" />
     <Folder Include="Repository\Queries\BaseQuery\" />
   </ItemGroup>
