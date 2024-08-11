@@ -2,7 +2,7 @@
 
 namespace LIMS.Infrastructure.Database.DBConnector
 {
-    internal interface IDBConnector
+    public interface IDBConnector
     {
         IDbConnection CreateConnection();
     }

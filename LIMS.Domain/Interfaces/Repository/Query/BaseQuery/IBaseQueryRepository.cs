@@ -8,8 +8,8 @@ namespace LIMS.Domain.Interfaces.Repository.Query.BaseQuery
 {
     public interface IBaseQueryRepository<T>
     {
-        IEnumerable<T> GetAllAsync();
+        Task<IEnumerable<T>> GetAllAsync();
 
-        T GetAsync(int id);
+        Task<T> GetAsync(int id);
     }
 }

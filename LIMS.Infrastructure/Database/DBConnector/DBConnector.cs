@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace LIMS.Infrastructure.Database.DBConnector
 {
-    internal class DBConnector : IDBConnector
+    public class DBConnector : IDBConnector
     {
         private readonly IConfiguration _configuration;
         public DBConnector(IConfiguration configuration)
