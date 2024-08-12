@@ -2,11 +2,6 @@
 using LIMS.Domain.Models;
 using LIMS.Infrastructure.Database.DBConnector;
 using LIMS.Infrastructure.Repository.Queries.BaseQuery;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LIMS.Infrastructure.Repository.Queries
 {
