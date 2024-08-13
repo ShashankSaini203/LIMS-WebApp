@@ -5,7 +5,6 @@ namespace LIMS.Domain.Models
 {
     public class Technician : BaseModel
     {
-
         [Required]
         public string FirstName { get; set; }
         public string LastName { get; set; }
