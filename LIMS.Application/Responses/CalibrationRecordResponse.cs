@@ -2,7 +2,7 @@
 {
     public class CalibrationRecordResponse : BaseResponse
     {
-        public Technician Technician { get; set; }
+        public TechnicianResponse Technician { get; set; }
         public DateTime CalibrationDate { get; set; }
         public DateTime CalibrationDueDate { get; set; }
         public string Result { get; set; }

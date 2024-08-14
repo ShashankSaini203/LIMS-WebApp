@@ -1,6 +1,6 @@
 ﻿namespace LIMS.Application.Responses
 {
-    internal class LaboratoryResponse : BaseResponse
+    public class LaboratoryResponse : BaseResponse
     {
         public string Name { get; set; }
         public string Location { get; set; }
