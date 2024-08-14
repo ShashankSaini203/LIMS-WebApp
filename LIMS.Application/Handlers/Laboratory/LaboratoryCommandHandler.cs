@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LIMS.Application.Handlers.Laboratory
 {
-    internal class CreateLaboratoryCommandHandler
+    internal class LaboratoryCommandHandler
     {
     }
 }
