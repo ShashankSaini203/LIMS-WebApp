@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LIMS.Domain\LIMS.Domain.csproj" />
+    <ProjectReference Include="..\LIMS.Application\LIMS.Application.csproj" />
   </ItemGroup>
 
 </Project>
