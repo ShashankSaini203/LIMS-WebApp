@@ -1,9 +1,9 @@
 ﻿using MediatR;
 using LIMS.Application.Responses;
 
-namespace LIMS.Application.Commands.Laboratory.Command
+namespace LIMS.Application.Commands.Laboratory
 {
-    public class CreateLaboratoryCommand : IRequest<LaboratoryResponse>
+    public class UpdateLaboratoryCommand : IRequest<LaboratoryResponse>
     {
         public string Id { get; set; }
         public string Name { get; set; }

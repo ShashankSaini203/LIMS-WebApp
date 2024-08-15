@@ -1,4 +1,4 @@
-﻿using LIMS.Application.Commands.Laboratory.Query;
+﻿using LIMS.Application.Queries.Laboratory;
 using LIMS.Application.Responses;
 using MediatR;
 

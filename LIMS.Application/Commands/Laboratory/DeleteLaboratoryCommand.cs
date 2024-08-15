@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using LIMS.Application.Responses;
 
-namespace LIMS.Application.Commands.Laboratory.Command
+namespace LIMS.Application.Commands.Laboratory
 {
     public class DeleteLaboratoryCommand : IRequest<LaboratoryResponse>
     {
