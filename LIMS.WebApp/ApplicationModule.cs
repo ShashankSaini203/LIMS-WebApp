@@ -14,6 +14,7 @@ namespace LIMS.WebApp
         protected override void Load(ContainerBuilder containerBuilder)
         {
             containerBuilder.RegisterType<DataContext>().AsSelf().InstancePerLifetimeScope();
+            containerBuilder.RegisterType<Mediator>().As<IMediator>().InstancePerLifetimeScope();
 
             # region Repository
             containerBuilder.RegisterType<LabCommandRepository>().As<ILabCommandRepository>().SingleInstance();
