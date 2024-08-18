@@ -1,4 +1,5 @@
 ﻿using LIMS.Application.Commands.Laboratory;
+using LIMS.Application.Mappers;
 using LIMS.Application.Responses;
 using LIMS.Domain.Interfaces.Repository.Commands;
 using MediatR;
@@ -15,7 +16,7 @@ namespace LIMS.Application.Handlers.Laboratory.CommandHandlers
         }
         public async Task<LaboratoryResponse> Handle(CreateLaboratoryCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            AutoMapperConfiguration.Mapper.Map<Domain.Models.Laboratory>(request);
         }
     }
 }
