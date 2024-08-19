@@ -1,19 +1,28 @@
-﻿using LIMS.Application.Queries.Laboratory;
+﻿using LIMS.Application.Mappers;
+using LIMS.Application.Queries.Laboratory;
 using LIMS.Application.Responses;
+using LIMS.Domain.Interfaces.Repository.Query;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LIMS.Application.Handlers.Laboratory.QueryHandlers
 {
     public class GetLaboratoryByIdQueryHandler : IRequestHandler<GetLaboratoryByIdQuery, LaboratoryResponse>
     {
-        public Task<LaboratoryResponse> Handle(GetLaboratoryByIdQuery request, CancellationToken cancellationToken)
+        private ILabQueryRepository _labQueryRepository;
+
+        public GetLaboratoryByIdQueryHandler(ILabQueryRepository labQueryRepository)
         {
-            throw new NotImplementedException();
+            _labQueryRepository = labQueryRepository;
+        }
+
+        public async Task<LaboratoryResponse> Handle(GetLaboratoryByIdQuery request, CancellationToken cancellationToken)
+        {
+            var laboratoryEntity = await _labQueryRepository.GetAsyncById(request.Id);
+            if (laboratoryEntity == null)
+            {
+                throw new Exception("No data found with given Id");
+            }
+            return AutoMapperConfiguration.Mapper.Map<LaboratoryResponse>(laboratoryEntity);
         }
     }
 }
