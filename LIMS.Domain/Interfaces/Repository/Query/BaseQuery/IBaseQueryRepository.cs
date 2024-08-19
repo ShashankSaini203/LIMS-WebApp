@@ -10,6 +10,6 @@ namespace LIMS.Domain.Interfaces.Repository.Query.BaseQuery
     {
         Task<IEnumerable<T>> GetAllAsync();
 
-        Task<T> GetAsync(int id);
+        Task<T> GetAsyncById(int id);
     }
 }

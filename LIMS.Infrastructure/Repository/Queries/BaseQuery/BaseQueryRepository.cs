@@ -28,7 +28,7 @@ namespace LIMS.Infrastructure.Repository.Queries.BaseQuery
             }
         }
 
-        public virtual async Task<T> GetAsync(int id)
+        public virtual async Task<T> GetAsyncById(int id)
         {
             try
             {
