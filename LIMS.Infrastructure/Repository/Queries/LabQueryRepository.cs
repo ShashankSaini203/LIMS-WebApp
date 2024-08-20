@@ -7,8 +7,8 @@ namespace LIMS.Infrastructure.Repository.Queries
 {
     public class LabQueryRepository : BaseQueryRepository<Laboratory>, ILabQueryRepository
     {
-        private DBConnector _dbConnector;
-        public LabQueryRepository(DBConnector dbConnector) : base(dbConnector)
+        private IDBConnector _dbConnector;
+        public LabQueryRepository(IDBConnector dbConnector) : base(dbConnector)
         {
             _dbConnector = dbConnector;
         }
