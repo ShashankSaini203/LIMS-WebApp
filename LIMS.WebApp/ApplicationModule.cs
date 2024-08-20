@@ -10,6 +10,7 @@ using LIMS.Infrastructure.Repository.Queries;
 using LIMS.Domain.Interfaces.Repository.Query;
 using LIMS.Application.Handlers.Laboratory.QueryHandlers;
 using LIMS.Application.Queries.Laboratory;
+using LIMS.Infrastructure.Database.DBConnector;
 
 namespace LIMS.WebApp
 {
@@ -17,12 +18,13 @@ namespace LIMS.WebApp
     {
         protected override void Load(ContainerBuilder containerBuilder)
         {
+            containerBuilder.RegisterType<DBConnector>().As<IDBConnector>().InstancePerLifetimeScope();
             containerBuilder.RegisterType<DataContext>().AsSelf().InstancePerLifetimeScope();
             containerBuilder.RegisterType<Mediator>().As<IMediator>().InstancePerLifetimeScope();
 
             # region Repository
-            containerBuilder.RegisterType<LabCommandRepository>().As<ILabCommandRepository>().SingleInstance();
-            containerBuilder.RegisterType<LabQueryRepository>().As<ILabQueryRepository>().SingleInstance();
+            containerBuilder.RegisterType<LabCommandRepository>().As<ILabCommandRepository>().InstancePerLifetimeScope();
+            containerBuilder.RegisterType<LabQueryRepository>().As<ILabQueryRepository>().InstancePerLifetimeScope();
             #endregion
 
             #region Handlers

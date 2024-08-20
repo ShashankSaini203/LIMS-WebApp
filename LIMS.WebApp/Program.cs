@@ -1,4 +1,5 @@
 using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using LIMS.Infrastructure.Database.DBcontext;
 using LIMS.WebApp;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 {
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
 {
     containerBuilder.RegisterModule(new ApplicationModule());
@@ -34,6 +36,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Laboratory}/{action=Index}/{id?}");
 
 app.Run();
