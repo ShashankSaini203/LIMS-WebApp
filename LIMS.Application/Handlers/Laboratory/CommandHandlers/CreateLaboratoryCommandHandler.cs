@@ -23,7 +23,7 @@ namespace LIMS.Application.Handlers.Laboratory.CommandHandlers
                 throw new ApplicationException("Unable to map due to an issue with mapper.");
             }
 
-            var response = _labCommandRepository.CreateAsync(laboratoryEntity);
+            var response = await _labCommandRepository.CreateAsync(laboratoryEntity);
             return AutoMapperConfiguration.Mapper.Map<LaboratoryResponse>(response);
 
         }
