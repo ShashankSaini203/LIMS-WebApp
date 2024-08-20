@@ -1,0 +1,48 @@
+﻿@model IEnumerable<LIMS.Application.Responses.LaboratoryResponse>
+
+@{
+    ViewData["Title"] = "Laboratory Management";
+}
+
+<h2>Laboratories</h2>
+
+<!-- Form to Create a New Laboratory -->
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label for="Name">Laboratory Name</label>
+        <input type="text" class="form-control" id="Name" name="Name" required />
+        <label for="Location">Laboratory Location</label>
+        <input type="text" class="form-control" id="Location" name="Location" required />
+        <label for="ContactNumber">Laboratory ContactNumber</label>
+        <input type="text" class="form-control" id="ContactNumber" name="ContactNumber" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Add Laboratory</button>
+</form>
+
+<hr />
+
+<!-- Display List of Laboratories -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var lab in Model)
+        {
+            <tr>
+                <td>@lab.Name</td> <!-- Assuming LaboratoryResponse has a Name property -->
+                <td>
+                    <!-- Add buttons for Edit/Delete if needed -->
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (!Model.Any())
+{
+    <p>No laboratories available.</p>
+}
