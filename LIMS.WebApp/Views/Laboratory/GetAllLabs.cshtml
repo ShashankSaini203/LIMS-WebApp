@@ -5,23 +5,9 @@
 }
 
 <h2>@ViewData["Title"]</h2>
-
-<!-- Form to Create a New Laboratory -->
-<form asp-action="Create" method="post">
-    <div class="form-group">
-        <label for="Name">Id</label>
-        <input type="text" class="form-control" id="Id" name="Id" required />
-        <label for="Name">Name</label>
-        <input type="text" class="form-control" id="Name" name="Name" required />
-        <label for="Location">Location</label>
-        <input type="text" class="form-control" id="Location" name="Location" required />
-        <label for="ContactNumber">ContactNumber</label>
-        <input type="text" class="form-control" id="ContactNumber" name="ContactNumber" required />
-    </div>
-    <button type="submit" class="btn btn-primary">Add Laboratory</button>
-</form>
-
 <hr />
+
+<a asp-action="CreateLab" asp-controller="Laboratory" class="btn btn-primary mb-3">Add Laboratory</a>
 
 <!-- Display List of Laboratories -->
 <table class="table table-responsive table-hover">
@@ -66,7 +52,7 @@
         else
         {
             <tr>
-                <td colspan="">
+                <td colspan="5">
                     No Laboratories available
                 </td>
             </tr>

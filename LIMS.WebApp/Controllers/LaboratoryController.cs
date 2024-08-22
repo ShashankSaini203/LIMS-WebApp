@@ -15,15 +15,20 @@ namespace LIMS.WebApp.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllLabs()
+        public async Task<ActionResult> GetAllLabs()
         {
             // Fetch all laboratories to display in the table
             var laboratories = await _mediator.Send(new GetAllLaboratoryQuery());
             return View(laboratories);
         }
 
+        [HttpGet]
+        public IActionResult CreateLab()
+        {
+            return View();
+        }
+
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateLab(CreateLaboratoryCommand command)
         {
             await _mediator.Send(command);
