@@ -9,17 +9,21 @@
 
 <!-- Form to Create a New Laboratory -->
 <form asp-action="CreateLab" method="post">
-    <div class="form-group">
-        <label for="Name">Id</label>
-        <input type="text" class="form-control" id="Id" name="Id" required />
-        <label for="Name">Name</label>
-        <input type="text" class="form-control" id="Name" name="Name" required />
-        <label for="Location">Location</label>
-        <input type="text" class="form-control" id="Location" name="Location" required />
-        <label for="ContactNumber">ContactNumber</label>
-        <input type="text" class="form-control" id="ContactNumber" name="ContactNumber" required />
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" asp-for="Name" required />
     </div>
-    <button type="submit" class="btn btn-primary">Add Laboratory</button>
+    <div class="mb-3">
+        <label class="form-label">Location</label>
+        <input type="text" class="form-control" asp-for="Location" required />
+    </div>    
+    <div class="mb-3">
+        <label class="form-label">Contact Number</label>
+        <input type="text" class="form-control" asp-for="ContactNumber" required />
+    </div>    
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Add Laboratory</button>
+    </div>
 </form>
 
 <hr />
