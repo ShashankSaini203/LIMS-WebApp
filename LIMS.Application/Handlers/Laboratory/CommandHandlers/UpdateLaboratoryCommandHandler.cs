@@ -10,6 +10,11 @@ namespace LIMS.Application.Handlers.Laboratory.CommandHandlers
     {
         private ILabCommandRepository _labCommandRepository;
 
+        public UpdateLaboratoryCommandHandler(ILabCommandRepository labCommandRepository)
+        {
+            _labCommandRepository = labCommandRepository;
+        }
+
         public async Task<LaboratoryResponse> Handle(UpdateLaboratoryCommand request, CancellationToken cancellationToken)
         {
             var updatedLaboratoryEntity = AutoMapperConfiguration.Mapper.Map<Domain.Models.Laboratory>(request);
