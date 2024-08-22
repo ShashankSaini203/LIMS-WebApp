@@ -18,11 +18,8 @@ namespace LIMS.Application.Handlers.Laboratory.CommandHandlers
         public async Task<LaboratoryResponse> Handle(UpdateLaboratoryCommand request, CancellationToken cancellationToken)
         {
             var updatedLaboratoryEntity = AutoMapperConfiguration.Mapper.Map<Domain.Models.Laboratory>(request);
-
             var result = await _labCommandRepository.UpdateAsync(updatedLaboratoryEntity);
-
             var mappedResult = AutoMapperConfiguration.Mapper.Map<LaboratoryResponse>(result);
-
             return mappedResult;
         }
     }
