@@ -42,7 +42,7 @@ namespace LIMS.WebApp.Controllers
         }
 
         [HttpPost]
-        public async IActionResult DeleteLab(int id)
+        public async Task<IActionResult> DeleteLab(int id)
         {
             await _mediator.Send(id);
             return RedirectToAction(nameof(GetAllLabs));
