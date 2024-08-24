@@ -34,5 +34,17 @@ namespace LIMS.WebApp.Controllers
             await _mediator.Send(command);
             return RedirectToAction(nameof(GetAllLabs));
         }
+
+        [HttpGet]
+        public IActionResult UpdateLab()
+        {
+
+        }
+
+        [HttpPost]
+        public IActionResult DeleteLab()
+        {
+
+        }
     }
 }
