@@ -38,13 +38,14 @@ namespace LIMS.WebApp.Controllers
         [HttpGet]
         public IActionResult UpdateLab()
         {
-
+            return View();
         }
 
         [HttpPost]
-        public IActionResult DeleteLab()
+        public async IActionResult DeleteLab(int id)
         {
-
+            await _mediator.Send(id);
+            return RedirectToAction(nameof(GetAllLabs));
         }
     }
 }
