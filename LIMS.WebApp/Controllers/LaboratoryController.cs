@@ -29,9 +29,9 @@ namespace LIMS.WebApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateLab(CreateLaboratoryCommand command)
+        public async Task<IActionResult> CreateLab(CreateLaboratoryCommand newLabData)
         {
-            await _mediator.Send(command);
+            await _mediator.Send(newLabData);
             return RedirectToAction(nameof(GetAllLabs));
         }
 
