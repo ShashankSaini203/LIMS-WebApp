@@ -36,9 +36,17 @@ namespace LIMS.WebApp.Controllers
         }
 
         [HttpGet]
-        public IActionResult UpdateLab()
+        public async Task<IActionResult> UpdateLab(int id)
         {
-            return View();
+            try
+            {
+                var labToEdit = await _mediator.Send(new GetLaboratoryByIdQuery(id));
+                return View(labToEdit);
+            }
+            catch (Exception)
+            {
+                return RedirectToAction(nameof(GetAllLabs));
+            }
         }
 
         [HttpPost]
