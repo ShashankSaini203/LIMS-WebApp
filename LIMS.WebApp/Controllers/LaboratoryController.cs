@@ -55,7 +55,7 @@ namespace LIMS.WebApp.Controllers
             try
             {
                 var updatedLabResult = await _mediator.Send(updatedLab);
-                return RedirectToAction(nameof(GetAllLabs);
+                return RedirectToAction(nameof(GetAllLabs));
             }
             catch (Exception)
             {
