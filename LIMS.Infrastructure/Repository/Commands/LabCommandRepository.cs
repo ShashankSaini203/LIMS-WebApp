@@ -19,6 +19,7 @@ namespace LIMS.Infrastructure.Repository.Commands
             {
                 throw new ArgumentNullException("No Laboratory data provided");
             }
+
             try
             {
                 var existingLab = await _dataContext.Set<Laboratory>().FindAsync(entity.Id);
@@ -27,19 +28,15 @@ namespace LIMS.Infrastructure.Repository.Commands
                     throw new KeyNotFoundException("No matching Laboratory found");
                 }
 
-                var newLab = new Laboratory()
-                {
-                    Id = existingLab.Id,
-                    Name = entity.Name ?? existingLab.Name,
-                    Location = entity.Location ?? existingLab.Location,
-                    ContactNumber = entity.ContactNumber ?? existingLab.ContactNumber,
-                    Instruments = entity.Instruments ?? existingLab.Instruments
-                };
+                existingLab.Name = entity.Name ?? existingLab.Name,
+                existingLab.Location = entity.Location ?? existingLab.Location,
+                existingLab.ContactNumber = entity.ContactNumber ?? existingLab.ContactNumber,
+                existingLab.Instruments = entity.Instruments ?? existingLab.Instruments
 
-                var updatedLab = _dataContext.Set<Laboratory>().Update(newLab);
+                _dataContext.Set<Laboratory>().Update(existingLab);
                 _dataContext.Entry(existingLab).State = EntityState.Modified;
                 await _dataContext.SaveChangesAsync();
-                return updatedLab.Entity;
+                return existingLab;
             }
             catch (Exception ex)
             {
