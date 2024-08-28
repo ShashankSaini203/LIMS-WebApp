@@ -5,6 +5,11 @@ namespace LIMS.Application.Commands.Laboratory
 {
     public class DeleteLaboratoryCommand : IRequest<Unit>
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
+
+        public DeleteLaboratoryCommand(int Id)
+        {
+            this.Id = Id;
+        }
     }
 }
