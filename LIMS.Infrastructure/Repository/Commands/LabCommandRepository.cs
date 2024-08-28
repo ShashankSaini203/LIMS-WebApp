@@ -28,10 +28,10 @@ namespace LIMS.Infrastructure.Repository.Commands
                     throw new KeyNotFoundException("No matching Laboratory found");
                 }
 
-                existingLab.Name = entity.Name ?? existingLab.Name,
-                existingLab.Location = entity.Location ?? existingLab.Location,
-                existingLab.ContactNumber = entity.ContactNumber ?? existingLab.ContactNumber,
-                existingLab.Instruments = entity.Instruments ?? existingLab.Instruments
+                existingLab.Name = entity.Name ?? existingLab.Name;
+                existingLab.Location = entity.Location ?? existingLab.Location;
+                existingLab.ContactNumber = entity.ContactNumber ?? existingLab.ContactNumber;
+                existingLab.Instruments = entity.Instruments ?? existingLab.Instruments;
 
                 _dataContext.Set<Laboratory>().Update(existingLab);
                 _dataContext.Entry(existingLab).State = EntityState.Modified;
