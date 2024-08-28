@@ -29,7 +29,10 @@ namespace LIMS.WebApp
 
             #region Handlers
             containerBuilder.RegisterType<CreateLaboratoryCommandHandler>().As<IRequestHandler<CreateLaboratoryCommand, LaboratoryResponse>>().InstancePerLifetimeScope();
+            containerBuilder.RegisterType<UpdateLaboratoryCommandHandler>().As<IRequestHandler<UpdateLaboratoryCommand, LaboratoryResponse>>().InstancePerLifetimeScope();
+            containerBuilder.RegisterType<DeleteLaboratoryCommandHandler>().As<IRequestHandler<DeleteLaboratoryCommand, Unit>>().InstancePerLifetimeScope();
             containerBuilder.RegisterType<GetAllLaboratoryQueryHandler>().As<IRequestHandler<GetAllLaboratoryQuery, IEnumerable<LaboratoryResponse>>>().InstancePerLifetimeScope();
+            containerBuilder.RegisterType<GetLaboratoryByIdQueryHandler>().As<IRequestHandler<GetLaboratoryByIdQuery, LaboratoryResponse>>().InstancePerLifetimeScope();
             #endregion
         }
     }
