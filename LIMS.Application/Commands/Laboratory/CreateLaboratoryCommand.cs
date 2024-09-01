@@ -6,8 +6,6 @@ namespace LIMS.Application.Commands.Laboratory
 {
     public class CreateLaboratoryCommand : IRequest<LaboratoryResponse>
     {
-        public string Id { get; set; }
-
         [Required]
         public string Name { get; set; }
 
@@ -16,6 +14,6 @@ namespace LIMS.Application.Commands.Laboratory
 
         [Required]
         public string ContactNumber { get; set; }
-        public IEnumerable<InstrumentResponse> Instruments { get; set; }
+        public IEnumerable<InstrumentResponse>? Instruments { get; set; }
     }
 }
