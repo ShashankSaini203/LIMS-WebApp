@@ -8,10 +8,10 @@ namespace LIMS.Application.Commands.Laboratory
     {
         public string Id { get; set; }
 
-        [Required]
+        [Required, MinLength(3, ErrorMessage = "Name should be atleast 3 characters long")]
         public string Name { get; set; }
 
-        [Required]
+        [Required, MinLength(2, ErrorMessage = "Location should be atleast 2 characters long")]
         public string Location { get; set; }
 
         [Required]
