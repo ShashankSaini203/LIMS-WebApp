@@ -72,22 +72,35 @@ namespace LIMS.WebApp.Controllers
             {
                 if (!ModelState.IsValid)
                 {
-                    return BadRequest(ModelState);
+                    TempData["errorMessage"] = "Invalid data provided";
+                    return View();
                 }
+
                 var updatedLabResult = await _mediator.Send(updatedLab);
+                TempData["successMessage"] = "Laboratory updated successfully!";
                 return RedirectToAction(nameof(GetAllLabs));
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return RedirectToAction(nameof(GetAllLabs));
+                TempData["errorMessage"] = ex.ToString();
+                return View();
             }
         }
 
         [HttpPost]
         public async Task<IActionResult> DeleteLab(int id)
         {
-            await _mediator.Send(new DeleteLaboratoryCommand(id));
-            return RedirectToAction(nameof(GetAllLabs));
+            try
+            {
+                await _mediator.Send(new DeleteLaboratoryCommand(id));
+                TempData["successMessage"] = "Laboratory deleted successfully!";
+                return RedirectToAction(nameof(GetAllLabs));
+            }
+            catch (Exception ex)
+            {
+                TempData["errorMessage"] = ex.ToString();
+                return View();
+            }
         }
     }
 }
