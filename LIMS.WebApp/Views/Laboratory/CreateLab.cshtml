@@ -23,7 +23,7 @@ else if (!string.IsNullOrEmpty(errorMessage))
     </div>
 }
 <!-- Form to Create a New Laboratory -->
-<form asp-action="CreateLab" method="post">
+<form asp-action="CreateLab" method="post" autocomplete="off">
     <div class="mb-3">
         <label class="form-label">Name</label>
         <input type="text" class="form-control" asp-for="Name" required />
