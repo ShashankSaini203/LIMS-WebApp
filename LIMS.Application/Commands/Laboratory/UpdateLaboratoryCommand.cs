@@ -16,6 +16,6 @@ namespace LIMS.Application.Commands.Laboratory
 
         [Required]
         public string ContactNumber { get; set; }
-        public IEnumerable<InstrumentResponse> Instruments { get; set; }
+        public IEnumerable<InstrumentResponse>? Instruments { get; set; }
     }
 }

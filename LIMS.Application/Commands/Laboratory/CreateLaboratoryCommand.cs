@@ -6,13 +6,13 @@ namespace LIMS.Application.Commands.Laboratory
 {
     public class CreateLaboratoryCommand : IRequest<LaboratoryResponse>
     {
-        [Required]
+        [Required, MinLength(3, ErrorMessage ="Name should be atleast 3 characters long")]
         public string Name { get; set; }
 
-        [Required]
+        [Required, MinLength(2, ErrorMessage = "Location should be atleast 2 characters long")]
         public string Location { get; set; }
 
-        [Required]
+        [Required, Phone(ErrorMessage = "Invalid Contact Number")]
         public string ContactNumber { get; set; }
         public IEnumerable<InstrumentResponse>? Instruments { get; set; }
     }
