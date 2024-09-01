@@ -31,8 +31,23 @@ namespace LIMS.WebApp.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateLab(CreateLaboratoryCommand newLabData)
         {
-            await _mediator.Send(newLabData);
-            return RedirectToAction(nameof(GetAllLabs));
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    TempData["errorMessage"] = "Invalid data provided";
+                }
+
+                await _mediator.Send(newLabData);
+                TempData["successMessage"] = "Laboratory created successfully!";
+                return RedirectToAction(nameof(GetAllLabs));
+            }
+            catch (Exception ex)
+            {
+                TempData["errorMessage"] = ex.ToString(); 
+                return View();
+            }
+
         }
 
         [HttpGet]
@@ -54,6 +69,10 @@ namespace LIMS.WebApp.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
                 var updatedLabResult = await _mediator.Send(updatedLab);
                 return RedirectToAction(nameof(GetAllLabs));
             }

@@ -2,6 +2,8 @@
 
 @{
     ViewData["Title"] = "Laboratories";
+    var successMessage = TempData["successMessage"]?.ToString();
+    var errorMessage = TempData["errorMessage"]?.ToString();
 }
 
 <h2>@ViewData["Title"]</h2>
