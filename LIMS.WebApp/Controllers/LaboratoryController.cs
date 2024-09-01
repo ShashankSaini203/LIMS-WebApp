@@ -36,6 +36,7 @@ namespace LIMS.WebApp.Controllers
                 if (!ModelState.IsValid)
                 {
                     TempData["errorMessage"] = "Invalid data provided";
+                    return View();
                 }
 
                 await _mediator.Send(newLabData);
