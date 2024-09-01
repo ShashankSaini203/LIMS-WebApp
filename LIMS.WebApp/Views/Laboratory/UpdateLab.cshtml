@@ -11,23 +11,30 @@
 <form asp-action="UpdateLab" method="post" autocomplete="off">
     <div class="mb-3">
         <label class="form-label">Id</label>
-        <input type="text" class="form-control" asp-for="Id" readonly/>
+        <input type="text" class="form-control" asp-for="Id" readonly />
     </div>
     <div class="mb-3">
         <label class="form-label">Name</label>
         <input type="text" class="form-control" asp-for="Name" />
+        <span asp-validation-for="Name" class="text-danger"></span>
     </div>
     <div class="mb-3">
         <label class="form-label">Location</label>
         <input type="text" class="form-control" asp-for="Location" />
+        <span asp-validation-for="Location" class="text-danger"></span>
     </div>
     <div class="mb-3">
         <label class="form-label">Contact Number</label>
-        <input type="text" class="form-control" asp-for="ContactNumber" />
+        <input type="text" class="form-control" asp-for="ContactNumber" />        
+        <span asp-validation-for="ContactNumber" class="text-danger"></span>
     </div>
     <div class="mb-3">
         <button type="submit" class="btn btn-primary">Update Laboratory</button>
     </div>
 </form>
-
 <hr />
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial.cshtml");
+    }
+}

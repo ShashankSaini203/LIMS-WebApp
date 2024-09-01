@@ -27,14 +27,17 @@ else if (!string.IsNullOrEmpty(errorMessage))
     <div class="mb-3">
         <label class="form-label">Name</label>
         <input type="text" class="form-control" asp-for="Name" required />
+        <span asp-validation-for="Name" class="text-danger"></span>
     </div>
     <div class="mb-3">
         <label class="form-label">Location</label>
         <input type="text" class="form-control" asp-for="Location" required />
+        <span asp-validation-for="Location" class="text-danger"></span>
     </div>
     <div class="mb-3">
         <label class="form-label">Contact Number</label>
         <input type="text" class="form-control" asp-for="ContactNumber" required />
+        <span asp-validation-for="ContactNumber" class="text-danger"></span>
     </div>
     <div class="mb-3">
         <button type="submit" class="btn btn-primary">Add Laboratory</button>
@@ -42,3 +45,8 @@ else if (!string.IsNullOrEmpty(errorMessage))
 </form>
 
 <hr />
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial.cshtml");
+    }
+}
