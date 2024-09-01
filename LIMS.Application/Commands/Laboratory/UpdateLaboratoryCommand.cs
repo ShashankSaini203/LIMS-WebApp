@@ -14,7 +14,7 @@ namespace LIMS.Application.Commands.Laboratory
         [Required, MinLength(2, ErrorMessage = "Location should be atleast 2 characters long")]
         public string Location { get; set; }
 
-        [Required]
+        [Required, Phone(ErrorMessage = "Invalid Contact Number"), DataType(DataType.PhoneNumber)]
         public string ContactNumber { get; set; }
         public IEnumerable<InstrumentResponse>? Instruments { get; set; }
     }
