@@ -1,6 +1,5 @@
 ﻿using LIMS.Domain.Interfaces.Repository.Commands.BaseCommand;
 using LIMS.Infrastructure.Database.DBcontext;
-using Microsoft.EntityFrameworkCore.Storage.Json;
 
 namespace LIMS.Infrastructure.Repository.Commands.BaseCommand
 {
