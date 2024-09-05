@@ -5,10 +5,11 @@ using LIMS.Infrastructure.Repository.Queries.BaseQuery;
 
 namespace LIMS.Infrastructure.Repository.Queries
 {
-    public class LabQueryRepository : BaseQueryRepository<Laboratory>, ILabQueryRepository
+    public class InstrumentQueryRepository : BaseQueryRepository<Instrument>, IInstrumentQueryRepository
     {
-        public LabQueryRepository(IDBConnector dbConnector) : base(dbConnector)
+        public InstrumentQueryRepository(IDBConnector dbConnector) : base(dbConnector)
         {
         }
+
     }
 }
