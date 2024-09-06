@@ -19,7 +19,7 @@ namespace LIMS.Infrastructure.Repository.Commands
         {
             if (entity is null)
             {
-                throw new ArgumentNullException("No instrument data provided");
+                throw new ArgumentNullException("No Instrument data provided");
             }
 
             try
@@ -27,7 +27,7 @@ namespace LIMS.Infrastructure.Repository.Commands
                 var existingInstrument = await _dataContext.Set<Instrument>().FindAsync(entity.Id);
                 if (existingInstrument is null)
                 {
-                    throw new KeyNotFoundException("No matching Laboratory found");
+                    throw new KeyNotFoundException("No matching Instrument found");
                 }
 
                 existingInstrument.Name = entity.Name ?? existingInstrument.Name;
