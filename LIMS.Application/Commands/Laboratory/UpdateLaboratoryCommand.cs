@@ -16,6 +16,6 @@ namespace LIMS.Application.Commands.Laboratory
 
         [Required, Phone(ErrorMessage = "Invalid Contact Number"), DataType(DataType.PhoneNumber)]
         public string ContactNumber { get; set; }
-        public IEnumerable<InstrumentResponse>? Instruments { get; set; }
+        public ICollection<InstrumentResponse>? Instruments { get; set; }
     }
 }
