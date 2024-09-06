@@ -5,6 +5,6 @@
         public string Name { get; set; }
         public string Location { get; set; }
         public string ContactNumber { get; set; }
-        public IEnumerable<InstrumentResponse> Instruments { get; set; }
+        public ICollection<InstrumentResponse> Instruments { get; set; }
     }
 }
