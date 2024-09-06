@@ -1,6 +1,7 @@
 ﻿using LIMS.Application.Commands.Laboratory;
 using LIMS.Application.Mappers;
 using LIMS.Application.Responses;
+using LIMS.Domain.Constants;
 using LIMS.Domain.Interfaces.Repository.Commands;
 using LIMS.Domain.Interfaces.Repository.Query;
 using MediatR;
@@ -12,7 +13,6 @@ namespace LIMS.Application.Handlers.Laboratory.CommandHandlers
         private ILabCommandRepository _labCommandRepository;
         private ILabQueryRepository _labQueryRepository;
 
-
         public DeleteLaboratoryCommandHandler(ILabCommandRepository labCommandRepository, ILabQueryRepository labQueryRepository)
         {
             _labCommandRepository = labCommandRepository;
@@ -21,7 +21,7 @@ namespace LIMS.Application.Handlers.Laboratory.CommandHandlers
 
         public async Task<Unit> Handle(DeleteLaboratoryCommand request, CancellationToken cancellationToken)
         {
-            var entityToDelete = await _labQueryRepository.GetAsyncById(request.Id);
+            var entityToDelete = await _labQueryRepository.GetAsyncById(request.Id, DataTables.LaboratoryTable);
 
             var mappedEntityToDelete = AutoMapperConfiguration.Mapper.Map<Domain.Models.Laboratory>(entityToDelete);
 

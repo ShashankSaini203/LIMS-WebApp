@@ -1,6 +1,7 @@
 ﻿using LIMS.Application.Mappers;
 using LIMS.Application.Queries.Laboratory;
 using LIMS.Application.Responses;
+using LIMS.Domain.Constants;
 using LIMS.Domain.Interfaces.Repository.Query;
 using MediatR;
 
@@ -15,7 +16,7 @@ namespace LIMS.Application.Handlers.Laboratory.QueryHandlers
         }
         public async Task<IEnumerable<LaboratoryResponse>> Handle(GetAllLaboratoryQuery request, CancellationToken cancellationToken)
         {
-            var allLaboratories = await _labQueryRepository.GetAllAsync();
+            var allLaboratories = await _labQueryRepository.GetAllAsync(DataTables.LaboratoryTable);
             return AutoMapperConfiguration.Mapper.Map<IEnumerable<LaboratoryResponse>>(allLaboratories);
         }
     }
