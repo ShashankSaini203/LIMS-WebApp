@@ -4,7 +4,7 @@ using LIMS.Infrastructure.Database.DBConnector;
 
 namespace LIMS.Infrastructure.Repository.Queries.BaseQuery
 {
-    public class BaseQueryRepository<T> : IBaseQueryRepository<T>
+    public class BaseQueryRepository<T> : IBaseQueryRepository<T> where T : class
     {
         public readonly IDBConnector _dbConnector;
 
