@@ -13,7 +13,7 @@ namespace LIMS.Infrastructure.Repository.Queries.BaseQuery
             _dbConnector = dbConnector;
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync(string tableName)
+        public virtual async Task<IEnumerable<T>> GetAllAsync(string tableName)
         {
             try
             {
