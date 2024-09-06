@@ -12,11 +12,12 @@ namespace LIMS.Infrastructure.Repository.Queries.BaseQuery
         {
             _dbConnector = dbConnector;
         }
-        public async Task<IEnumerable<T>> GetAllAsync()
+
+        public async Task<IEnumerable<T>> GetAllAsync(string tableName)
         {
             try
             {
-                var query = "SELECT * FROM LABORATORIES";
+                var query = $"SELECT * FROM {tableName}";
                 using (var connection = _dbConnector.CreateConnection())
                 {
                     return (await connection.QueryAsync<T>(query)).ToList();
@@ -28,17 +29,18 @@ namespace LIMS.Infrastructure.Repository.Queries.BaseQuery
             }
         }
 
-        public virtual async Task<T> GetAsyncById(int id)
+        public virtual async Task<T> GetAsyncById(int id, string tableName)
         {
             try
             {
-                var query = "SELECT * FROM LABORATORIES WHERE ID=@Id";
+                var query = $"SELECT * FROM {tableName} WHERE ID=@Id";
                 var parameters = new DynamicParameters();
                 parameters.Add("Id", id);
 
                 using (var connection = _dbConnector.CreateConnection())
                 {
-                    return await connection.QueryFirstOrDefaultAsync<T>(query, parameters);
+                    var result = await connection.QueryFirstOrDefaultAsync<T>(query, parameters);
+                    return result;
                 }
             }
             catch (Exception ex)
