@@ -13,6 +13,6 @@ namespace LIMS.Domain.Models
 
         [Required]
         public string ContactNumber { get; set; }
-        public IEnumerable<Instrument> Instruments { get; set; }
+        public ICollection<Instrument> Instruments { get; set; }
     }
 }

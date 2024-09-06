@@ -17,5 +17,7 @@ namespace LIMS.Domain.Models
         public DateTime ExpiryDate { get; set; }
         public CalibrationRecord CalibrationRecord{ get; set; }
         public string AdditionalNotes { get; set; }
+        public int LaboratoryId { get; set; }
+        public Laboratory Laboratory { get; set; }
     }
 }
