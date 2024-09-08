@@ -11,6 +11,8 @@ using LIMS.Domain.Interfaces.Repository.Query;
 using LIMS.Application.Handlers.Laboratory.QueryHandlers;
 using LIMS.Application.Queries.Laboratory;
 using LIMS.Infrastructure.Database.DBConnector;
+using LIMS.Application.Handlers.Instrument.CommandHandlers;
+using LIMS.Application.Commands.Instrument;
 
 namespace LIMS.WebApp
 {
@@ -33,6 +35,15 @@ namespace LIMS.WebApp
             containerBuilder.RegisterType<DeleteLaboratoryCommandHandler>().As<IRequestHandler<DeleteLaboratoryCommand, Unit>>().InstancePerLifetimeScope();
             containerBuilder.RegisterType<GetAllLaboratoryQueryHandler>().As<IRequestHandler<GetAllLaboratoryQuery, IEnumerable<LaboratoryResponse>>>().InstancePerLifetimeScope();
             containerBuilder.RegisterType<GetLaboratoryByIdQueryHandler>().As<IRequestHandler<GetLaboratoryByIdQuery, LaboratoryResponse>>().InstancePerLifetimeScope();
+            #endregion
+
+            #region Instrument Repository
+            containerBuilder.RegisterType<InstrumentCommandRepository>().As<IInstrumentCommandRepository>().InstancePerLifetimeScope();
+            containerBuilder.RegisterType<InstrumentQueryRepository>().As<IInstrumentQueryRepository>().InstancePerLifetimeScope();
+            #endregion
+
+            #region Instrument Handlers
+            containerBuilder.RegisterType<CreateInstrumentCommandHandler>().As<IRequestHandler<CreateInstrumentCommand, InstrumentResponse>>().InstancePerLifetimeScope();
             #endregion
         }
     }
