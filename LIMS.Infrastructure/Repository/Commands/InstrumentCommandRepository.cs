@@ -15,6 +15,35 @@ namespace LIMS.Infrastructure.Repository.Commands
             _dataContext = dataContext;
         }
 
+        public override async Task<Instrument> CreateAsync(Instrument entity)
+        {
+            if (entity is null)
+            {
+                throw new ArgumentNullException("No Instrument data provided");
+            }
+
+            try
+            {
+                var existingLab = await _dataContext.Set<Laboratory>().FindAsync(entity.LaboratoryId);
+                if (existingLab is null)
+                {
+                    throw new KeyNotFoundException("No matching Instrument found");
+                }
+
+                // Create and add the new instrument
+                entity.Laboratory = existingLab;
+
+                var addedData = _dataContext.Instruments.Add(entity);
+                await _dataContext.SaveChangesAsync();
+                return addedData.Entity;
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions
+                throw new Exception("An error occurred while adding the instrument.", ex);
+            }
+        }
+
         public override async Task<Instrument> UpdateAsync(Instrument entity)
         {
             if (entity is null)
@@ -34,7 +63,6 @@ namespace LIMS.Infrastructure.Repository.Commands
                 existingInstrument.Manufacturer = entity.Manufacturer ?? existingInstrument.Manufacturer;
                 existingInstrument.PurchaseDate = entity.PurchaseDate != default ? entity.PurchaseDate : existingInstrument.PurchaseDate;
                 existingInstrument.ExpiryDate = entity.ExpiryDate != default ? entity.ExpiryDate : entity.ExpiryDate;
-                existingInstrument.CalibrationRecord = entity.CalibrationRecord ?? existingInstrument.CalibrationRecord;
                 existingInstrument.AdditionalNotes = entity.AdditionalNotes ?? existingInstrument.AdditionalNotes;
 
                 _dataContext.Set<Instrument>().Update(existingInstrument);
