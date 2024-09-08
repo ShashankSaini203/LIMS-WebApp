@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using LIMS.Application.Commands.Instrument;
 using LIMS.Application.Commands.Laboratory;
 using LIMS.Application.Queries.Laboratory;
 using LIMS.Application.Responses;
@@ -22,6 +23,9 @@ namespace LIMS.Application.Mappers
             CreateMap<TechnicianResponse, Technician>().ReverseMap();
             CreateMap<InstrumentResponse, Instrument>().ReverseMap();
             CreateMap< CalibrationRecordResponse, CalibrationRecord>().ReverseMap();
+
+            CreateMap<CreateInstrumentCommand, Instrument>().ReverseMap();
+
         }
     }
 }
