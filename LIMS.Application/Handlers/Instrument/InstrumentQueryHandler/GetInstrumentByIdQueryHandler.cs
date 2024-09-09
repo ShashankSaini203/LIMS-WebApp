@@ -18,7 +18,7 @@ namespace LIMS.Application.Handlers.Instrument.InstrumentQueryHandler
 
         public async Task<InstrumentResponse> Handle(GetInstrumentByIdQuery request, CancellationToken cancellationToken)
         {
-            var instrumentEntity = _instrumentQueryRepository.GetAsyncById(request.Id, DataTables.InstrumentTable);
+            var instrumentEntity = await _instrumentQueryRepository.GetAsyncById(request.Id, DataTables.InstrumentTable);
             if (instrumentEntity == null)
             {
                 throw new Exception("No instrument found with given Id");

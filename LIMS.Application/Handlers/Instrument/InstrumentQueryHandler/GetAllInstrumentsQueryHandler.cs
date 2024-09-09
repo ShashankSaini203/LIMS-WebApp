@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using LIMS.Application.Queries.Instrument;
+using LIMS.Application.Responses;
+using MediatR;
 
 namespace LIMS.Application.Handlers.Instrument.InstrumentQueryHandler
 {
-    internal class GetAllInstrumentsQueryHandler
+    public class GetAllInstrumentsQueryHandler : IRequestHandler<GetAllInstrumentsQuery, IEnumerable<InstrumentResponse>>
     {
+        public Task<IEnumerable<InstrumentResponse>> Handle(GetAllInstrumentsQuery request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
