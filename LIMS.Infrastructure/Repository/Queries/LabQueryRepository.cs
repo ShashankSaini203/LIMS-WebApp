@@ -14,15 +14,12 @@ namespace LIMS.Infrastructure.Repository.Queries
 
         public async override Task<IEnumerable<Laboratory>> GetAllAsync(string tableName)
         {
-            var query = @"
-        SELECT l.*, i.*
-        FROM Laboratories l
-        LEFT JOIN Instruments i ON l.Id = i.LaboratoryId";
+            var query = @"SELECT labs.*, instrument.* FROM Laboratories labs
+        LEFT JOIN Instruments instrument ON labs.Id = instrument.LaboratoryId";
 
             using (var connection = _dbConnector.CreateConnection())
             {
                 var laboratoryDictionary = new Dictionary<int, Laboratory>();
-
                 var result = await connection.QueryAsync<Laboratory, Instrument, Laboratory>(
                     query,
                     (laboratory, instrument) =>
@@ -43,7 +40,7 @@ namespace LIMS.Infrastructure.Repository.Queries
                     },
                     splitOn: "Id");
 
-                return result.Distinct().ToList();
+                    return result.Distinct().ToList();
             }
         }
     }
