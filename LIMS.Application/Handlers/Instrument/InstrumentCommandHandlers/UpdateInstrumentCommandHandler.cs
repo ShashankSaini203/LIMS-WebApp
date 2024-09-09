@@ -4,7 +4,7 @@ using LIMS.Application.Responses;
 using LIMS.Domain.Interfaces.Repository.Commands;
 using MediatR;
 
-namespace LIMS.Application.Handlers.Instrument.CommandHandlers
+namespace LIMS.Application.Handlers.Instrument.InstrumentCommandHandlers
 {
     public class UpdateInstrumentCommandHandler : IRequestHandler<UpdateInstrumentCommand, InstrumentResponse>
     {

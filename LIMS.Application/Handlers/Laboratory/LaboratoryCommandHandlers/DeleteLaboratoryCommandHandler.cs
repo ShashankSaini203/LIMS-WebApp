@@ -6,7 +6,7 @@ using LIMS.Domain.Interfaces.Repository.Commands;
 using LIMS.Domain.Interfaces.Repository.Query;
 using MediatR;
 
-namespace LIMS.Application.Handlers.Laboratory.CommandHandlers
+namespace LIMS.Application.Handlers.Laboratory.LaboratoryCommandHandlers
 {
     public class DeleteLaboratoryCommandHandler : IRequestHandler<DeleteLaboratoryCommand, Unit>
     {

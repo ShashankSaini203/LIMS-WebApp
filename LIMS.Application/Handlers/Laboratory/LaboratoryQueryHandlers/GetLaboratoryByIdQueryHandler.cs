@@ -5,7 +5,7 @@ using LIMS.Domain.Constants;
 using LIMS.Domain.Interfaces.Repository.Query;
 using MediatR;
 
-namespace LIMS.Application.Handlers.Laboratory.QueryHandlers
+namespace LIMS.Application.Handlers.Laboratory.LaboratoryQueryHandlers
 {
     public class GetLaboratoryByIdQueryHandler : IRequestHandler<GetLaboratoryByIdQuery, LaboratoryResponse>
     {

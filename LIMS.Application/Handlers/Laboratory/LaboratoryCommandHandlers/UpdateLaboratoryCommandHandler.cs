@@ -4,7 +4,7 @@ using LIMS.Application.Responses;
 using LIMS.Domain.Interfaces.Repository.Commands;
 using MediatR;
 
-namespace LIMS.Application.Handlers.Laboratory.CommandHandlers
+namespace LIMS.Application.Handlers.Laboratory.LaboratoryCommandHandlers
 {
     public class UpdateLaboratoryCommandHandler : IRequestHandler<UpdateLaboratoryCommand, LaboratoryResponse>
     {
