@@ -1,4 +1,5 @@
 ﻿using LIMS.Application.Commands.Instrument;
+using LIMS.Application.Queries.Instrument;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,8 +17,8 @@ namespace LIMS.WebApp.Controllers
         [HttpGet]
         public async Task<IActionResult> GetInstrument(int id)
         {
-             
-            return View();
+            var instrumentData = await _mediator.Send(new GetInstrumentByIdQuery(id));
+            return View(instrumentData);
         }
 
         [HttpGet]
