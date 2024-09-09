@@ -13,6 +13,8 @@ using LIMS.Application.Commands.Instrument;
 using LIMS.Application.Handlers.Instrument.InstrumentCommandHandlers;
 using LIMS.Application.Handlers.Laboratory.LaboratoryCommandHandlers;
 using LIMS.Application.Handlers.Laboratory.LaboratoryQueryHandlers;
+using LIMS.Application.Handlers.Instrument.InstrumentQueryHandler;
+using LIMS.Application.Queries.Instrument;
 
 namespace LIMS.WebApp
 {
@@ -55,6 +57,8 @@ namespace LIMS.WebApp
             builder.RegisterType<CreateInstrumentCommandHandler>().As<IRequestHandler<CreateInstrumentCommand, InstrumentResponse>>().InstancePerLifetimeScope();
             builder.RegisterType<UpdateInstrumentCommandHandler>().As<IRequestHandler<UpdateInstrumentCommand, InstrumentResponse>>().InstancePerLifetimeScope();
             builder.RegisterType<DeleteInstrumentCommandHandler>().As<IRequestHandler<DeleteInstrumentCommand, Unit>>().InstancePerLifetimeScope();
+            builder.RegisterType<GetInstrumentByIdQueryHandler>().As<IRequestHandler<GetInstrumentByIdQuery, InstrumentResponse>>().InstancePerLifetimeScope();
+            builder.RegisterType<GetAllInstrumentsQueryHandler>().As<IRequestHandler<GetAllInstrumentsQuery, IEnumerable<InstrumentResponse>>>().InstancePerLifetimeScope();
             #endregion
         }
     }
