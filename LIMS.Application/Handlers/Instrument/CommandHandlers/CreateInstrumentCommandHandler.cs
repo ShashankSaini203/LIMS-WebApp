@@ -14,7 +14,6 @@ namespace LIMS.Application.Handlers.Instrument.CommandHandlers
         private readonly IInstrumentCommandRepository _instrumentCommandRepository;
         private ILabQueryRepository _labQueryRepository;
 
-
         public CreateInstrumentCommandHandler(IInstrumentCommandRepository instrumentCommandRepository, ILabQueryRepository labQueryRepository)
         {
             _instrumentCommandRepository = instrumentCommandRepository;
