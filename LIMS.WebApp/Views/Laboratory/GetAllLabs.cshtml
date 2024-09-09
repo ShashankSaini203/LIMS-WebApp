@@ -51,12 +51,23 @@ else if (!string.IsNullOrEmpty(errorMessage))
                     <td>
                         @if (lab.Instruments != null && lab.Instruments.Any())
                         {
-                            <select style="width: 100%; max-height: 100px; overflow-y: auto;" size="5">
-                                @foreach (var instrument in lab.Instruments)
-                                {
-                                    <option>@instrument</option>
-                                }
-                            </select>
+                            <table class="table table-sm" style="width: 100%; max-height: 100px; overflow-y: auto;" size="5">
+                                <thread>
+                                    <tr class="table table-sm">
+                                        <th>Id</th>
+                                        <th>Name</th>
+                                    </tr>
+                                </thread>
+                                <tbody>
+                                    @foreach (var instrument in lab.Instruments)
+                                    {
+                                        <tr>
+                                            <td>@instrument.Id</td>
+                                            <td>@instrument.Name</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
                         }
                     </td>
                     <td>
