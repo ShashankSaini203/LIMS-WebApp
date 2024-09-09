@@ -13,6 +13,12 @@ namespace LIMS.WebApp.Controllers
             _mediator = mediator;
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetInstrument(int id)
+        {
+             
+            return View();
+        }
 
         [HttpGet]
         public IActionResult CreateInstrument()
