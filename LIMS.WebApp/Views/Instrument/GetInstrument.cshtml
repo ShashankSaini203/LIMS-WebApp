@@ -1,0 +1,50 @@
+﻿@model LIMS.Application.Responses.InstrumentResponse
+
+@{
+    ViewData["Title"] = "Instrument Details";
+}
+
+<h2>@ViewData["Title"]</h2>
+<hr />
+
+<!-- Form to Create a New Laboratory -->
+<form>
+    <div class="mb-3">
+        <label class="form-label">Id</label>
+        <input type="text" class="form-control" asp-for="Id" readonly />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" asp-for="Name" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Manufacturer</label>
+        <input type="text" class="form-control" asp-for="Manufacturer" />
+        <span asp-validation-for="Manufacturer" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Model</label>
+        <input type="text" class="form-control" asp-for="Model" />
+        <span asp-validation-for="Model" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">PurchaseDate</label>
+        <input type="date" class="form-control" asp-for="PurchaseDate" />
+        <span asp-validation-for="PurchaseDate" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Expiry Date</label>
+        <input type="date" class="form-control" asp-for="ExpiryDate" />
+        <span asp-validation-for="ExpiryDate" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">AdditionalNotes</label>
+        <input type="text" class="form-control" asp-for="AdditionalNotes" />
+        <span asp-validation-for="AdditionalNotes" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Update Laboratory</button>
+    </div>
+</form>
+<hr />

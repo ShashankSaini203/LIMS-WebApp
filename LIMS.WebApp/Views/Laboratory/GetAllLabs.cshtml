@@ -62,8 +62,8 @@ else if (!string.IsNullOrEmpty(errorMessage))
                                     @foreach (var instrument in lab.Instruments)
                                     {
                                         <tr>
-                                            <td>@instrument.Id</td>
-                                            <td>@instrument.Name</td>
+                                            <td><a asp-controller="Instrument" asp-action="GetInstrument" asp-route-id="@instrument.Id">@instrument.Id</a></td>
+                                            <td><a asp-controller="Instrument" asp-action="GetInstrument" asp-route-id="@instrument.Id">@instrument.Name</a></td>
                                         </tr>
                                     }
                                 </tbody>
