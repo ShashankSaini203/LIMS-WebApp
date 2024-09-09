@@ -15,9 +15,4 @@
     <ProjectReference Include="..\LIMS.Domain\LIMS.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Handlers\Instrument\InstrumentQueryHandler\" />
-    <Folder Include="Queries\Instrument\" />
-  </ItemGroup>
-
 </Project>

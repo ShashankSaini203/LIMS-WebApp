@@ -21,7 +21,7 @@ namespace LIMS.Application.Handlers.Laboratory.LaboratoryQueryHandlers
             var laboratoryEntity = await _labQueryRepository.GetAsyncById(request.Id, DataTables.LaboratoryTable);
             if (laboratoryEntity == null)
             {
-                throw new Exception("No data found with given Id");
+                throw new Exception("No laboratory found with given Id");
             }
             return AutoMapperConfiguration.Mapper.Map<LaboratoryResponse>(laboratoryEntity);
         }
