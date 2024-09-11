@@ -60,7 +60,7 @@ namespace LIMS.WebApp.Controllers
                     return RedirectToAction(nameof(GetInstrument), new { id = newInstrumentData.Id });
                 }
                 await _mediator.Send(newInstrumentData);
-                TempData["successMessage"] = "Instrument created successfully!";
+                TempData["successMessage"] = "Instrument updated successfully!";
                 return RedirectToAction(nameof(GetInstrument), new { id = newInstrumentData.Id });
             }
             catch (Exception ex)
