@@ -35,7 +35,7 @@ namespace LIMS.WebApp.Controllers
                 if (!ModelState.IsValid)
                 {
                     TempData["errorMessage"] = "Invalid data provided";
-                    return RedirectToAction("GetAllLabs", "Laboratory"); ;
+                    return RedirectToAction("GetAllLabs", "Laboratory");
                 }
 
                 await _mediator.Send(newInstrumentData);
@@ -46,6 +46,27 @@ namespace LIMS.WebApp.Controllers
             {
                 TempData["errorMessage"] = ex.ToString();
                 return View();
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateInstrument(UpdateInstrumentCommand newInstrumentData)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    TempData["errorMessage"] = "Invalid data provided";
+                    return RedirectToAction(nameof(GetInstrument), new { id = newInstrumentData.Id });
+                }
+                await _mediator.Send(newInstrumentData);
+                TempData["successMessage"] = "Instrument created successfully!";
+                return RedirectToAction(nameof(GetInstrument), new { id = newInstrumentData.Id });
+            }
+            catch (Exception ex)
+            {
+                TempData["errorMessage"] = ex.ToString();
+                return RedirectToAction(nameof(GetInstrument), new { id = newInstrumentData.Id });
             }
         }
     }
