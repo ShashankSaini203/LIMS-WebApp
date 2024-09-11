@@ -1,15 +1,17 @@
 ﻿using LIMS.Domain.Interfaces.Repository.Commands;
 using LIMS.Domain.Models;
+using LIMS.Infrastructure.Database.DBcontext;
 using LIMS.Infrastructure.Repository.Commands.BaseCommand;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LIMS.Infrastructure.Repository.Commands
 {
-    internal class CalibrationRecordCommandRepository : BaseCommandRepository<CalibrationRecord> ICalibrationRecordCommandRepository
+    public class CalibrationRecordCommandRepository : BaseCommandRepository<CalibrationRecord>, ICalibrationRecordCommandRepository
     {
+        private DataContext dataContext;
+
+        public CalibrationRecordCommandRepository(DataContext dataContext) : base(dataContext)
+        {
+        }
+
     }
 }
