@@ -25,6 +25,8 @@ namespace LIMS.Application.Mappers
             CreateMap< CalibrationRecordResponse, CalibrationRecord>().ReverseMap();
 
             CreateMap<CreateInstrumentCommand, Instrument>().ReverseMap();
+            CreateMap<UpdateInstrumentCommand, Instrument>().ReverseMap();
+
 
         }
     }
