@@ -39,7 +39,7 @@ namespace LIMS.WebApp.Controllers
                 }
 
                 await _mediator.Send(newInstrumentData);
-                TempData["successMessage"] = "Laboratory created successfully!";
+                TempData["successMessage"] = "Instrument created successfully!";
                 return View();
             }
             catch (Exception ex)
