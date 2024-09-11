@@ -18,7 +18,6 @@ namespace LIMS.Application.Commands.Instrument
         [Required]
         public DateTime PurchaseDate { get; set; }
         public DateTime ExpiryDate { get; set; }
-        public CalibrationRecordResponse CalibrationRecord { get; set; }
         public string AdditionalNotes { get; set; }
     }
 }
