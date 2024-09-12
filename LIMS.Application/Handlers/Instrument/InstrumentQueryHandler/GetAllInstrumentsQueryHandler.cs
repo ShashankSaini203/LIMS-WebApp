@@ -15,9 +15,9 @@ namespace LIMS.Application.Handlers.Instrument.InstrumentQueryHandler
         {
             _instrumentQueryRepository = instrumentQueryRepository;
         }
-        public Task<IEnumerable<InstrumentResponse>> Handle(GetAllInstrumentsQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<InstrumentResponse>> Handle(GetAllInstrumentsQuery request, CancellationToken cancellationToken)
         {
-            var allInstruments = _instrumentQueryRepository.GetAllAsync(DataTables.InstrumentTable);
+            var allInstruments = await _instrumentQueryRepository.GetAllAsync(DataTables.InstrumentTable);
 
             return AutoMapperConfiguration.Mapper.Map<IEnumerable<InstrumentResponse>>(allInstruments);
         }
