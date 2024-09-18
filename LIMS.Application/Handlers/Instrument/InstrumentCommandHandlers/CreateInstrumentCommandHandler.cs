@@ -1,5 +1,4 @@
 ﻿using LIMS.Application.Commands.Instrument;
-using LIMS.Application.Commands.Laboratory;
 using LIMS.Application.Mappers;
 using LIMS.Application.Responses;
 using LIMS.Domain.Constants;
