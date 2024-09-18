@@ -5,9 +5,9 @@ using LIMS.Infrastructure.Repository.Queries.BaseQuery;
 
 namespace LIMS.Infrastructure.Repository.Queries
 {
-    public class OrderQueryRepository : BaseQueryRepository<OrderDetails>, IOrderQueryRepository
+    public class OrderDetailsQueryRepository : BaseQueryRepository<OrderDetails>, IOrderDetailsQueryRepository
     {
-        public OrderQueryRepository(IDBConnector dBConnector) : base(dBConnector)
+        public OrderDetailsQueryRepository(IDBConnector dBConnector) : base(dBConnector)
         {
 
         }

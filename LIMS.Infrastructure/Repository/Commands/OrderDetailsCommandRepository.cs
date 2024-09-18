@@ -5,9 +5,9 @@ using LIMS.Infrastructure.Repository.Commands.BaseCommand;
 
 namespace LIMS.Infrastructure.Repository.Commands
 {
-    public class OrderCommandRepository : BaseCommandRepository<OrderDetails>, IOrderCommandRepository
+    public class OrderDetailsCommandRepository : BaseCommandRepository<OrderDetails>, IOrderDetailsCommandRepository
     {
-        public OrderCommandRepository(DataContext _dataContext) : base(_dataContext)
+        public OrderDetailsCommandRepository(DataContext _dataContext) : base(_dataContext)
         {
         }
     }
