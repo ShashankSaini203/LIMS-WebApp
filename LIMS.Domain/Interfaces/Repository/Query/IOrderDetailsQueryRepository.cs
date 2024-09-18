@@ -3,7 +3,7 @@ using LIMS.Domain.Models;
 
 namespace LIMS.Domain.Interfaces.Repository.Query
 {
-    public interface IOrderQueryRepository : IBaseQueryRepository<OrderDetails>
+    public interface IOrderDetailsQueryRepository : IBaseQueryRepository<OrderDetails>
     {
     }
 }
