@@ -1,6 +1,15 @@
-﻿namespace LIMS.Infrastructure.Repository.Queries
+﻿using LIMS.Domain.Interfaces.Repository.Query;
+using LIMS.Domain.Models;
+using LIMS.Infrastructure.Database.DBConnector;
+using LIMS.Infrastructure.Repository.Queries.BaseQuery;
+
+namespace LIMS.Infrastructure.Repository.Queries
 {
-    internal class CalibrationRecordQueryRepository
+    public class CalibrationRecordQueryRepository : BaseQueryRepository<CalibrationRecord>, ICalibrationRecordQueryRepository
     {
+        public CalibrationRecordQueryRepository(IDBConnector dBConnector) : base(dBConnector)
+        {
+            
+        }
     }
 }
