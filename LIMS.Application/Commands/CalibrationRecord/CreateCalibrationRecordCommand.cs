@@ -5,20 +5,13 @@ using System.ComponentModel.DataAnnotations;
 namespace LIMS.Application.Commands.CalibrationRecord
 {
     public class CreateCalibrationRecordCommand : IRequest<CalibrationRecordResponse>
-    {
-        [Required, MinLength(3, ErrorMessage = "Name should be atleast 3 characters long")]
-        public string Name { get; set; }
-
-        [Required, MinLength(3, ErrorMessage = "Manufacturer name should be atleast 3 characters long")]
-        public string Manufacturer { get; set; }
-        public string Model { get; set; }
-
-        [Required]
-        public DateTime PurchaseDate { get; set; }
-        public DateTime ExpiryDate { get; set; }
-        public CalibrationRecordResponse? CalibrationRecord { get; set; }
-        public string AdditionalNotes { get; set; }
-        public int LaboratoryId { get; set; }
+    {     
+        public DateTime CurrentCalibrationDate { get; set; }
+        public DateTime NextCalibrationDueDate { get; set; }
+        public string Result { get; set; }
+        public string Notes { get; set; }
+        public int TechnicianId { get; set; }
+        public string TechnicianName { get; set; }
 
     }
 }

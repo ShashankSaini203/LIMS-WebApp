@@ -1,7 +1,7 @@
 ﻿using LIMS.Application.Mappers;
 using LIMS.Application.Queries.Instrument;
 using LIMS.Application.Responses;
-using LIMS.Domain.Constants;
+using LIMS.Domain.Common;
 using LIMS.Domain.Interfaces.Repository.Query;
 using MediatR;
 

@@ -9,7 +9,9 @@
         public string OrderedBy { get; set; }
         public string AdditionalNotes { get; set; }
         public string Status => DefaultStatus;
+        public int Count { get; set; }
         public int InstrumentId { get; set; }
+        public int LaboratoryId { get; set; }
 
     }
 }
