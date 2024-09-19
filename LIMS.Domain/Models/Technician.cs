@@ -1,4 +1,5 @@
-﻿using LIMS.Domain.Models.Base;
+﻿using LIMS.Domain.Common;
+using LIMS.Domain.Models.Base;
 using System.ComponentModel.DataAnnotations;
 
 namespace LIMS.Domain.Models
@@ -12,5 +13,6 @@ namespace LIMS.Domain.Models
         [Required]
         public string Email { get; set; }
         public string Phone { get; set; }
+        public Status Status { get; set; }
     }
 }

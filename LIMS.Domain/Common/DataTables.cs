@@ -1,4 +1,4 @@
-﻿namespace LIMS.Domain.Constants
+﻿namespace LIMS.Domain.Common
 {
     public static class DataTables
     {

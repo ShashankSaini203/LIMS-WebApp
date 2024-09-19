@@ -17,5 +17,10 @@ namespace LIMS.Domain.Models
         public string AdditionalNotes { get; set; }
         public string Status { get; set; }
 
+        [Required]
+        public int Count { get; set; }
+
+        [Required]
+        public int LaboratoryId { get; set; }
     }
 }
