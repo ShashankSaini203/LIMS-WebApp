@@ -4,10 +4,11 @@ namespace LIMS.Domain.Models
 {
     public class CalibrationRecord : BaseModel
     {
-        public Technician Technician { get; set; }
-        public DateTime CalibrationDate { get; set; }
-        public DateTime CalibrationDueDate { get; set; }
+        public DateTime CurrentCalibrationDate { get; set; }
+        public DateTime NextCalibrationDueDate { get; set; }
         public string Result { get; set; }
         public string Notes { get; set; }
+        public int TechnicianId { get; set; }
+        public string TechnicianName { get; set; }
     }
 }

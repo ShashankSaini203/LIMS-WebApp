@@ -6,7 +6,7 @@ namespace LIMS.Domain.Models
     public class OrderDetails : BaseModel
     {
         [Required]
-        public Instrument Instrument { get; set; }
+        public int InstrumentId { get; set; }
 
         [Required]
         public DateTime OrderDate { get; set; }
@@ -15,5 +15,7 @@ namespace LIMS.Domain.Models
         [Required]
         public string OrderedBy { get; set; }
         public string AdditionalNotes { get; set; }
+        public string Status { get; set; }
+
     }
 }

@@ -18,5 +18,7 @@ namespace LIMS.Domain.Models
         public string AdditionalNotes { get; set; }
         public int LaboratoryId { get; set; }
         public Laboratory Laboratory { get; set; }
+        public string CurrentCalibrationDate { get; set; }
+        public int CalibrationRecordId { get; set; }
     }
 }
