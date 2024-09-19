@@ -1,6 +1,15 @@
 ﻿namespace LIMS.Application.Responses
 {
-    public class OrderDetailsResponse
+    public class OrderDetailsResponse : BaseResponse
     {
+        private const string DefaultStatus = "Pending";
+
+        public DateTime OrderDate { get; set; }
+        public DateTime DeliveryDate { get; set; }
+        public string OrderedBy { get; set; }
+        public string AdditionalNotes { get; set; }
+        public string Status => DefaultStatus;
+        public int InstrumentId { get; set; }
+
     }
 }

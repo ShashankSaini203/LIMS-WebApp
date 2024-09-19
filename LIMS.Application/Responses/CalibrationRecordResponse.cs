@@ -2,10 +2,10 @@
 {
     public class CalibrationRecordResponse : BaseResponse
     {
-        public TechnicianResponse Technician { get; set; }
-        public DateTime CalibrationDate { get; set; }
-        public DateTime CalibrationDueDate { get; set; }
+        public DateTime CurrentCalibrationDate { get; set; }
+        public DateTime NextCalibrationDueDate { get; set; }
         public string Result { get; set; }
         public string Notes { get; set; }
+        public int TechnicianId { get; set; }
     }
 }
