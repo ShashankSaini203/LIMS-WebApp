@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LIMS.WebApp.Controllers
 {
+    [Route("Instrument")]
     public class InstrumentController : Controller
     {
         private readonly IMediator _mediator;
@@ -15,7 +16,7 @@ namespace LIMS.WebApp.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetInstrument(int id)
         {
             var instrumentData = await _mediator.Send(new GetInstrumentByIdQuery(id));
@@ -51,6 +52,7 @@ namespace LIMS.WebApp.Controllers
         }
 
         [HttpPost]
+        [Route("UpdateInstrument")]
         public async Task<IActionResult> UpdateInstrument(UpdateInstrumentCommand newInstrumentData)
         {
             try
@@ -72,18 +74,19 @@ namespace LIMS.WebApp.Controllers
         }
 
         [HttpDelete]
+        [Route("DeleteInstrument/{id}")]
         public async Task<IActionResult> DeleteInstrument(int id)
         {
             try
             {
                 await _mediator.Send(new DeleteInstrumentCommand(id));
                 TempData["successMessage"] = "Instrument deleted successfully!";
-                return RedirectToAction(nameof(GetInstrument), new { id });
+                return RedirectToAction("GetAllLabs", "Laboratory");
             }
             catch (Exception ex)
             {
                 TempData["errorMessage"] = ex.ToString();
-                return RedirectToAction(nameof(GetInstrument), new { id });
+                return RedirectToAction("GetAllLabs", "Laboratory");
             }
 
         }
