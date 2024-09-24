@@ -87,7 +87,7 @@ namespace LIMS.WebApp.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpDelete]
         public async Task<IActionResult> DeleteLab(int id)
         {
             try

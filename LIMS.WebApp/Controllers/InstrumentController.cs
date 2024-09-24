@@ -1,4 +1,5 @@
 ﻿using LIMS.Application.Commands.Instrument;
+using LIMS.Application.Commands.Laboratory;
 using LIMS.Application.Queries.Instrument;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -68,6 +69,23 @@ namespace LIMS.WebApp.Controllers
                 TempData["errorMessage"] = ex.ToString();
                 return RedirectToAction(nameof(GetInstrument), new { id = newInstrumentData.Id });
             }
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteInstrument(int id)
+        {
+            try
+            {
+                await _mediator.Send(new DeleteInstrumentCommand(id));
+                TempData["successMessage"] = "Instrument deleted successfully!";
+                return RedirectToAction(nameof(GetInstrument), new { id });
+            }
+            catch (Exception ex)
+            {
+                TempData["errorMessage"] = ex.ToString();
+                return RedirectToAction(nameof(GetInstrument), new { id });
+            }
+
         }
     }
 }
