@@ -8,6 +8,7 @@
 
 <h2>@ViewData["Title"]</h2>
 <hr />
+
 @if (!string.IsNullOrEmpty(successMessage))
 {
     <div class="alert alert-success" role="alert">
@@ -25,6 +26,8 @@ else if (!string.IsNullOrEmpty(errorMessage))
 
 <!-- "Edit Instrument" Button to Make Fields Editable -->
 <button id="editInstrumentBtn" class="btn btn-warning">Edit Instrument</button>
+
+<button type="button" class="btn btn-danger" onclick="deleteInstrument(@Model.Id)">Delete</button>
 
 <!-- Form to Show Laboratory -->
 <form asp-action="UpdateInstrument" method="post" id="instrumentForm">
@@ -86,6 +89,32 @@ else if (!string.IsNullOrEmpty(errorMessage))
         // Hide the "Edit Instrument" button after enabling editing
         document.getElementById("editInstrumentBtn").style.display = "none";
     });
+</script>
+
+<script>
+    function deleteInstrument(id) {
+        if (confirm("Are you sure you want to delete this instrument?")) {
+            fetch(`/Instrument/DeleteInstrument/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val() // for anti-forgery token
+                }
+            })
+                .then(response => {
+                    if (response.ok) {
+                        alert('Instrument deleted successfully!');
+                        window.location.href = '/Instrument/GetInstrument/${id}'; // Redirect to the instrument list or wherever needed
+                    } else {
+                        alert('Error: Could not delete instrument.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error: Could not delete instrument.');
+                });
+        }
+    }
 </script>
 
 @* <!-- JavaScript for Authorization Check -->

@@ -76,7 +76,7 @@ else if (!string.IsNullOrEmpty(errorMessage))
                                 <input type="hidden" name="id" value="@lab.Id" />
                                 <button type="submit" class="btn btn-primary">Update</button>
                             </form>
-                            <form asp-controller="Laboratory" asp-action="DeleteLab" method="post" onsubmit="return confirm('Are you sure you want to delete this laboratory?');">
+                            <form asp-controller="Laboratory" asp-action="DeleteLab" method="delete" onsubmit="return confirm('Are you sure you want to delete this laboratory?');">
                                 <input type="hidden" name="id" value="@lab.Id" />
                                 <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
