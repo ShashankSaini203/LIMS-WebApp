@@ -1,10 +1,12 @@
-﻿using LIMS.Domain.Models.Base;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace LIMS.Domain.Models
 {
-    public class Laboratory : BaseModel
+    public class Laboratory
     {
+        [Key]
+        public int LaboratoryId { get; set; }
+
         [Required]
         public string Name { get; set; }
 
@@ -13,6 +15,5 @@ namespace LIMS.Domain.Models
 
         [Required]
         public string ContactNumber { get; set; }
-        public ICollection<Instrument> Instruments { get; set; }
     }
 }
