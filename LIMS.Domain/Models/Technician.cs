@@ -1,11 +1,13 @@
 ﻿using LIMS.Domain.Common;
-using LIMS.Domain.Models.Base;
 using System.ComponentModel.DataAnnotations;
 
 namespace LIMS.Domain.Models
 {
-    public class Technician : BaseModel
+    public class Technician
     {
+        [Key]
+        public int TechnicianId { get; set; }
+
         [Required]
         public string FirstName { get; set; }
         public string LastName { get; set; }
