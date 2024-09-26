@@ -13,6 +13,7 @@ namespace LIMS.Domain.Models
 
         [Required]
         public string Manufacturer { get; set; }
+        public int Quantity { get; set; }
         public string Model { get; set; }
 
         [Required]
