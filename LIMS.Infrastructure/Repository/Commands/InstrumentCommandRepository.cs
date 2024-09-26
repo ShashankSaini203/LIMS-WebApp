@@ -32,9 +32,6 @@ namespace LIMS.Infrastructure.Repository.Commands
                 //_dataContext.Entry(entity.Laboratory).State = EntityState.Unchanged;
                 //// Create and add the new instrument
                 //entity.Laboratory = existingLab;
-
-                _dataContext.Entry(entity.Laboratory).State = EntityState.Unchanged;
-
                 var addedInstrument = _dataContext.Instruments.Add(entity);
                 await _dataContext.SaveChangesAsync();
                 return addedInstrument.Entity;
@@ -46,31 +43,32 @@ namespace LIMS.Infrastructure.Repository.Commands
             }
         }
 
-        public override async Task<Instrument> UpdateAsync(Instrument entity)
+        public override async Task<Instrument> UpdateAsync(Instrument newInstrumentData)
         {
-            if (entity is null)
+            if (newInstrumentData is null)
             {
                 throw new ArgumentNullException("No Instrument data provided");
             }
 
             try
             {
-                var existingInstrument = await _dataContext.Set<Instrument>().FindAsync(entity.Id);
-                if (existingInstrument is null)
+                var existingInstrumentData = await _dataContext.Set<Instrument>().FindAsync(newInstrumentData.InstrumentId);
+                if (existingInstrumentData is null)
                 {
                     throw new KeyNotFoundException("No matching Instrument found");
                 }
 
-                existingInstrument.Name = entity.Name ?? existingInstrument.Name;
-                existingInstrument.Manufacturer = entity.Manufacturer ?? existingInstrument.Manufacturer;
-                existingInstrument.PurchaseDate = entity.PurchaseDate != default ? entity.PurchaseDate : existingInstrument.PurchaseDate;
-                existingInstrument.ExpiryDate = entity.ExpiryDate != default ? entity.ExpiryDate : entity.ExpiryDate;
-                existingInstrument.AdditionalNotes = entity.AdditionalNotes ?? existingInstrument.AdditionalNotes;
+                existingInstrumentData.Name = newInstrumentData.Name ?? existingInstrumentData.Name;
+                existingInstrumentData.Manufacturer = newInstrumentData.Manufacturer ?? existingInstrumentData.Manufacturer;
+                existingInstrumentData.Quantity = newInstrumentData.Quantity;
+                existingInstrumentData.PurchaseDate = newInstrumentData.PurchaseDate != default ? newInstrumentData.PurchaseDate : existingInstrumentData.PurchaseDate;
+                existingInstrumentData.ExpiryDate = newInstrumentData.ExpiryDate != default ? newInstrumentData.ExpiryDate : existingInstrumentData.ExpiryDate;
+                existingInstrumentData.AdditionalNotes = newInstrumentData.AdditionalNotes ?? existingInstrumentData.AdditionalNotes;
 
-                _dataContext.Set<Instrument>().Update(existingInstrument);
-                _dataContext.Entry(existingInstrument).State = EntityState.Modified;
+                _dataContext.Set<Instrument>().Update(existingInstrumentData);
+                _dataContext.Entry(existingInstrumentData).State = EntityState.Modified;
                 await _dataContext.SaveChangesAsync();
-                return existingInstrument;
+                return existingInstrumentData;
             }
             catch (Exception ex)
             {

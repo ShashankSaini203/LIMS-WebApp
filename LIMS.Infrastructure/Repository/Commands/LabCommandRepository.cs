@@ -13,30 +13,29 @@ namespace LIMS.Infrastructure.Repository.Commands
         {
             _dataContext = dataContext;
         }
-        public override async Task<Laboratory> UpdateAsync(Laboratory entity)
+        public override async Task<Laboratory> UpdateAsync(Laboratory newLaboratoryData)
         {
-            if (entity is null)
+            if (newLaboratoryData is null)
             {
                 throw new ArgumentNullException("No Laboratory data provided");
             }
 
             try
             {
-                var existingLab = await _dataContext.Set<Laboratory>().FindAsync(entity.Id);
-                if (existingLab is null)
+                var existingLaboratoryData = await _dataContext.Set<Laboratory>().FindAsync(newLaboratoryData.LaboratoryId);
+                if (existingLaboratoryData is null)
                 {
                     throw new KeyNotFoundException("No matching Laboratory found");
                 }
 
-                existingLab.Name = entity.Name ?? existingLab.Name;
-                existingLab.Location = entity.Location ?? existingLab.Location;
-                existingLab.ContactNumber = entity.ContactNumber ?? existingLab.ContactNumber;
-                existingLab.Instruments = entity.Instruments ?? existingLab.Instruments;
+                existingLaboratoryData.Name = newLaboratoryData.Name ?? existingLaboratoryData.Name;
+                existingLaboratoryData.Location = newLaboratoryData.Location ?? existingLaboratoryData.Location;
+                existingLaboratoryData.ContactNumber = newLaboratoryData.ContactNumber ?? existingLaboratoryData.ContactNumber;
 
-                _dataContext.Set<Laboratory>().Update(existingLab);
-                _dataContext.Entry(existingLab).State = EntityState.Modified;
+                _dataContext.Set<Laboratory>().Update(existingLaboratoryData);
+                _dataContext.Entry(existingLaboratoryData).State = EntityState.Modified;
                 await _dataContext.SaveChangesAsync();
-                return existingLab;
+                return existingLaboratoryData;
             }
             catch (Exception ex)
             {
