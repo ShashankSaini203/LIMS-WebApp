@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using Microsoft.Data.SqlClient;
 using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.Configuration;
 
@@ -14,8 +15,10 @@ namespace LIMS.Infrastructure.Database.DBConnector
 
         public IDbConnection CreateConnection()
         {
-            var connectionString = _configuration.GetConnectionString("DefaultConnection");
-            return new SqliteConnection(connectionString);
+            //var connectionString = _configuration.GetConnectionString("DefaultConnection");
+            //return new SqliteConnection(connectionString);
+            var connectionString = _configuration.GetConnectionString("LocalDBConnection");
+            return new SqlConnection(connectionString);
         }
     }
 }

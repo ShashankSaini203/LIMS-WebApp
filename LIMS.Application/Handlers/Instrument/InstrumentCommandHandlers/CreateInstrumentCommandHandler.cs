@@ -27,7 +27,6 @@ namespace LIMS.Application.Handlers.Instrument.InstrumentCommandHandlers
                 throw new ApplicationException("Unable to map due to an issue with mapper.");
             }
             var lab = await _labQueryRepository.GetAsyncById(request.LaboratoryId, DataTables.LaboratoryTable);
-            instrumentEntity.Laboratory = lab;
 
             var response = await _instrumentCommandRepository.CreateAsync(instrumentEntity);
             return AutoMapperConfiguration.Mapper.Map<InstrumentResponse>(response);

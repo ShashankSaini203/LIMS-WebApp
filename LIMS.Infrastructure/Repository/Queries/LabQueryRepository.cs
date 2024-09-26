@@ -1,5 +1,4 @@
-﻿using Dapper;
-using LIMS.Domain.Interfaces.Repository.Query;
+﻿using LIMS.Domain.Interfaces.Repository.Query;
 using LIMS.Domain.Models;
 using LIMS.Infrastructure.Database.DBConnector;
 using LIMS.Infrastructure.Repository.Queries.BaseQuery;
@@ -12,36 +11,36 @@ namespace LIMS.Infrastructure.Repository.Queries
         {
         }
 
-        public async override Task<IEnumerable<Laboratory>> GetAllAsync(string tableName)
-        {
-            var query = @"SELECT labs.*, instrument.* FROM Laboratories labs
-        LEFT JOIN Instruments instrument ON labs.Id = instrument.LaboratoryId";
+        //public async override Task<IEnumerable<Laboratory>> GetAllAsync(string tableName)
+        //{
+        //    var query = @"SELECT labs.*, instrument.* FROM Laboratories labs
+        //LEFT JOIN Instruments instrument ON labs.Id = instrument.LaboratoryId";
 
-            using (var connection = _dbConnector.CreateConnection())
-            {
-                var laboratoryDictionary = new Dictionary<int, Laboratory>();
-                var result = await connection.QueryAsync<Laboratory, Instrument, Laboratory>(
-                    query,
-                    (laboratory, instrument) =>
-                    {
-                        if (!laboratoryDictionary.TryGetValue(laboratory.Id, out var labEntry))
-                        {
-                            labEntry = laboratory;
-                            labEntry.Instruments = new List<Instrument>();
-                            laboratoryDictionary.Add(labEntry.Id, labEntry);
-                        }
+        //    using (var connection = _dbConnector.CreateConnection())
+        //    {
+        //        var laboratoryDictionary = new Dictionary<int, Laboratory>();
+        //        var result = await connection.QueryAsync<Laboratory, Instrument, Laboratory>(
+        //            query,
+        //            (laboratory, instrument) =>
+        //            {
+        //                if (!laboratoryDictionary.TryGetValue(laboratory.Id, out var labEntry))
+        //                {
+        //                    labEntry = laboratory;
+        //                    labEntry.Instruments = new List<Instrument>();
+        //                    laboratoryDictionary.Add(labEntry.Id, labEntry);
+        //                }
 
-                        if (instrument != null)
-                        {
-                            labEntry.Instruments.Add(instrument);
-                        }
+        //                if (instrument != null)
+        //                {
+        //                    labEntry.Instruments.Add(instrument);
+        //                }
 
-                        return labEntry;
-                    },
-                    splitOn: "Id");
+        //                return labEntry;
+        //            },
+        //            splitOn: "Id");
 
-                    return result.Distinct().ToList();
-            }
-        }
+        //            return result.Distinct().ToList();
+        //    }
+        //}
     }
 }

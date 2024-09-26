@@ -35,13 +35,12 @@ namespace LIMS.Infrastructure.Database.DBcontext
                     .HasForeignKey(i => i.LaboratoryId)
                     .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<Instrument>()
-                    .HasOne<Laboratory>()
-                    .WithMany()
-                    .HasForeignKey(i => i.LaboratoryId)
-                    .OnDelete(DeleteBehavior.Cascade);
-
             base.OnModelCreating(modelBuilder);
+        }
+
+        public void EnsureDatabaseCreated()
+        {
+            Database.EnsureCreated();
         }
 
         public DbSet<Instrument> Instruments { get; set; }
