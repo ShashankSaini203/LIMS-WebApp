@@ -10,14 +10,31 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DataContext>(options =>
 {
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
+    //options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("LocalDBConnection"));
 });
+
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
 {
     containerBuilder.RegisterModule(new ApplicationModule());
 });
 var app = builder.Build();
+
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<DataContext>();
+
+    // Applies any pending migrations and creates the database if it does not exist
+    context.Database.EnsureCreated();
+    //if (!context.Database.CanConnect())
+    //{
+    //    // If the database does not exist, run migrations
+    //    context.Database.Migrate();
+    //}
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
