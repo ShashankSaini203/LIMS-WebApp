@@ -44,7 +44,7 @@ else if (!string.IsNullOrEmpty(errorMessage))
             @foreach (var lab in Model)
             {
                 <tr>
-                    <td>@lab.Id</td>
+                    <td>@lab.LaboratoryId</td>
                     <td>@lab.Name</td>
                     <td>@lab.Location</td>
                     <td>@lab.ContactNumber</td>
@@ -73,11 +73,11 @@ else if (!string.IsNullOrEmpty(errorMessage))
                     <td>
                         <div class="btn-group btn-group-sm">
                             <form asp-controller="Laboratory" asp-action="UpdateLab" method="get">
-                                <input type="hidden" name="id" value="@lab.Id" />
+                                <input type="hidden" name="id" value="@lab.LaboratoryId" />
                                 <button type="submit" class="btn btn-primary">Update</button>
                             </form>
                             <form asp-controller="Laboratory" asp-action="DeleteLab" method="delete" onsubmit="return confirm('Are you sure you want to delete this laboratory?');">
-                                <input type="hidden" name="id" value="@lab.Id" />
+                                <input type="hidden" name="id" value="@lab.LaboratoryId" />
                                 <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
                         </div>
