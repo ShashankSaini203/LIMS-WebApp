@@ -1,6 +1,6 @@
 ﻿namespace LIMS.Application.Responses
 {
-    public class TechnicianResponse : BaseResponse
+    public class TechnicianResponse
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

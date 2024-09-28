@@ -1,6 +1,6 @@
 ﻿namespace LIMS.Application.Responses
 {
-    public class CalibrationRecordResponse : BaseResponse
+    public class CalibrationRecordResponse
     {
         public DateTime CurrentCalibrationDate { get; set; }
         public DateTime NextCalibrationDueDate { get; set; }

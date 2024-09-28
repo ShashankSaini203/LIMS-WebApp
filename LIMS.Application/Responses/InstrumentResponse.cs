@@ -1,6 +1,6 @@
 ﻿namespace LIMS.Application.Responses
 {
-    public class InstrumentResponse : BaseResponse
+    public class InstrumentResponse
     {
         public string Name { get; set; }
         public string Manufacturer { get; set; }

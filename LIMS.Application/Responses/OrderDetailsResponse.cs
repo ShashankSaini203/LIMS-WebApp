@@ -1,6 +1,6 @@
 ﻿namespace LIMS.Application.Responses
 {
-    public class OrderDetailsResponse : BaseResponse
+    public class OrderDetailsResponse
     {
         private const string DefaultStatus = "Pending";
 
