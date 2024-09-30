@@ -2,7 +2,7 @@
 {
     public class InstrumentResponse
     {
-        public string InstrumentId { get; set; }
+        public int InstrumentId { get; set; }
         public string Name { get; set; }
         public string Manufacturer { get; set; }
         public string Model { get; set; }
