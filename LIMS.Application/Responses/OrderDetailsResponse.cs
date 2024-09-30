@@ -2,8 +2,9 @@
 {
     public class OrderDetailsResponse
     {
-        private const string DefaultStatus = "Pending";
+        public int OrderId { get; set; }
 
+        private const string DefaultStatus = "Pending";
         public DateTime OrderDate { get; set; }
         public DateTime DeliveryDate { get; set; }
         public string OrderedBy { get; set; }
