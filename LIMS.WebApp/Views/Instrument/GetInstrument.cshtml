@@ -27,13 +27,13 @@ else if (!string.IsNullOrEmpty(errorMessage))
 <!-- "Edit Instrument" Button to Make Fields Editable -->
 <button id="editInstrumentBtn" class="btn btn-warning">Edit Instrument</button>
 
-<button type="button" class="btn btn-danger" onclick="deleteInstrument(@Model.Id)">Delete</button>
+<button type="button" class="btn btn-danger" onclick="deleteInstrument(@Model.InstrumentId)">Delete</button>
 
 <!-- Form to Show Laboratory -->
 <form asp-action="UpdateInstrument" method="post" id="instrumentForm">
     <div class="mb-3">
-        <label class="form-label">Id</label>
-        <input type="text" class="form-control" asp-for="Id" readonly />
+        <label class="form-label">InstrumentId</label>
+        <input type="text" class="form-control" asp-for="InstrumentId" readonly />
     </div>
     <div class="mb-3">
         <label class="form-label">Name</label>
