@@ -63,6 +63,7 @@ namespace LIMS.Application.Mappers
             CreateMap<GetAllCalibrationRecordQuery, CalibrationRecord>().ReverseMap();
             CreateMap<GetCalibrationRecordByIdQuery, CalibrationRecord>().ReverseMap();
         }
+
         private void TechnicianMappers()
         {
             //Instrument Commands, Queries and Domain model reverse mapping
@@ -73,5 +74,14 @@ namespace LIMS.Application.Mappers
             CreateMap<GetTechnicianByIdQuery, Technician>().ReverseMap();
         }
 
+        private void OrderDetailsMappers()
+        {
+            //Instrument Commands, Queries and Domain model reverse mapping
+            CreateMap<CreateOrderDetailsCommand, OrderDetails>().ReverseMap();
+            CreateMap<UpdateOrderDetailsCommand, OrderDetails>().ReverseMap();
+            CreateMap<DeleteOrderDetailsCommand, OrderDetails>().ReverseMap();
+            CreateMap<GetAllOrderDetailsQuery, OrderDetails>().ReverseMap();
+            CreateMap<GetOrderDetailsByIdQuery, OrderDetails>().ReverseMap();
+        }
     }
 }
