@@ -43,7 +43,7 @@ namespace LIMS.Application.Mappers
             //Instrument Commands, Queries and Domain model reverse mapping
             CreateMap<CreateInstrumentCommand, Instrument>().ReverseMap();
             CreateMap<UpdateInstrumentCommand, Instrument>().ReverseMap();
-            CreateMap<DeleteInstrumentCommandHandler, Instrument>().ReverseMap();
+            CreateMap<DeleteInstrumentCommand, Instrument>().ReverseMap();
             CreateMap<GetAllInstrumentsQuery, Instrument>().ReverseMap();
             CreateMap<GetInstrumentByIdQuery, Instrument>().ReverseMap();
         }
