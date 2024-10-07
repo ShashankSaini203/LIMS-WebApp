@@ -4,7 +4,6 @@ using LIMS.Application.Commands.Instrument;
 using LIMS.Application.Commands.Laboratory;
 using LIMS.Application.Commands.OrderDetails;
 using LIMS.Application.Commands.Technician;
-using LIMS.Application.Handlers.Instrument.InstrumentCommandHandlers;
 using LIMS.Application.Queries.CalibrationRecord;
 using LIMS.Application.Queries.Instrument;
 using LIMS.Application.Queries.Laboratory;
