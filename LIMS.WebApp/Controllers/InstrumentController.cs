@@ -37,18 +37,16 @@ namespace LIMS.WebApp.Controllers
             {
                 if (!ModelState.IsValid)
                 {
-                    TempData["errorMessage"] = "Invalid data provided";
-                    return RedirectToAction("GetAllLabs", "Laboratory");
+                    return BadRequest("Invalid data provided");
                 }
 
                 await _mediator.Send(newInstrumentData);
                 TempData["successMessage"] = "Instrument created successfully!";
-                return View();
+                return Ok("Instrument created successfully!");
             }
             catch (Exception ex)
             {
-                TempData["errorMessage"] = ex.ToString();
-                return View();
+                return BadRequest(ex.ToString());
             }
         }
 
