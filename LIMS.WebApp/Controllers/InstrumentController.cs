@@ -1,6 +1,7 @@
 ﻿using LIMS.Application.Commands.Instrument;
 using LIMS.Application.Commands.Laboratory;
 using LIMS.Application.Queries.Instrument;
+using LIMS.Application.Responses;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,10 +18,10 @@ namespace LIMS.WebApp.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetInstrument(int id)
+        public async Task<InstrumentResponse> GetInstrument(int id)
         {
             var instrumentData = await _mediator.Send(new GetInstrumentByIdQuery(id));
-            return View(instrumentData);
+            return instrumentData;
         }
 
         [HttpGet]
@@ -29,8 +30,8 @@ namespace LIMS.WebApp.Controllers
             return View();
         }
 
-        [HttpPost]
-        public async Task<IActionResult> CreateInstrument(CreateInstrumentCommand newInstrumentData)
+        [HttpPost("CreateInstrument")]
+        public async Task<ActionResult<InstrumentResponse>> CreateInstrument(CreateInstrumentCommand newInstrumentData)
         {
             try
             {
