@@ -1,0 +1,6 @@
+@LIMS.WebAPI_HostAddress = http://localhost:5120
+
+GET {{LIMS.WebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
