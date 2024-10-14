@@ -41,7 +41,6 @@ namespace LIMS.WebApp.Controllers
                 }
 
                 await _mediator.Send(newInstrumentData);
-                TempData["successMessage"] = "Instrument created successfully!";
                 return Ok("Instrument created successfully!");
             }
             catch (Exception ex)
@@ -58,8 +57,7 @@ namespace LIMS.WebApp.Controllers
             {
                 if (!ModelState.IsValid)
                 {
-                    TempData["errorMessage"] = "Invalid data provided";
-                    return RedirectToAction(nameof(GetInstrument), new { id = newInstrumentData.Id });
+                    return BadRequest("Invalid data provided");
                 }
                 await _mediator.Send(newInstrumentData);
                 TempData["successMessage"] = "Instrument updated successfully!";
