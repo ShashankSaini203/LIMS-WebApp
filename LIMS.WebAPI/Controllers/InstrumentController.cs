@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace LIMS.WebAPI.Controllers
 {
     [Route("Instrument")]
-    public class InstrumentController : Controller
+    public class InstrumentController : BaseController
     {
         private readonly IMediator _mediator;
 
