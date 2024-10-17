@@ -6,14 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LIMS.WebAPI.Controllers
 {
-    [Route("Instrument")]
     public class InstrumentController : BaseController
     {
-        private readonly IMediator _mediator;
-
-        public InstrumentController(IMediator mediator)
+        public InstrumentController(IMediator mediator) : base(mediator)
         {
-            _mediator = mediator;
         }
 
         [HttpGet("{id}")]
@@ -40,7 +36,6 @@ namespace LIMS.WebAPI.Controllers
                 }
 
                 await _mediator.Send(newInstrumentData);
-                TempData["successMessage"] = "Instrument created successfully!";
                 return Ok("Instrument created successfully!");
             }
             catch (Exception ex)
@@ -78,13 +73,11 @@ namespace LIMS.WebAPI.Controllers
             try
             {
                 await _mediator.Send(new DeleteInstrumentCommand(id));
-                TempData["successMessage"] = "Instrument deleted successfully!";
-                return RedirectToAction("GetAllLabs", "Laboratory");
+                return BadRequest("Instrument deleted successfully!");
             }
             catch (Exception ex)
             {
-                TempData["errorMessage"] = ex.ToString();
-                return RedirectToAction("GetAllLabs", "Laboratory");
+                return BadRequest(ex.ToString());
             }
 
         }
