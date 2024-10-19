@@ -19,12 +19,6 @@ namespace LIMS.WebAPI.Controllers
             return instrumentData;
         }
 
-        [HttpGet]
-        public IActionResult CreateInstrument()
-        {
-            return View();
-        }
-
         [HttpPost("CreateInstrument")]
         public async Task<ActionResult<InstrumentResponse>> CreateInstrument(CreateInstrumentCommand newInstrumentData)
         {
@@ -46,7 +40,7 @@ namespace LIMS.WebAPI.Controllers
 
         [HttpPost]
         [Route("UpdateInstrument")]
-        public async Task<IActionResult> UpdateInstrument(UpdateInstrumentCommand newInstrumentData)
+        public async Task<ActionResult<InstrumentResponse>> UpdateInstrument(UpdateInstrumentCommand newInstrumentData)
         {
             try
             {
@@ -56,13 +50,11 @@ namespace LIMS.WebAPI.Controllers
                     return RedirectToAction(nameof(GetInstrument), new { id = newInstrumentData.Id });
                 }
                 await _mediator.Send(newInstrumentData);
-                TempData["successMessage"] = "Instrument updated successfully!";
-                return RedirectToAction(nameof(GetInstrument), new { id = newInstrumentData.Id });
+                return Ok("Instrument updated successfully!");
             }
             catch (Exception ex)
             {
-                TempData["errorMessage"] = ex.ToString();
-                return RedirectToAction(nameof(GetInstrument), new { id = newInstrumentData.Id });
+                return BadRequest(ex.ToString());
             }
         }
 
