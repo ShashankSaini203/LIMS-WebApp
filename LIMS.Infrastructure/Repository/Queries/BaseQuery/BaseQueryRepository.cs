@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using LIMS.Domain.Interfaces.Repository.Query.BaseQuery;
 using LIMS.Infrastructure.Database.DBConnector;
+using System.Data;
 
 namespace LIMS.Infrastructure.Repository.Queries.BaseQuery
 {
@@ -35,7 +36,7 @@ namespace LIMS.Infrastructure.Repository.Queries.BaseQuery
             {
                 var query = $"SELECT * FROM {tableName} WHERE ID=@Id";
                 var parameters = new DynamicParameters();
-                parameters.Add("Id", id);
+                parameters.Add("Id", id, DbType.Int64);
 
                 using (var connection = _dbConnector.CreateConnection())
                 {
