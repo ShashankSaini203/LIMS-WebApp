@@ -1,5 +1,6 @@
 ﻿using LIMS.Application.Commands.Laboratory;
 using LIMS.Application.Queries.Laboratory;
+using LIMS.Application.Responses;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,21 +16,15 @@ namespace LIMS.WebApp.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> GetAllLabs()
+        public async Task<IEnumerable<LaboratoryResponse>> GetAllLabs()
         {
             // Fetch all laboratories to display in the table
             var laboratories = await _mediator.Send(new GetAllLaboratoryQuery());
-            return View(laboratories);
-        }
-
-        [HttpGet]
-        public IActionResult CreateLab()
-        {
-            return View();
+            return laboratories;
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateLab(CreateLaboratoryCommand newLabData)
+        public async Task<ActionResult> CreateLab(CreateLaboratoryCommand newLabData)
         {
             try
             {
@@ -41,12 +36,11 @@ namespace LIMS.WebApp.Controllers
 
                 await _mediator.Send(newLabData);
                 TempData["successMessage"] = "Laboratory created successfully!";
-                return RedirectToAction(nameof(GetAllLabs));
+                return Ok("Laboratory created successfully!");
             }
             catch (Exception ex)
             {
-                TempData["errorMessage"] = ex.ToString(); 
-                return View();
+                return BadRequest(ex.ToString());
             }
 
         }
