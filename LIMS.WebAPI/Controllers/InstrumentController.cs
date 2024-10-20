@@ -46,8 +46,7 @@ namespace LIMS.WebAPI.Controllers
             {
                 if (!ModelState.IsValid)
                 {
-                    TempData["errorMessage"] = "Invalid data provided";
-                    return RedirectToAction(nameof(GetInstrument), new { id = newInstrumentData.Id });
+                    return BadRequest("Invalid data provided");
                 }
                 await _mediator.Send(newInstrumentData);
                 return Ok("Instrument updated successfully!");
