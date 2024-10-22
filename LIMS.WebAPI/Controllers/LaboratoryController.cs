@@ -1,18 +1,16 @@
 ﻿using LIMS.Application.Commands.Laboratory;
 using LIMS.Application.Queries.Laboratory;
 using LIMS.Application.Responses;
+using LIMS.WebAPI.Controllers;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LIMS.WebApp.Controllers
 {
-    public class LaboratoryController : Controller
+    public class LaboratoryController : BaseController
     {
-        private readonly IMediator _mediator;
-
-        public LaboratoryController(IMediator mediator)
+        public LaboratoryController(IMediator mediator) : base(mediator)
         {
-            _mediator = mediator;
         }
 
         [HttpGet]
@@ -24,24 +22,10 @@ namespace LIMS.WebApp.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> CreateLab(CreateLaboratoryCommand newLabData)
+        public async Task<CreateLaboratoryCommand> CreateLab(CreateLaboratoryCommand createNewLabModel)
         {
-            try
-            {
-                if (!ModelState.IsValid)
-                {
-                    TempData["errorMessage"] = "Invalid data provided";
-                    return View();
-                }
-
-                await _mediator.Send(newLabData);
-                TempData["successMessage"] = "Laboratory created successfully!";
-                return Ok("Laboratory created successfully!");
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.ToString());
-            }
+            await _mediator.Send(createNewLabModel);
+            return createNewLabModel;
 
         }
 
