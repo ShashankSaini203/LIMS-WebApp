@@ -34,7 +34,7 @@ namespace LIMS.Infrastructure.Repository.Queries.BaseQuery
         {
             try
             {
-                var query = $"SELECT * FROM {tableName} WHERE ID=@Id";
+                var query = $"SELECT * FROM {tableName} WHERE {tableName.Substring(0,tableName.Length-1)}ID=@Id";
                 var parameters = new DynamicParameters();
                 parameters.Add("Id", id, DbType.Int64);
 
