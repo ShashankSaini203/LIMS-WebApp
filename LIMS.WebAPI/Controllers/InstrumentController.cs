@@ -38,6 +38,13 @@ namespace LIMS.WebAPI.Controllers
             }
         }
 
+        [HttpGet("GetAllInstruments")]
+        public async Task<IEnumerable<InstrumentResponse>> GetAllInstruments()
+        {
+            var instrumentData = await _mediator.Send(new GetAllInstrumentsQuery());
+            return instrumentData;
+        }
+
         [HttpPost]
         [Route("UpdateInstrument")]
         public async Task<ActionResult<InstrumentResponse>> UpdateInstrument(UpdateInstrumentCommand newInstrumentData)
