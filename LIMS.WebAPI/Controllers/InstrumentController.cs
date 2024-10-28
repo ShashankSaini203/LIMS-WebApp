@@ -12,6 +12,13 @@ namespace LIMS.WebAPI.Controllers
         {
         }
 
+        [HttpGet("GetAllInstruments")]
+        public async Task<IEnumerable<InstrumentResponse>> GetAllInstruments()
+        {
+            var instrumentData = await _mediator.Send(new GetAllInstrumentsQuery());
+            return instrumentData;
+        }
+
         [HttpGet("{id}")]
         public async Task<InstrumentResponse> GetInstrument(int id)
         {
@@ -36,13 +43,6 @@ namespace LIMS.WebAPI.Controllers
             {
                 return BadRequest(ex.ToString());
             }
-        }
-
-        [HttpGet("GetAllInstruments")]
-        public async Task<IEnumerable<InstrumentResponse>> GetAllInstruments()
-        {
-            var instrumentData = await _mediator.Send(new GetAllInstrumentsQuery());
-            return instrumentData;
         }
 
         [HttpPost]
