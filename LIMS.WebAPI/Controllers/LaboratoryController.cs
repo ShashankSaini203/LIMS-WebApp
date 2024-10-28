@@ -1,4 +1,6 @@
 ﻿using LIMS.Application.Commands.Laboratory;
+using LIMS.Application.Handlers.Laboratory.LaboratoryQueryHandlers;
+using LIMS.Application.Queries.Instrument;
 using LIMS.Application.Queries.Laboratory;
 using LIMS.Application.Responses;
 using LIMS.WebAPI.Controllers;
@@ -14,6 +16,7 @@ namespace LIMS.WebApp.Controllers
         }
 
         [HttpGet]
+        [Route("GetAllLaboratories")]
         public async Task<IEnumerable<LaboratoryResponse>> GetAllLabs()
         {
             // Fetch all laboratories to display in the table
@@ -28,6 +31,14 @@ namespace LIMS.WebApp.Controllers
             return createNewLabModel;
 
         }
+
+        [HttpGet("{id}")]
+        public async Task<LaboratoryResponse> GetLabById(int id)
+        {
+            var labData = await _mediator.Send(new GetLaboratoryByIdQuery(id));
+            return labData;
+        }
+
 
         //[HttpGet]
         //public async Task<IActionResult> UpdateLab(int id)
