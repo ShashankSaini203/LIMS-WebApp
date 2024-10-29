@@ -4,6 +4,6 @@
     {
         Task<IEnumerable<T>> GetAllAsync(string tableName);
 
-        Task<T> GetAsyncById(int id, string tableName);
+        Task<T> GetAsyncById(int id, string tableName, string idColumnName);
     }
 }

@@ -30,11 +30,11 @@ namespace LIMS.Infrastructure.Repository.Queries.BaseQuery
             }
         }
 
-        public virtual async Task<T> GetAsyncById(int id, string tableName)
+        public virtual async Task<T> GetAsyncById(int id, string tableName, string idColumnName)
         {
             try
             {
-                var query = $"SELECT * FROM {tableName} WHERE {tableName.Substring(0,tableName.Length-1)}ID=@Id";
+                var query = $"SELECT * FROM {tableName} WHERE {idColumnName}=@Id";
                 var parameters = new DynamicParameters();
                 parameters.Add("Id", id, DbType.Int64);
 
