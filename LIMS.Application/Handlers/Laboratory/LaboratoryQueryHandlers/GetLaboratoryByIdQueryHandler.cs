@@ -18,7 +18,7 @@ namespace LIMS.Application.Handlers.Laboratory.LaboratoryQueryHandlers
 
         public async Task<LaboratoryResponse> Handle(GetLaboratoryByIdQuery request, CancellationToken cancellationToken)
         {
-            var laboratoryEntity = await _labQueryRepository.GetAsyncById(request.Id, DataTables.LaboratoryTable);
+            var laboratoryEntity = await _labQueryRepository.GetAsyncById(request.Id, DataTables.LaboratoryTable, DataColumns.LaboratoryId);
             if (laboratoryEntity == null)
             {
                 throw new Exception("No laboratory found with given Id");
