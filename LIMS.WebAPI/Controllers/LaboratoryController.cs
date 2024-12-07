@@ -32,7 +32,7 @@ namespace LIMS.WebApp.Controllers
 
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name ="GetLaboratory")]
         public async Task<LaboratoryResponse> GetLabById(int id)
         {
             var labData = await _mediator.Send(new GetLaboratoryByIdQuery(id));
