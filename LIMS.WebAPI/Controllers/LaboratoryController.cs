@@ -40,19 +40,19 @@ namespace LIMS.WebApp.Controllers
         }
 
 
-        //[HttpGet]
-        //public async Task<IActionResult> UpdateLab(int id)
-        //{
-        //    try
-        //    {
-        //        var labToEdit = await _mediator.Send(new GetLaboratoryByIdQuery(id));
-        //        return View(labToEdit);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return RedirectToAction(nameof(GetAllLabs));
-        //    }
-        //}
+        [HttpGet]
+        public async Task<IActionResult> UpdateLab(int id)
+        {
+            try
+            {
+                var labToEdit = await _mediator.Send(new GetLaboratoryByIdQuery(id));
+                return View(labToEdit);
+            }
+            catch (Exception)
+            {
+                return RedirectToAction(nameof(GetAllLabs));
+            }
+        }
 
         //[HttpPost]
         //public async Task<IActionResult> UpdateLab(UpdateLaboratoryCommand updatedLab)
