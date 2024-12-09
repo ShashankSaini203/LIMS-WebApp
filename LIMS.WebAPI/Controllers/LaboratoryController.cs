@@ -41,7 +41,7 @@ namespace LIMS.WebApp.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> UpdateLab(int id)
+        public async Task<LaboratoryResponse> UpdateLab(int id)
         {
             try
             {
