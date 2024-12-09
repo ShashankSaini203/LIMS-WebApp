@@ -19,7 +19,7 @@ namespace LIMS.WebAPI.Controllers
             return instrumentData;
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("GetInstrument/{id}")]
         public async Task<InstrumentResponse> GetInstrument(int id)
         {
             var instrumentData = await _mediator.Send(new GetInstrumentByIdQuery(id));
