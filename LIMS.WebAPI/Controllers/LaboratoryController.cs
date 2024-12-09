@@ -46,7 +46,7 @@ namespace LIMS.WebApp.Controllers
             try
             {
                 var labToEdit = await _mediator.Send(new GetLaboratoryByIdQuery(id));
-                return View(labToEdit);
+                return labToEdit;
             }
             catch (Exception)
             {
