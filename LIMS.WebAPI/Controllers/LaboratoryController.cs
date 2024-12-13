@@ -40,34 +40,27 @@ namespace LIMS.WebApp.Controllers
         }
 
 
-        [HttpGet]
-        public async Task<LaboratoryResponse> UpdateLab(int id)
+        [HttpPost]
+        public async Task<LaboratoryResponse> UpdateLab(UpdateLaboratoryCommand updatedLab)
         {
-                var labToEdit = await _mediator.Send(new GetLaboratoryByIdQuery(id));
-                return labToEdit;
+                var updatedLabResult = await _mediator.Send(updatedLab);
+                return updatedLabResult;
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> UpdateLab(UpdateLaboratoryCommand updatedLab)
-        //{
-        //    try
-        //    {
-        //        if (!ModelState.IsValid)
-        //        {
-        //            TempData["errorMessage"] = "Invalid data provided";
-        //            return View();
-        //        }
+        [HttpPost]
+        public async Task<IActionResult> UpdateLab(UpdateLaboratoryCommand updatedLab)
+        {
 
-        //        var updatedLabResult = await _mediator.Send(updatedLab);
-        //        TempData["successMessage"] = "Laboratory updated successfully!";
-        //        return RedirectToAction(nameof(GetAllLabs));
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        TempData["errorMessage"] = ex.ToString();
-        //        return View();
-        //    }
-        //}
+                var updatedLabResult = await _mediator.Send(updatedLab);
+                TempData["successMessage"] = "Laboratory updated successfully!";
+                return RedirectToAction(nameof(GetAllLabs));
+            }
+            catch (Exception ex)
+            {
+                TempData["errorMessage"] = ex.ToString();
+                return View();
+            }
+        }
 
         //[HttpDelete]
         //public async Task<IActionResult> DeleteLab(int id)
