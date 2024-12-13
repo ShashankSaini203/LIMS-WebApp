@@ -47,21 +47,6 @@ namespace LIMS.WebApp.Controllers
                 return updatedLabResult;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> UpdateLab(UpdateLaboratoryCommand updatedLab)
-        {
-
-                var updatedLabResult = await _mediator.Send(updatedLab);
-                TempData["successMessage"] = "Laboratory updated successfully!";
-                return RedirectToAction(nameof(GetAllLabs));
-            }
-            catch (Exception ex)
-            {
-                TempData["errorMessage"] = ex.ToString();
-                return View();
-            }
-        }
-
         //[HttpDelete]
         //public async Task<IActionResult> DeleteLab(int id)
         //{
