@@ -50,7 +50,7 @@ namespace LIMS.WebApp.Controllers
         [HttpDelete]
         public async Task<Unit> DeleteLab(int id)
         {
-            var deletedLab = _mediator.Send(new DeleteLaboratoryCommand(id));
+            var deletedLab = await _mediator.Send(new DeleteLaboratoryCommand(id));
             return deletedLab;
         }
     }
