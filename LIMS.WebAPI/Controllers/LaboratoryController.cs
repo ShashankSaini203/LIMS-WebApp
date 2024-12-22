@@ -47,11 +47,11 @@ namespace LIMS.WebApp.Controllers
             return updatedLabResult;
         }
 
-        [HttpDelete]
-        public async Task<Unit> DeleteLab(int id)
-        {
-            var deletedLab = await _mediator.Send(new DeleteLaboratoryCommand(id));
-            return deletedLab;
-        }
+        //[HttpDelete]
+        //public async Task<Unit> DeleteLab(int id)
+        //{
+        //    var deletedLab = await _mediator.Send(new DeleteLaboratoryCommand(id));
+        //    return deletedLab;
+        //}
     }
 }
