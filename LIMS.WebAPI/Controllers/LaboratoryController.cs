@@ -24,7 +24,7 @@ namespace LIMS.WebApp.Controllers
             return laboratories;
         }
 
-        [HttpPost]
+        [HttpPost("CreateLab")]
         public async Task<CreateLaboratoryCommand> CreateLab(CreateLaboratoryCommand createNewLabModel)
         {
             await _mediator.Send(createNewLabModel);
@@ -40,7 +40,7 @@ namespace LIMS.WebApp.Controllers
         }
 
 
-        [HttpPost]
+        [HttpPost("UpdateLab")]
         public async Task<LaboratoryResponse> UpdateLab(UpdateLaboratoryCommand updatedLab)
         {
             var updatedLabResult = await _mediator.Send(updatedLab);
