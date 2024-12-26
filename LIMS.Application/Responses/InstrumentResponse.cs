@@ -9,5 +9,6 @@
         public DateTime PurchaseDate { get; set; }
         public DateTime ExpiryDate { get; set; }
         public string AdditionalNotes { get; set; }
+        public string LaboratoryId { get; set; }
     }
 }
