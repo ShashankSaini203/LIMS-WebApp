@@ -15,6 +15,8 @@ using LIMS.Application.Handlers.Laboratory.LaboratoryCommandHandlers;
 using LIMS.Application.Handlers.Laboratory.LaboratoryQueryHandlers;
 using LIMS.Application.Handlers.Instrument.InstrumentQueryHandler;
 using LIMS.Application.Queries.Instrument;
+using LIMS.Application.Commands.Technician;
+using LIMS.Application.Queries.Technician;
 
 namespace LIMS.WebAPI
 {
@@ -61,5 +63,12 @@ namespace LIMS.WebAPI
             builder.RegisterType<GetAllInstrumentsQueryHandler>().As<IRequestHandler<GetAllInstrumentsQuery, IEnumerable<InstrumentResponse>>>().InstancePerLifetimeScope();
             #endregion
         }
+
+        private void RegisterTechnicianDependencies(ContainerBuilder builder)
+        {
+
+        }
+
+
     }
 }
