@@ -18,6 +18,7 @@ namespace LIMS.Application.Handlers.Instrument.InstrumentCommandHandlers
             _instrumentCommandRepository = instrumentCommandRepository;
             _labQueryRepository = labQueryRepository;
         }
+
         public async Task<InstrumentResponse> Handle(CreateInstrumentCommand request, CancellationToken cancellationToken)
         {
             var instrumentEntity = AutoMapperConfiguration.Mapper.Map<Domain.Models.Instrument>(request);
