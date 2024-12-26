@@ -24,14 +24,11 @@ namespace LIMS.Infrastructure.Repository.Commands
 
             try
             {
-                //var existingLab = await _dataContext.Set<Laboratory>().FindAsync(entity.LaboratoryId);
-                //if (existingLab is null)
-                //{
-                //    throw new KeyNotFoundException("No matching Instrument found");
-                //}
-                //_dataContext.Entry(entity.Laboratory).State = EntityState.Unchanged;
-                //// Create and add the new instrument
-                //entity.Laboratory = existingLab;
+                var isLaboratoryAvailable = await _dataContext.Set<Laboratory>().FindAsync(entity.LaboratoryId);
+                if (isLaboratoryAvailable is null) 
+                {
+                    throw new KeyNotFoundException($"No matching Laboratory found with provided LaboratoryId {entity.LaboratoryId}");
+                }
                 var addedInstrument = _dataContext.Instruments.Add(entity);
                 await _dataContext.SaveChangesAsync();
                 return addedInstrument.Entity;
