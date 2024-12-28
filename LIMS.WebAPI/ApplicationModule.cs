@@ -66,6 +66,10 @@ namespace LIMS.WebAPI
 
         private void RegisterTechnicianDependencies(ContainerBuilder builder)
         {
+            #region Technician Repository
+            builder.RegisterType<TechnicianCommandRepository>().As<ITechnicianCommandRepository>().InstancePerLifetimeScope();
+            builder.RegisterType<TechnicianQueryRepository>().As<ITechnicianQueryRepository>().InstancePerLifetimeScope();
+            #endregion
 
         }
 
