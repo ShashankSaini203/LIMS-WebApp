@@ -76,7 +76,8 @@ namespace LIMS.WebAPI
             builder.RegisterType<UpdateTechnicianCommandHandler>().As<IRequestHandler<UpdateTechnicianCommand, TechnicianResponse>>().InstancePerLifetimeScope();
             builder.RegisterType<DeleteTechnicianCommandHandler>().As<IRequestHandler<DeleteTechnicianCommand, Unit>>().InstancePerLifetimeScope();
             builder.RegisterType<GetAllTechnicianQueryHandler>().As<IRequestHandler<GetAllTechnicianQuery, IEnumerable<TechnicianResponse>>>().InstancePerLifetimeScope();
-
+            builder.RegisterType<GetTechnicianByIdQueryHandler>().As<IRequestHandler<GetTechnicianByIdQuery, TechnicianResponse>>().InstancePerLifetimeScope();
+            #endregion
         }
 
 
