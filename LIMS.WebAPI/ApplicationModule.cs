@@ -71,6 +71,10 @@ namespace LIMS.WebAPI
             builder.RegisterType<TechnicianQueryRepository>().As<ITechnicianQueryRepository>().InstancePerLifetimeScope();
             #endregion
 
+            #region Technician Handlers
+            builder.RegisterType<CreateTechnicianCommandHandler>().As<IRequestHandler<CreateTechnicianCommand, TechnicianResponse>>().InstancePerLifetimeScope();
+
+            #endregion
         }
 
 
