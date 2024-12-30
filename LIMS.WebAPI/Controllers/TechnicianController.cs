@@ -14,7 +14,8 @@ namespace LIMS.WebAPI.Controllers
         [HttpGet]
         public async Task<IEnumerable<TechnicianResponse>> GetAllTechnicians()
         {
-
+            var response = await _mediator.Send(new GetAllTechnicianQuery());
+            return response;
         }
 
     }
