@@ -7,6 +7,10 @@ namespace LIMS.WebAPI.Controllers
 {
     public class TechnicianController : BaseController
     {
+        public TechnicianController(IMediator mediator) : base(mediator)
+        {
+        }
+
 
 
     }
