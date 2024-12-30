@@ -11,7 +11,11 @@ namespace LIMS.WebAPI.Controllers
         {
         }
 
+        [HttpGet]
+        public async Task<IEnumerable<TechnicianResponse>> GetAllTechnicians()
+        {
 
+        }
 
     }
 }
