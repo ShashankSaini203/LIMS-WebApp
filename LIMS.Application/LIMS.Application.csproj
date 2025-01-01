@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Handlers\Technician\TechnicianCommandHandler\" />
     <Folder Include="Handlers\Technician\TechnicianQueryHandler\" />
   </ItemGroup>
 
