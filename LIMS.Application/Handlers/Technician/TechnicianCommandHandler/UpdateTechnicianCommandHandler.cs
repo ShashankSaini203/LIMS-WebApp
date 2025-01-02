@@ -1,6 +1,4 @@
-﻿
-
-namespace LIMS.Application.Handlers.Technician.TechnicianCommandHandler
+﻿namespace LIMS.Application.Handlers.Technician.TechnicianCommandHandler
 {
     internal class UpdateTechnicianCommandHandler
     {
