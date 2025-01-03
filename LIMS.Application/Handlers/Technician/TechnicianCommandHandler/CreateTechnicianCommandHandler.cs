@@ -1,6 +1,10 @@
-﻿namespace LIMS.Application.Handlers.Technician.TechnicianCommandHandler
+﻿using LIMS.Application.Commands.Technician;
+using LIMS.Application.Responses;
+using MediatR;
+
+namespace LIMS.Application.Handlers.Technician.TechnicianCommandHandler
 {
-    internal class CreateTechnicianCommandHandler
+    public class CreateTechnicianCommandHandler : IRequestHandler<CreateTechnicianCommand, TechnicianResponse>
     {
     }
 }
