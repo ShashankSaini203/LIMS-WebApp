@@ -5,11 +5,11 @@ namespace LIMS.Application.Queries.Technician
 {
     public class GetTechnicianByIdQuery : IRequest<TechnicianResponse>
     {
-        public int Id { get; set; }
+        public int TechnicianId { get; set; }
 
-        public GetTechnicianByIdQuery(int id)
+        public GetTechnicianByIdQuery(int technicianId)
         {
-            Id = id;
+            TechnicianId = technicianId;
         }
     }
 }
