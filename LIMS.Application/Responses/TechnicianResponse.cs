@@ -8,7 +8,7 @@
         public string Email { get; set; }
         public string Phone { get; set; }
         public string Status { get; set; }
-        public string LaboratoryId { get; set; }
+        public int LaboratoryId { get; set; }
 
     }
 }
