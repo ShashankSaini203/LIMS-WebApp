@@ -17,9 +17,9 @@ namespace LIMS.Application.Handlers.Technician.TechnicianCommandHandler
 
         public async Task<TechnicianResponse> Handle(CreateTechnicianCommand request, CancellationToken cancellationToken)
         {
-            var techinician = AutoMapperConfiguration.Mapper.Map<LIMS.Domain.Models.Technician>(request);
+            var techinicianEntity = AutoMapperConfiguration.Mapper.Map<Domain.Models.Technician>(request);
 
-            if(techinician == null)
+            if(techinician is null)
             {
                 throw new ApplicationException("Unable to map due to an issue with mapper.");
             }
