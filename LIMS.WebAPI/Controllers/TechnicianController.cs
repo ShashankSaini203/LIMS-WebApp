@@ -1,4 +1,5 @@
-﻿using LIMS.Application.Queries.Technician;
+﻿using LIMS.Application.Commands.Technician;
+using LIMS.Application.Queries.Technician;
 using LIMS.Application.Responses;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -15,6 +16,13 @@ namespace LIMS.WebAPI.Controllers
         public async Task<IEnumerable<TechnicianResponse>> GetAllTechnicians()
         {
             var response = await _mediator.Send(new GetAllTechnicianQuery());
+            return response;
+        }
+
+        [HttpPost("CreateTechnician")]
+        public async Task<TechnicianResponse> CreateTechnician(CreateTechnicianCommand request)
+        {
+            var response = await _mediator.Send(request);
             return response;
         }
 
