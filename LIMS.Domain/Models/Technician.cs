@@ -16,5 +16,7 @@ namespace LIMS.Domain.Models
         public string Email { get; set; }
         public string Phone { get; set; }
         public Status Status { get; set; }
+        public int LaboratoryId { get; set; }
+
     }
 }
