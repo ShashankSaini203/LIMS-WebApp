@@ -10,7 +10,7 @@ namespace LIMS.Application.Commands.Technician
 
         public DeleteTechnicianCommand(int technicianId)
         {
-            technicianId = TechnicianId;
+            TechnicianId = technicianId;
         }
     }
 }
