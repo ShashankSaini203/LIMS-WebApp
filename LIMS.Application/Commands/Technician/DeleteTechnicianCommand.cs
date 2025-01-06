@@ -6,11 +6,11 @@ namespace LIMS.Application.Commands.Technician
     public class DeleteTechnicianCommand : IRequest<Unit>
     {
         [Required]
-        public int Id { get; set; }
+        public int TechnicianId { get; set; }
 
-        public DeleteTechnicianCommand(int Id)
+        public DeleteTechnicianCommand(int technicianId)
         {
-            this.Id = Id;
+            technicianId = TechnicianId;
         }
     }
 }
