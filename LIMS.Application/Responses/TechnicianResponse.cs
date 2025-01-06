@@ -9,6 +9,5 @@
         public string Phone { get; set; }
         public string Status { get; set; }
         public int LaboratoryId { get; set; }
-
     }
 }
