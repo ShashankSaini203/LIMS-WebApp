@@ -17,6 +17,7 @@ using LIMS.Application.Handlers.Instrument.InstrumentQueryHandler;
 using LIMS.Application.Queries.Instrument;
 using LIMS.Application.Commands.Technician;
 using LIMS.Application.Queries.Technician;
+using LIMS.Application.Handlers.Technician.TechnicianCommandHandler;
 
 namespace LIMS.WebAPI
 {
@@ -73,10 +74,10 @@ namespace LIMS.WebAPI
 
             #region Technician Handlers
             builder.RegisterType<CreateTechnicianCommandHandler>().As<IRequestHandler<CreateTechnicianCommand, TechnicianResponse>>().InstancePerLifetimeScope();
-            builder.RegisterType<UpdateTechnicianCommandHandler>().As<IRequestHandler<UpdateTechnicianCommand, TechnicianResponse>>().InstancePerLifetimeScope();
-            builder.RegisterType<DeleteTechnicianCommandHandler>().As<IRequestHandler<DeleteTechnicianCommand, Unit>>().InstancePerLifetimeScope();
-            builder.RegisterType<GetAllTechnicianQueryHandler>().As<IRequestHandler<GetAllTechnicianQuery, IEnumerable<TechnicianResponse>>>().InstancePerLifetimeScope();
-            builder.RegisterType<GetTechnicianByIdQueryHandler>().As<IRequestHandler<GetTechnicianByIdQuery, TechnicianResponse>>().InstancePerLifetimeScope();
+            //builder.RegisterType<UpdateTechnicianCommandHandler>().As<IRequestHandler<UpdateTechnicianCommand, TechnicianResponse>>().InstancePerLifetimeScope();
+            //builder.RegisterType<DeleteTechnicianCommandHandler>().As<IRequestHandler<DeleteTechnicianCommand, Unit>>().InstancePerLifetimeScope();
+            //builder.RegisterType<GetAllTechnicianQueryHandler>().As<IRequestHandler<GetAllTechnicianQuery, IEnumerable<TechnicianResponse>>>().InstancePerLifetimeScope();
+            //builder.RegisterType<GetTechnicianByIdQueryHandler>().As<IRequestHandler<GetTechnicianByIdQuery, TechnicianResponse>>().InstancePerLifetimeScope();
             #endregion
         }
 
