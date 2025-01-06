@@ -1,4 +1,5 @@
 ﻿using LIMS.Application.Commands.Technician;
+using LIMS.Application.Mappers;
 using LIMS.Application.Responses;
 using LIMS.Domain.Interfaces.Repository.Commands;
 using MediatR;
@@ -16,7 +17,16 @@ namespace LIMS.Application.Handlers.Technician.TechnicianCommandHandler
 
         public async Task<TechnicianResponse> Handle(CreateTechnicianCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var techinician = AutoMapperConfiguration.Mapper.Map<LIMS.Domain.Models.Technician>(request);
+
+            if(techinician == null)
+            {
+                throw new ApplicationException("Unable to map due to an issue with mapper.");
+            }
+
+            var result = await _technicianCommandRepository.CreateAsync(techinician);
+
+            return AutoMapperConfiguration.Mapper.Map< TechnicianResponse>(result);
         }
     }
 }
