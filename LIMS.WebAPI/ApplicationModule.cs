@@ -31,6 +31,7 @@ namespace LIMS.WebAPI
 
             RegisterLaboratoryDependencies(builder);
             RegisterInstrumentDependencies(builder);
+            RegisterTechnicianDependencies(builder);
         }
 
         private void RegisterLaboratoryDependencies(ContainerBuilder builder)
