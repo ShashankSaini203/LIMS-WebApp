@@ -20,6 +20,7 @@ namespace LIMS.Application.Mappers
         {
             LaboratoryMappers();
             InstrumentMappers();
+            TechnicianMappers();
 
             DomainModelAndResponseMapper();
         }
