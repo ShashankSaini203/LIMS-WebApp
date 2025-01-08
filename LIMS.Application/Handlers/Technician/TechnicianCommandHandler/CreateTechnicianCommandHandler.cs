@@ -19,12 +19,12 @@ namespace LIMS.Application.Handlers.Technician.TechnicianCommandHandler
         {
             var techinicianEntity = AutoMapperConfiguration.Mapper.Map<Domain.Models.Technician>(request);
 
-            if(techinician is null)
+            if(techinicianEntity is null)
             {
                 throw new ApplicationException("Unable to map due to an issue with mapper.");
             }
 
-            var result = await _technicianCommandRepository.CreateAsync(techinician);
+            var result = await _technicianCommandRepository.CreateAsync(techinicianEntity);
 
             return AutoMapperConfiguration.Mapper.Map< TechnicianResponse>(result);
         }

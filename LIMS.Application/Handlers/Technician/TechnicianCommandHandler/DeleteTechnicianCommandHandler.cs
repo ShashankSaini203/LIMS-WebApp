@@ -1,6 +1,6 @@
 ﻿namespace LIMS.Application.Handlers.Technician.TechnicianCommandHandler
 {
-    internal class DeleteTechnicianCommandHandler
+    public class DeleteTechnicianCommandHandler
     {
     }
 }
