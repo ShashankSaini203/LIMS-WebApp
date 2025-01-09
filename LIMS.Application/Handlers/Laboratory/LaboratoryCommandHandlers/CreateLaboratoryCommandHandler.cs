@@ -14,6 +14,7 @@ namespace LIMS.Application.Handlers.Laboratory.LaboratoryCommandHandlers
         {
             _labCommandRepository = labCommandRepository;
         }
+
         public async Task<LaboratoryResponse> Handle(CreateLaboratoryCommand request, CancellationToken cancellationToken)
         {
             var laboratoryEntity = AutoMapperConfiguration.Mapper.Map<Domain.Models.Laboratory>(request);
