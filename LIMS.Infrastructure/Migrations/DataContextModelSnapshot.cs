@@ -3,6 +3,7 @@ using System;
 using LIMS.Infrastructure.Database.DBcontext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -15,79 +16,86 @@ namespace LIMS.Infrastructure.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "8.0.7");
+            modelBuilder
+                .HasAnnotation("ProductVersion", "9.0.8")
+                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
             modelBuilder.Entity("LIMS.Domain.Models.CalibrationRecord", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("CalibrationRecordId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CalibrationRecordId"));
 
                     b.Property<DateTime>("CurrentCalibrationDate")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("InstrumentId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("NextCalibrationDueDate")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Notes")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Result")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TechnicianId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
-                    b.Property<string>("TechnicianName")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.HasKey("CalibrationRecordId");
 
-                    b.HasKey("Id");
+                    b.HasIndex("InstrumentId");
+
+                    b.HasIndex("TechnicianId");
 
                     b.ToTable("CalibrationRecords");
                 });
 
             modelBuilder.Entity("LIMS.Domain.Models.Instrument", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("InstrumentId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("InstrumentId"));
 
                     b.Property<string>("AdditionalNotes")
                         .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("CalibrationRecordId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("CurrentCalibrationDate")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("ExpiryDate")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("LaboratoryId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<string>("Manufacturer")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Model")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("PurchaseDate")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime2");
 
-                    b.HasKey("Id");
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("InstrumentId");
 
                     b.HasIndex("LaboratoryId");
 
@@ -96,109 +104,142 @@ namespace LIMS.Infrastructure.Migrations
 
             modelBuilder.Entity("LIMS.Domain.Models.Laboratory", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("LaboratoryId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("LaboratoryId"));
 
                     b.Property<string>("ContactNumber")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Location")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("LaboratoryId");
 
                     b.ToTable("Laboratories");
                 });
 
             modelBuilder.Entity("LIMS.Domain.Models.OrderDetails", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("OrderId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderId"));
 
                     b.Property<string>("AdditionalNotes")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Count")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DeliveryDate")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("InstrumentId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<int>("LaboratoryId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("OrderDate")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("OrderedBy")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
 
                     b.Property<string>("Status")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("OrderId");
+
+                    b.HasIndex("LaboratoryId");
 
                     b.ToTable("OrderDetails");
                 });
 
             modelBuilder.Entity("LIMS.Domain.Models.Technician", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("TechnicianId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TechnicianId"));
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("LaboratoryId")
+                        .HasColumnType("int");
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("TechnicianId");
 
                     b.ToTable("Technicians");
                 });
 
-            modelBuilder.Entity("LIMS.Domain.Models.Instrument", b =>
+            modelBuilder.Entity("LIMS.Domain.Models.CalibrationRecord", b =>
                 {
-                    b.HasOne("LIMS.Domain.Models.Laboratory", "Laboratory")
-                        .WithMany("Instruments")
-                        .HasForeignKey("LaboratoryId")
+                    b.HasOne("LIMS.Domain.Models.Instrument", null)
+                        .WithMany()
+                        .HasForeignKey("InstrumentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Laboratory");
+                    b.HasOne("LIMS.Domain.Models.Technician", null)
+                        .WithMany()
+                        .HasForeignKey("TechnicianId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
-            modelBuilder.Entity("LIMS.Domain.Models.Laboratory", b =>
+            modelBuilder.Entity("LIMS.Domain.Models.Instrument", b =>
                 {
-                    b.Navigation("Instruments");
+                    b.HasOne("LIMS.Domain.Models.Laboratory", null)
+                        .WithMany()
+                        .HasForeignKey("LaboratoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("LIMS.Domain.Models.OrderDetails", b =>
+                {
+                    b.HasOne("LIMS.Domain.Models.Laboratory", null)
+                        .WithMany()
+                        .HasForeignKey("LaboratoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
