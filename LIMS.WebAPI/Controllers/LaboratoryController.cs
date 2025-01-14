@@ -27,9 +27,19 @@ namespace LIMS.WebApp.Controllers
         [HttpPost("CreateLab")]
         public async Task<CreateLaboratoryCommand> CreateLab(CreateLaboratoryCommand createNewLabModel)
         {
-            await _mediator.Send(createNewLabModel);
-            return createNewLabModel;
-
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    throw new Exception("");
+                }
+                await _mediator.Send(createNewLabModel);
+                return createNewLabModel;
+            }
+            catch (Exception ex)
+            {
+                throw new BadHttpRequestException("Bad Request", ex);
+            }
         }
 
         [HttpGet("GetLaboratory/{id}")]
