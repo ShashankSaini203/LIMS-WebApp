@@ -31,7 +31,7 @@ namespace LIMS.WebApp.Controllers
             {
                 if (!ModelState.IsValid)
                 {
-                    throw new Exception("");
+                    throw new BadHttpRequestException("Invalid data provided");
                 }
                 await _mediator.Send(createNewLabModel);
                 return createNewLabModel;
@@ -58,10 +58,10 @@ namespace LIMS.WebApp.Controllers
         }
 
         [HttpDelete("DeleteLab")]
-        public async Task<Unit> DeleteLab(int id)
+        public async Task<string> DeleteLab(int id)
         {
-            var deletedLab = await _mediator.Send(new DeleteLaboratoryCommand(id));
-            return deletedLab;
+            await _mediator.Send(new DeleteLaboratoryCommand(id));
+            return "Laboratory deleted duccessfully";
         }
     }
 }
