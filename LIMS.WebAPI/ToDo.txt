@@ -1,1 +1,2 @@
 ﻿Create Laboratory should return LaboratoryId generated as well
+For Delete Command handlers, find better way to return a sensible response rather than "Unit"
