@@ -27,57 +27,57 @@ namespace LIMS.WebAPI.Controllers
         }
 
         [HttpPost("CreateInstrument")]
-        public async Task<ActionResult<InstrumentResponse>> CreateInstrument(CreateInstrumentCommand newInstrumentData)
+        public async Task<InstrumentResponse> CreateInstrument(CreateInstrumentCommand newInstrumentData)
         {
             try
             {
                 if (!ModelState.IsValid)
                 {
-                    return BadRequest("Invalid data provided");
+                    throw new BadHttpRequestException("Invalid data provided");
                 }
 
-                await _mediator.Send(newInstrumentData);
-                return Ok("Instrument created successfully!");
+                var instrument = await _mediator.Send(newInstrumentData);
+                return instrument;
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.ToString());
+                throw new BadHttpRequestException("Bad Request", ex);
             }
         }
 
         [HttpPost]
         [Route("UpdateInstrument")]
-        public async Task<ActionResult<InstrumentResponse>> UpdateInstrument(UpdateInstrumentCommand newInstrumentData)
+        public async Task<InstrumentResponse> UpdateInstrument(UpdateInstrumentCommand newInstrumentData)
         {
             try
             {
                 if (!ModelState.IsValid)
                 {
-                    return BadRequest("Invalid data provided");
+                    throw new BadHttpRequestException("Invalid data provided");
                 }
-                await _mediator.Send(newInstrumentData);
-                return Ok("Instrument updated successfully!");
+
+                var updatedInstrument = await _mediator.Send(newInstrumentData);
+                return updatedInstrument;
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.ToString());
+                throw new BadHttpRequestException("Bad Request", ex);
             }
         }
 
         [HttpDelete]
         [Route("DeleteInstrument/{id}")]
-        public async Task<IActionResult> DeleteInstrument(int id)
+        public async Task<string> DeleteInstrument(int id)
         {
             try
             {
                 await _mediator.Send(new DeleteInstrumentCommand(id));
-                return BadRequest("Instrument deleted successfully!");
+                return "Instrument deleted successfully!";
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.ToString());
+                throw new BadHttpRequestException(ex.ToString());
             }
-
         }
     }
 }
