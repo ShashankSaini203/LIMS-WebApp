@@ -22,8 +22,19 @@ namespace LIMS.WebAPI.Controllers
         [HttpPost("CreateTechnician")]
         public async Task<TechnicianResponse> CreateTechnician(CreateTechnicianCommand request)
         {
-            var response = await _mediator.Send(request);
-            return response;
+            try
+            {
+                if(!ModelState.IsValid)
+                {
+
+                }
+                var response = await _mediator.Send(request);
+                return response;
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
     }
