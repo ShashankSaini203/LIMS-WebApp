@@ -24,7 +24,7 @@ namespace LIMS.WebAPI.Controllers
         {
             try
             {
-                if(!ModelState.IsValid)
+                if (!ModelState.IsValid)
                 {
 
                 }
@@ -33,7 +33,7 @@ namespace LIMS.WebAPI.Controllers
             }
             catch (Exception ex)
             {
-
+                throw new BadHttpRequestException("Bad request", ex);
             }
         }
 
