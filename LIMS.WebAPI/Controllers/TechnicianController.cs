@@ -26,7 +26,7 @@ namespace LIMS.WebAPI.Controllers
             {
                 if (!ModelState.IsValid)
                 {
-
+                    throw new BadHttpRequestException("Invalid data provided");
                 }
                 var response = await _mediator.Send(request);
                 return response;
