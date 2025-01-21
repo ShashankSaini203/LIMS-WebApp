@@ -4,3 +4,5 @@ For Delete Command handlers, find better way to return a sensible response rathe
 
 Update models so that we can have enums wherever required like status- Active or Inactive
 
+If a model has reference to another contratc's primary key, check if it would make sense to have them referenced.
+
