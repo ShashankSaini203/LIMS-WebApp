@@ -9,3 +9,7 @@ If a model has reference to another contratc's primary key, check if it would ma
 Add code to only add data when other required data is present, example- Technician if being added to a laboratory then that Lab should be present
 If we dont want to add a technician to be added to the lab just now, then we can leave LaboratoryId as null 
 
+Add fluent validations instead of Model states
+
+Add caching
+
