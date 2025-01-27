@@ -16,16 +16,21 @@ namespace LIMS.Application.Handlers.Instrument.InstrumentCommandHandlers
         }
         public async Task<InstrumentResponse> Handle(UpdateInstrumentCommand request, CancellationToken cancellationToken)
         {
-            var laboratoryToUpdate = AutoMapperConfiguration.Mapper.Map<Domain.Models.Instrument>(request);
+            var laboratoryEntity = AutoMapperConfiguration.Mapper.Map<Domain.Models.Instrument>(request);
 
-            if (laboratoryToUpdate == null)
+            if (laboratoryEntity == null)
             {
                 throw new ApplicationException("Unable to map due to an issue with mapper.");
             }
 
-            var updatedInstrument = await _instrumentCommandRepository.UpdateAsync(laboratoryToUpdate);
-            var response = AutoMapperConfiguration.Mapper.Map<InstrumentResponse>(updatedInstrument);
-            return response;
+            var updatedInstrument = await _instrumentCommandRepository.UpdateAsync(laboratoryEntity);
+            var mappedResult = AutoMapperConfiguration.Mapper.Map<InstrumentResponse>(updatedInstrument);
+
+            if (mappedResult == null)
+            {
+                throw new ApplicationException("Unable to map due to an issue with mapper.");
+            }
+            return mappedResult;
         }
     }
 }
