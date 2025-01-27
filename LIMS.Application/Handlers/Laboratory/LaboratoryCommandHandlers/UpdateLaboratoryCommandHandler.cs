@@ -17,9 +17,19 @@ namespace LIMS.Application.Handlers.Laboratory.LaboratoryCommandHandlers
 
         public async Task<LaboratoryResponse> Handle(UpdateLaboratoryCommand request, CancellationToken cancellationToken)
         {
-            var updatedLaboratoryEntity = AutoMapperConfiguration.Mapper.Map<Domain.Models.Laboratory>(request);
-            var result = await _labCommandRepository.UpdateAsync(updatedLaboratoryEntity);
+            var laboratoryEntity = AutoMapperConfiguration.Mapper.Map<Domain.Models.Laboratory>(request);
+            
+            if (laboratoryEntity == null)
+            {
+                throw new ApplicationException("Unable to map due to an issue with mapper.");
+            }
+
+            var result = await _labCommandRepository.UpdateAsync(laboratoryEntity);
             var mappedResult = AutoMapperConfiguration.Mapper.Map<LaboratoryResponse>(result);
+            if (mappedResult == null)
+            {
+                throw new ApplicationException("Unable to map due to an issue with mapper.");
+            }
             return mappedResult;
         }
     }

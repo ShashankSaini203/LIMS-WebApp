@@ -18,16 +18,19 @@ namespace LIMS.Application.Handlers.Technician.TechnicianCommandHandler
 
         public async Task<TechnicianResponse> Handle(UpdateTechnicianCommand request, CancellationToken cancellationToken)
         {
-            var UpdateTechnicianEntity = AutoMapperConfiguration.Mapper.Map<Domain.Models.Technician>(request);
-            if (UpdateTechnicianEntity == null)
+            var technicianEntity = AutoMapperConfiguration.Mapper.Map<Domain.Models.Technician>(request);
+
+            if (technicianEntity == null)
             {
-                throw new Exception("Error with the mapper");
+                throw new ApplicationException("Unable to map due to an issue with mapper.");
             }
-            var result = _technicianCommandRepository.UpdateAsync(UpdateTechnicianEntity);
+
+            var result = _technicianCommandRepository.UpdateAsync(technicianEntity);
             var mappedResult = AutoMapperConfiguration.Mapper.Map<TechnicianResponse>(result);
+
             if (mappedResult == null)
             {
-                throw new Exception("Error with the mapper");
+                throw new ApplicationException("Unable to map due to an issue with mapper.");
             }
             return mappedResult;
         }
