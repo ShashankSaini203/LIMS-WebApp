@@ -20,15 +20,18 @@ namespace LIMS.Application.Handlers.Instrument.InstrumentCommandHandlers
 
         public async Task<Unit> Handle(DeleteInstrumentCommand request, CancellationToken cancellationToken)
         {
-            var instrumentToDelete = await _instrumentQueryRepository.GetAsyncById(request.Id, DataTables.InstrumentTable, DataColumns.InstrumentId);
-            var instrumentEntity = AutoMapperConfiguration.Mapper.Map<Domain.Models.Instrument>(instrumentToDelete);
+            var entityToDelete = await _instrumentQueryRepository.GetAsyncById(request.Id, DataTables.InstrumentTable, DataColumns.InstrumentId);
 
-            if (instrumentEntity == null)
+            if (entityToDelete != null)
             {
-                throw new ApplicationException("Unable to map due to an issue with mapper.");
+                var instrumentEntity = AutoMapperConfiguration.Mapper.Map<Domain.Models.Instrument>(entityToDelete);
+                if (instrumentEntity == null)
+                {
+                    throw new ApplicationException("Unable to map due to an issue with mapper.");
+                }
+                else
+                    await _instrumentCommandRepository.DeleteAsync(instrumentEntity);
             }
-
-            await _instrumentCommandRepository.DeleteAsync(instrumentEntity);
             return Unit.Value;
         }
     }
