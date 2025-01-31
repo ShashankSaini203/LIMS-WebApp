@@ -23,17 +23,12 @@ namespace LIMS.Application.Handlers.Laboratory.LaboratoryCommandHandlers
             var entityToDelete = await _labQueryRepository.GetAsyncById(request.Id, DataTables.LaboratoryTable, DataColumns.LaboratoryId);
 
             var laboratoryEntity = AutoMapperConfiguration.Mapper.Map<Domain.Models.Laboratory>(entityToDelete);
-
             if (laboratoryEntity == null)
             {
                 throw new ApplicationException("Unable to map due to an issue with mapper.");
             }
 
-            if (entityToDelete != null)
-            {
-                await _labCommandRepository.DeleteAsync(laboratoryEntity);
-            }
-
+            await _labCommandRepository.DeleteAsync(laboratoryEntity);
             return Unit.Value;
         }
     }
