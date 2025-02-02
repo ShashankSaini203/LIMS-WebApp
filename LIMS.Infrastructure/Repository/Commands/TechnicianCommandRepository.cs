@@ -7,9 +7,21 @@ namespace LIMS.Infrastructure.Repository.Commands
 {
     public class TechnicianCommandRepository: BaseCommandRepository<Technician>, ITechnicianCommandRepository
     {
-        public TechnicianCommandRepository(DataContext _dataContext) : base(_dataContext)
+        private readonly DataContext _dataContext;
+        public TechnicianCommandRepository(DataContext dataContext) : base(dataContext)
         {
-            
+            _dataContext = dataContext;
+        }
+
+        public override async Task<Technician> UpdateAsync(Technician technician)
+        {
+            var existingLaboratoryData = await _dataContext.Set<Laboratory>().FindAsync(technician.TechnicianId);
+            if(existingLaboratoryData != null)
+            {
+                throw new Exception("No lab found");
+            }
+
+            var result = 
         }
     }
 }
