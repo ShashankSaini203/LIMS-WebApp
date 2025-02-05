@@ -29,8 +29,11 @@ namespace LIMS.Infrastructure.Repository.Commands
 
             if (updatedTechnicianData.LaboratoryId > 0)
         {
-            var existingLaboratoryData = await _dataContext.Set<Laboratory>().FindAsync(technician.TechnicianId);
-            if(existingLaboratoryData != null)
+                var doesLabExist = await _dataContext.Set<Laboratory>().FindAsync(updatedTechnicianData.LaboratoryId);
+                if (doesLabExist != null)
+                    existingTechnicianData.LaboratoryId = updatedTechnicianData.LaboratoryId;
+            }
+            else
             {
                 throw new Exception("No lab found");
             }
