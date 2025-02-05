@@ -35,7 +35,7 @@ namespace LIMS.Infrastructure.Repository.Commands
             }
             else
             {
-                throw new Exception("No lab found");
+                existingTechnicianData.LaboratoryId = 0;
             }
 
             var result = 
