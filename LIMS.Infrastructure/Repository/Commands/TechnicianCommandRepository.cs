@@ -13,7 +13,21 @@ namespace LIMS.Infrastructure.Repository.Commands
             _dataContext = dataContext;
         }
 
-        public override async Task<Technician> UpdateAsync(Technician technician)
+        public override async Task<Technician> UpdateAsync(Technician updatedTechnicianData)
+        {
+            var existingTechnicianData = await _dataContext.Set<Technician>().FindAsync(updatedTechnicianData.TechnicianId);
+            if (existingTechnicianData != null)
+            {
+                throw new Exception($"No technician with id {updatedTechnicianData.TechnicianId} found.");
+            }
+
+            existingTechnicianData.FirstName = updatedTechnicianData.FirstName ?? existingTechnicianData.FirstName;
+            existingTechnicianData.LastName = updatedTechnicianData.LastName ?? existingTechnicianData.LastName;
+            existingTechnicianData.Email = updatedTechnicianData.Email ?? existingTechnicianData.Email;
+            existingTechnicianData.Status = updatedTechnicianData.Status ?? existingTechnicianData.Status;
+            existingTechnicianData.Phone = updatedTechnicianData.Phone ?? existingTechnicianData.Phone;
+
+            if (updatedTechnicianData.LaboratoryId > 0)
         {
             var existingLaboratoryData = await _dataContext.Set<Laboratory>().FindAsync(technician.TechnicianId);
             if(existingLaboratoryData != null)
