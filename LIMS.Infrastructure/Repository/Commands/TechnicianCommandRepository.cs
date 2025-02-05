@@ -5,7 +5,7 @@ using LIMS.Infrastructure.Repository.Commands.BaseCommand;
 
 namespace LIMS.Infrastructure.Repository.Commands
 {
-    public class TechnicianCommandRepository: BaseCommandRepository<Technician>, ITechnicianCommandRepository
+    public class TechnicianCommandRepository : BaseCommandRepository<Technician>, ITechnicianCommandRepository
     {
         private readonly DataContext _dataContext;
         public TechnicianCommandRepository(DataContext dataContext) : base(dataContext)
@@ -28,7 +28,7 @@ namespace LIMS.Infrastructure.Repository.Commands
             existingTechnicianData.Phone = updatedTechnicianData.Phone ?? existingTechnicianData.Phone;
 
             if (updatedTechnicianData.LaboratoryId > 0)
-        {
+            {
                 var doesLabExist = await _dataContext.Set<Laboratory>().FindAsync(updatedTechnicianData.LaboratoryId);
                 if (doesLabExist != null)
                     existingTechnicianData.LaboratoryId = updatedTechnicianData.LaboratoryId;
@@ -38,7 +38,7 @@ namespace LIMS.Infrastructure.Repository.Commands
                 existingTechnicianData.LaboratoryId = 0;
             }
 
-            var result = 
+            var result =
         }
     }
 }
