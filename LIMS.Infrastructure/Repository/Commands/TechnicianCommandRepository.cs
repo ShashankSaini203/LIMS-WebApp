@@ -2,6 +2,7 @@
 using LIMS.Domain.Models;
 using LIMS.Infrastructure.Database.DBcontext;
 using LIMS.Infrastructure.Repository.Commands.BaseCommand;
+using Microsoft.EntityFrameworkCore;
 
 namespace LIMS.Infrastructure.Repository.Commands
 {
@@ -15,30 +16,45 @@ namespace LIMS.Infrastructure.Repository.Commands
 
         public override async Task<Technician> UpdateAsync(Technician updatedTechnicianData)
         {
-            var existingTechnicianData = await _dataContext.Set<Technician>().FindAsync(updatedTechnicianData.TechnicianId);
-            if (existingTechnicianData != null)
+            if (updatedTechnicianData == null)
             {
-                throw new Exception($"No technician with id {updatedTechnicianData.TechnicianId} found.");
+                throw new ArgumentNullException("No Technician data provided");
             }
 
-            existingTechnicianData.FirstName = updatedTechnicianData.FirstName ?? existingTechnicianData.FirstName;
-            existingTechnicianData.LastName = updatedTechnicianData.LastName ?? existingTechnicianData.LastName;
-            existingTechnicianData.Email = updatedTechnicianData.Email ?? existingTechnicianData.Email;
-            existingTechnicianData.Status = updatedTechnicianData.Status ?? existingTechnicianData.Status;
-            existingTechnicianData.Phone = updatedTechnicianData.Phone ?? existingTechnicianData.Phone;
-
-            if (updatedTechnicianData.LaboratoryId > 0)
+            try
             {
-                var doesLabExist = await _dataContext.Set<Laboratory>().FindAsync(updatedTechnicianData.LaboratoryId);
-                if (doesLabExist != null)
-                    existingTechnicianData.LaboratoryId = updatedTechnicianData.LaboratoryId;
-            }
-            else
-            {
-                existingTechnicianData.LaboratoryId = 0;
-            }
+                var existingTechnicianData = await _dataContext.Set<Technician>().FindAsync(updatedTechnicianData.TechnicianId);
+                if (existingTechnicianData == null)
+                {
+                    throw new Exception($"No technician with id {updatedTechnicianData.TechnicianId} found.");
+                }
 
-            var result =
+                existingTechnicianData.FirstName = updatedTechnicianData.FirstName ?? existingTechnicianData.FirstName;
+                existingTechnicianData.LastName = updatedTechnicianData.LastName ?? existingTechnicianData.LastName;
+                existingTechnicianData.Email = updatedTechnicianData.Email ?? existingTechnicianData.Email;
+                existingTechnicianData.Status = updatedTechnicianData.Status ?? existingTechnicianData.Status;
+                existingTechnicianData.Phone = updatedTechnicianData.Phone ?? existingTechnicianData.Phone;
+
+                if (updatedTechnicianData.LaboratoryId > 0)
+                {
+                    var doesLabExist = await _dataContext.Set<Laboratory>().FindAsync(updatedTechnicianData.LaboratoryId);
+                    if (doesLabExist != null)
+                        existingTechnicianData.LaboratoryId = updatedTechnicianData.LaboratoryId;
+                }
+                else
+                {
+                    existingTechnicianData.LaboratoryId = 0;
+                }
+                _dataContext.Set<Technician>().Update(existingTechnicianData);
+                _dataContext.Entry(existingTechnicianData).State = EntityState.Modified;
+                await _dataContext.SaveChangesAsync();
+                return existingTechnicianData;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
