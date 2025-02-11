@@ -12,7 +12,7 @@ namespace LIMS.Application.Commands.Instrument
         [Required, MinLength(3, ErrorMessage = "Manufacturer name should be atleast 3 characters long")]
         public string Manufacturer { get; set; }
         public string Model { get; set; }
-        public string Quantity { get; set; }
+        public int Quantity { get; set; }
 
         [Required]
         public DateTime PurchaseDate { get; set; }
