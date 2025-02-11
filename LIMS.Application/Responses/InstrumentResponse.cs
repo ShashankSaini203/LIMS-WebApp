@@ -6,6 +6,7 @@
         public string Name { get; set; }
         public string Manufacturer { get; set; }
         public string Model { get; set; }
+        public string Quantity { get; set; }
         public DateTime PurchaseDate { get; set; }
         public DateTime ExpiryDate { get; set; }
         public string AdditionalNotes { get; set; }
