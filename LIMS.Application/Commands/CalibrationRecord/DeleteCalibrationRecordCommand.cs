@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using System.ComponentModel.DataAnnotations;
 
 namespace LIMS.Application.Commands.CalibrationRecord
 {
