@@ -5,11 +5,11 @@ namespace LIMS.Application.Queries.Laboratory
 {
     public class GetLaboratoryByIdQuery : IRequest<LaboratoryResponse>
     {
-        public int Id { get; set; }
+        public int LaboratoryId { get; set; }
 
-        public GetLaboratoryByIdQuery(int id)
+        public GetLaboratoryByIdQuery(int laboratoryId)
         {
-            Id = id;
+            LaboratoryId = laboratoryId;
         }
     }
 }
