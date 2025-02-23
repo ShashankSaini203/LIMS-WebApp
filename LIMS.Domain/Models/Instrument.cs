@@ -20,8 +20,6 @@ namespace LIMS.Domain.Models
         public DateTime PurchaseDate { get; set; }
         public DateTime ExpiryDate { get; set; }
         public string AdditionalNotes { get; set; }
-
-        [Required]
         public int LaboratoryId { get; set; }
     }
 }
