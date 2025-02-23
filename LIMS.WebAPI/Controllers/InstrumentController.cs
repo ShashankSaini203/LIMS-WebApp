@@ -51,11 +51,6 @@ namespace LIMS.WebAPI.Controllers
         {
             try
             {
-                if (!ModelState.IsValid)
-                {
-                    throw new BadHttpRequestException("Invalid data provided");
-                }
-
                 var updatedInstrument = await _mediator.Send(newInstrumentData);
                 return updatedInstrument;
             }
