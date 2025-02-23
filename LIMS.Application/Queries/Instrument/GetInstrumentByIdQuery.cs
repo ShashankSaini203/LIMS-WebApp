@@ -5,11 +5,11 @@ namespace LIMS.Application.Queries.Instrument
 {
     public class GetInstrumentByIdQuery : IRequest<InstrumentResponse>
     {
-        public int Id { get; set; }
+        public int InstrumentId { get; set; }
 
-        public GetInstrumentByIdQuery(int id)
+        public GetInstrumentByIdQuery(int instrumentId)
         {
-            Id = id;
+            InstrumentId = instrumentId;
         }
     }
 }
