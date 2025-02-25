@@ -6,11 +6,11 @@ namespace LIMS.Application.Commands.Instrument
     public class UpdateInstrumentCommand : IRequest<InstrumentResponse>
     {
         public string Id { get; set; }
-        public string Name { get; set; }
-        public string Manufacturer { get; set; }
-        public string Model { get; set; }
+        public string? Name { get; set; }
+        public string? Manufacturer { get; set; }
+        public string? Model { get; set; }
         public DateTime PurchaseDate { get; set; }
         public DateTime ExpiryDate { get; set; }
-        public string AdditionalNotes { get; set; }
+        public string? AdditionalNotes { get; set; }
     }
 }
