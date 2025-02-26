@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using LIMS.Application.Responses;
-using System.ComponentModel.DataAnnotations;
 
 namespace LIMS.Application.Commands.Laboratory
 {
