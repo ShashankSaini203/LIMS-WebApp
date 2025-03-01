@@ -5,11 +5,11 @@
         public int InstrumentId { get; set; }
         public string Name { get; set; }
         public string Manufacturer { get; set; }
-        public string Model { get; set; }
         public int Quantity { get; set; }
+        public string Model { get; set; }
         public DateTime PurchaseDate { get; set; }
         public DateTime ExpiryDate { get; set; }
         public string AdditionalNotes { get; set; }
-        public string LaboratoryId { get; set; }
+        public int LaboratoryId { get; set; }
     }
 }
