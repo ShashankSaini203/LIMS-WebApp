@@ -20,7 +20,7 @@ namespace LIMS.WebApp.Controllers
         public async Task<IEnumerable<LaboratoryResponse>> GetAllLabs()
         {
             // Fetch all laboratories to display in the table
-            var laboratories = await _mediator.Send(new GetAllLaboratoryQuery());
+            var laboratories = await _mediator.Send(new GetAllLaboratoriesQuery());
             return laboratories;
         }
 
