@@ -40,7 +40,7 @@ namespace LIMS.Application.Mappers
             CreateMap<CreateLaboratoryCommand, Laboratory>().ReverseMap();
             CreateMap<DeleteLaboratoryCommand, Laboratory>().ReverseMap();
             CreateMap<UpdateLaboratoryCommand, Laboratory>().ReverseMap();
-            CreateMap<GetAllLaboratoryQuery, Laboratory>().ReverseMap();
+            CreateMap<GetAllLaboratoriesQuery, Laboratory>().ReverseMap();
             CreateMap<GetLaboratoryByIdQuery, Laboratory>().ReverseMap();
         }
 
@@ -70,7 +70,7 @@ namespace LIMS.Application.Mappers
             CreateMap<CreateTechnicianCommand, Technician>().ReverseMap();
             CreateMap<UpdateTechnicianCommand, Technician>().ReverseMap();
             CreateMap<DeleteTechnicianCommand, Technician>().ReverseMap();
-            CreateMap<GetAllTechnicianQuery, Technician>().ReverseMap();
+            CreateMap<GetAllTechniciansQuery, Technician>().ReverseMap();
             CreateMap<GetTechnicianByIdQuery, Technician>().ReverseMap();
         }
 
