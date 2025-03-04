@@ -7,14 +7,14 @@ using MediatR;
 
 namespace LIMS.Application.Handlers.Laboratory.LaboratoryQueryHandlers
 {
-    public class GetAllLaboratoryQueryHandler : IRequestHandler<GetAllLaboratoryQuery, IEnumerable<LaboratoryResponse>>
+    public class GetAllLaboratoriesQueryHandler : IRequestHandler<GetAllLaboratoriesQuery, IEnumerable<LaboratoryResponse>>
     {
         private ILabQueryRepository _labQueryRepository;
-        public GetAllLaboratoryQueryHandler(ILabQueryRepository labQueryRepository)
+        public GetAllLaboratoriesQueryHandler(ILabQueryRepository labQueryRepository)
         {
             _labQueryRepository = labQueryRepository;
         }
-        public async Task<IEnumerable<LaboratoryResponse>> Handle(GetAllLaboratoryQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<LaboratoryResponse>> Handle(GetAllLaboratoriesQuery request, CancellationToken cancellationToken)
         {
             var allLaboratories = await _labQueryRepository.GetAllAsync(DataTables.LaboratoryTable);
             return AutoMapperConfiguration.Mapper.Map<IEnumerable<LaboratoryResponse>>(allLaboratories);
