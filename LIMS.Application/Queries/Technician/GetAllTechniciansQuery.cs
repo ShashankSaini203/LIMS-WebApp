@@ -3,7 +3,7 @@ using MediatR;
 
 namespace LIMS.Application.Queries.Technician
 {
-    public class GetAllTechnicianQuery : IRequest<IEnumerable<TechnicianResponse>>
+    public class GetAllTechniciansQuery : IRequest<IEnumerable<TechnicianResponse>>
     {
     }
 }
