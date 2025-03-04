@@ -15,8 +15,4 @@
     <ProjectReference Include="..\LIMS.Domain\LIMS.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Handlers\Technician\TechnicianQueryHandler\" />
-  </ItemGroup>
-
 </Project>
