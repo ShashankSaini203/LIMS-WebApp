@@ -45,7 +45,7 @@ namespace LIMS.WebAPI
             builder.RegisterType<CreateLaboratoryCommandHandler>().As<IRequestHandler<CreateLaboratoryCommand, LaboratoryResponse>>().InstancePerLifetimeScope();
             builder.RegisterType<UpdateLaboratoryCommandHandler>().As<IRequestHandler<UpdateLaboratoryCommand, LaboratoryResponse>>().InstancePerLifetimeScope();
             builder.RegisterType<DeleteLaboratoryCommandHandler>().As<IRequestHandler<DeleteLaboratoryCommand, Unit>>().InstancePerLifetimeScope();
-            builder.RegisterType<GetAllLaboratoryQueryHandler>().As<IRequestHandler<GetAllLaboratoryQuery, IEnumerable<LaboratoryResponse>>>().InstancePerLifetimeScope();
+            builder.RegisterType<GetAllLaboratoriesQueryHandler>().As<IRequestHandler<GetAllLaboratoriesQuery, IEnumerable<LaboratoryResponse>>>().InstancePerLifetimeScope();
             builder.RegisterType<GetLaboratoryByIdQueryHandler>().As<IRequestHandler<GetLaboratoryByIdQuery, LaboratoryResponse>>().InstancePerLifetimeScope();
             #endregion
         }
