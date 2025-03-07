@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LIMS.Application.Handlers.Technician.TechnicianQueryHandler
 {
-    internal class GetAllTechniciansQueryHandler
+    public class GetAllTechniciansQueryHandler
     {
     }
 }
