@@ -1,24 +1,24 @@
 ﻿using Autofac;
-using LIMS.Domain.Interfaces.Repository.Commands;
-using LIMS.Infrastructure.Database.DBcontext;
-using LIMS.Infrastructure.Repository.Commands;
-using LIMS.Application.Responses;
 using MediatR;
-using LIMS.Application.Commands.Laboratory;
-using LIMS.Infrastructure.Repository.Queries;
-using LIMS.Domain.Interfaces.Repository.Query;
-using LIMS.Application.Queries.Laboratory;
+using LIMS.Application.Responses;
+using LIMS.Infrastructure.Database.DBcontext;
 using LIMS.Infrastructure.Database.DBConnector;
+using LIMS.Infrastructure.Repository.Commands;
+using LIMS.Infrastructure.Repository.Queries;
+using LIMS.Domain.Interfaces.Repository.Commands;
+using LIMS.Domain.Interfaces.Repository.Query;
+using LIMS.Application.Commands.Laboratory;
 using LIMS.Application.Commands.Instrument;
+using LIMS.Application.Commands.Technician;
+using LIMS.Application.Queries.Laboratory;
+using LIMS.Application.Queries.Instrument;
+using LIMS.Application.Queries.Technician;
 using LIMS.Application.Handlers.Instrument.InstrumentCommandHandlers;
 using LIMS.Application.Handlers.Laboratory.LaboratoryCommandHandlers;
+using LIMS.Application.Handlers.Technician.TechnicianCommandHandler;
 using LIMS.Application.Handlers.Laboratory.LaboratoryQueryHandlers;
 using LIMS.Application.Handlers.Instrument.InstrumentQueryHandler;
 using LIMS.Application.Handlers.Technician.TechnicianQueryHandler;
-using LIMS.Application.Queries.Instrument;
-using LIMS.Application.Commands.Technician;
-using LIMS.Application.Queries.Technician;
-using LIMS.Application.Handlers.Technician.TechnicianCommandHandler;
 
 namespace LIMS.WebAPI
 {
