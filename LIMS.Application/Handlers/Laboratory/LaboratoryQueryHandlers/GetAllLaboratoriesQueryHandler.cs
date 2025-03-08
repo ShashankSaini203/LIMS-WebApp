@@ -10,10 +10,12 @@ namespace LIMS.Application.Handlers.Laboratory.LaboratoryQueryHandlers
     public class GetAllLaboratoriesQueryHandler : IRequestHandler<GetAllLaboratoriesQuery, IEnumerable<LaboratoryResponse>>
     {
         private ILabQueryRepository _labQueryRepository;
+
         public GetAllLaboratoriesQueryHandler(ILabQueryRepository labQueryRepository)
         {
             _labQueryRepository = labQueryRepository;
         }
+
         public async Task<IEnumerable<LaboratoryResponse>> Handle(GetAllLaboratoriesQuery request, CancellationToken cancellationToken)
         {
             var allLaboratories = await _labQueryRepository.GetAllAsync(DataTables.LaboratoryTable);
