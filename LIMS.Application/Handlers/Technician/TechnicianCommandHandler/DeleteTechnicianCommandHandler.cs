@@ -19,20 +19,13 @@ namespace LIMS.Application.Handlers.Technician.TechnicianCommandHandler
 
         public async Task<Unit> Handle(DeleteTechnicianCommand request, CancellationToken cancellationToken)
         {
-                var technicianEntity = AutoMapperConfiguration.Mapper.Map<Domain.Models.Technician>(request.TechnicianId);
-                if (technicianEntity == null)
-                {
-                    throw new ApplicationException("Unable to map due to an issue with mapper.");
-                }
+            var technicianEntityToDelete = await _technicianQueryRepository.GetAsyncById(request.TechnicianId, Domain.Common.DataTables.TechnicianTable, Domain.Common.DataColumns.TechnicianId);
 
-                var entityToDelete = await _technicianQueryRepository.GetAsyncById(technicianEntity.TechnicianId, Domain.Common.DataTables.TechnicianTable, Domain.Common.DataColumns.TechnicianId);
-                if(entityToDelete != null)
-                {
-                   await _technicianCommandRepository.DeleteAsync(technicianEntity.TechnicianId);
-                }
-                return response;
-            
-
+            if (technicianEntityToDelete != null)
+            {
+                await _technicianCommandRepository.DeleteAsync(technicianEntityToDelete);
+            }
+            return Unit.Value;
         }
     }
 }
