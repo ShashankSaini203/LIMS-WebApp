@@ -24,7 +24,6 @@ namespace LIMS.WebAPI.Controllers
         {
             try
             {
-                    throw new BadHttpRequestException("Invalid data provided");
                 var response = await _mediator.Send(request);
                 return response;
             }
@@ -36,7 +35,7 @@ namespace LIMS.WebAPI.Controllers
 
         public async Task<Unit> DeleteTechnician(DeleteTechnicianCommand deleteTechnicianCommand)
         {
-            
+
         }
 
     }
