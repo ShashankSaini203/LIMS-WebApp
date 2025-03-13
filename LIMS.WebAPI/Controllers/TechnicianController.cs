@@ -33,6 +33,7 @@ namespace LIMS.WebAPI.Controllers
             }
         }
 
+        [HttpDelete("DeleteTechnician")]
         public async Task<Unit> DeleteTechnician(DeleteTechnicianCommand deleteTechnicianCommand)
         {
 
