@@ -3,6 +3,7 @@ using LIMS.Application.Handlers.Laboratory.LaboratoryQueryHandlers;
 using LIMS.Application.Queries.Instrument;
 using LIMS.Application.Queries.Laboratory;
 using LIMS.Application.Responses;
+using LIMS.Domain.Models;
 using LIMS.WebAPI.Controllers;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -25,16 +26,12 @@ namespace LIMS.WebApp.Controllers
         }
 
         [HttpPost("CreateLab")]
-        public async Task<CreateLaboratoryCommand> CreateLab(CreateLaboratoryCommand createNewLabModel)
+        public async Task<LaboratoryResponse> CreateLab(CreateLaboratoryCommand createNewLabModel)
         {
             try
             {
-                if (!ModelState.IsValid)
-                {
-                    throw new BadHttpRequestException("Invalid data provided");
-                }
-                await _mediator.Send(createNewLabModel);
-                return createNewLabModel;
+                var createdLaboratory = await _mediator.Send(createNewLabModel);
+                return createdLaboratory;
             }
             catch (Exception ex)
             {
