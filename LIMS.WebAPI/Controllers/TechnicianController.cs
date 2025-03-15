@@ -19,6 +19,12 @@ namespace LIMS.WebAPI.Controllers
             return response;
         }
 
+        [HttpGet("/{id}")]
+        public async Task<TechnicianResponse> GetTechnicianById(int id)
+        {
+
+        }
+
         [HttpPost("CreateTechnician")]
         public async Task<TechnicianResponse> CreateTechnician(CreateTechnicianCommand request)
         {
