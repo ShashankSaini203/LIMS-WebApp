@@ -1,6 +1,14 @@
-﻿namespace LIMS.Application.Handlers.Technician.TechnicianQueryHandler
+﻿using LIMS.Application.Queries.Technician;
+using LIMS.Application.Responses;
+using MediatR;
+
+namespace LIMS.Application.Handlers.Technician.TechnicianQueryHandler
 {
-    internal class GetTechnicianByIdQueryHandler
+    public class GetTechnicianByIdQueryHandler : IRequestHandler<GetTechnicianByIdQuery, TechnicianResponse>
     {
+        public Task<TechnicianResponse> Handle(GetTechnicianByIdQuery request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
