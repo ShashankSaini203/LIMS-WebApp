@@ -16,7 +16,6 @@ namespace LIMS.Application.Handlers.Technician.TechnicianQueryHandler
 
         public Task<TechnicianResponse> Handle(GetTechnicianByIdQuery request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
         }
     }
 }
