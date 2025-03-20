@@ -24,7 +24,8 @@ namespace LIMS.WebAPI.Controllers
         {
             try
             {
-
+                var technician = await _mediator.Send(new GetTechnicianByIdQuery(id));
+                return technician;
             }
             catch (Exception ex)
             {
