@@ -26,7 +26,7 @@ namespace LIMS.WebAPI.Controllers
             {
 
             }
-                        catch (Exception ex)
+            catch (Exception ex)
             {
                 throw new BadHttpRequestException("Bad request", ex);
             }
