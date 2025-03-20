@@ -1,4 +1,5 @@
-﻿using LIMS.Application.Queries.Technician;
+﻿using LIMS.Application.Mappers;
+using LIMS.Application.Queries.Technician;
 using LIMS.Application.Responses;
 using LIMS.Domain.Interfaces.Repository.Query;
 using MediatR;
@@ -18,6 +19,7 @@ namespace LIMS.Application.Handlers.Technician.TechnicianQueryHandler
         {
             try
             {
+                var technicianEntity = AutoMapperConfiguration.Mapper.Map<TechnicianResponse>(request);
 
             }
             catch (Exception ex)
