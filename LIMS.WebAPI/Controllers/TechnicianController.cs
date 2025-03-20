@@ -22,7 +22,14 @@ namespace LIMS.WebAPI.Controllers
         [HttpGet("/{id}")]
         public async Task<TechnicianResponse> GetTechnicianById(int id)
         {
+            try
+            {
 
+            }
+                        catch (Exception ex)
+            {
+                throw new BadHttpRequestException("Bad request", ex);
+            }
         }
 
         [HttpPost("CreateTechnician")]
