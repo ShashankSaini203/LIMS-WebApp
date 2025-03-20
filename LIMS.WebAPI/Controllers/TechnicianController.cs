@@ -49,7 +49,14 @@ namespace LIMS.WebAPI.Controllers
         [HttpDelete("DeleteTechnician")]
         public async Task<Unit> DeleteTechnician(DeleteTechnicianCommand deleteTechnicianCommand)
         {
+            try
+            {
 
+            }
+            catch (Exception ex)
+            {
+                throw new BadHttpRequestException("Bad request", ex);
+            }
         }
 
     }
