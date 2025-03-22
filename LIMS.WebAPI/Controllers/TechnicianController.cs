@@ -47,6 +47,8 @@ namespace LIMS.WebAPI.Controllers
             }
         }
 
+        [HttpPost("")]
+
         [HttpDelete("DeleteTechnician")]
         public async Task<Unit> DeleteTechnician(DeleteTechnicianCommand deleteTechnicianCommand)
         {
@@ -60,6 +62,5 @@ namespace LIMS.WebAPI.Controllers
                 throw new BadHttpRequestException("Bad request", ex);
             }
         }
-
     }
 }
