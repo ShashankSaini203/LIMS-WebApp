@@ -52,7 +52,8 @@ namespace LIMS.WebAPI.Controllers
         {
             try
             {
-
+                var technicianDeleted = await _mediator.Send(deleteTechnicianCommand);
+                return technicianDeleted;
             }
             catch (Exception ex)
             {
