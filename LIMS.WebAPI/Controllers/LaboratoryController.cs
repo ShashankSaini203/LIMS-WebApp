@@ -44,9 +44,9 @@ namespace LIMS.WebApp.Controllers
         {
             try
             {
-            var labData = await _mediator.Send(new GetLaboratoryByIdQuery(id));
-            return labData;
-        }
+                var labData = await _mediator.Send(new GetLaboratoryByIdQuery(id));
+                return labData;
+            }
             catch (Exception ex)
             {
                 throw new BadHttpRequestException("Bad Request", ex);
@@ -59,9 +59,9 @@ namespace LIMS.WebApp.Controllers
         {
             try
             {
-            var updatedLabResult = await _mediator.Send(updatedLab);
-            return updatedLabResult;
-        }
+                var updatedLabResult = await _mediator.Send(updatedLab);
+                return updatedLabResult;
+            }
             catch (Exception ex)
             {
                 throw new BadHttpRequestException("Bad Request", ex);
@@ -73,9 +73,9 @@ namespace LIMS.WebApp.Controllers
         {
             try
             {
-            await _mediator.Send(new DeleteLaboratoryCommand(id));
-            return "Laboratory deleted duccessfully";
-        }
+                await _mediator.Send(new DeleteLaboratoryCommand(id));
+                return "Laboratory deleted duccessfully";
+            }
             catch (Exception ex)
             {
 
