@@ -71,8 +71,16 @@ namespace LIMS.WebApp.Controllers
         [HttpDelete("DeleteLab")]
         public async Task<string> DeleteLab(int id)
         {
+            try
+            {
             await _mediator.Send(new DeleteLaboratoryCommand(id));
             return "Laboratory deleted duccessfully";
+        }
+            catch (Exception ex)
+            {
+
+                throw new BadHttpRequestException("Bad Request", ex);
+            }
         }
     }
 }
