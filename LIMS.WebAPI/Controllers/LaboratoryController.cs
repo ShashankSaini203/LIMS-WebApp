@@ -42,8 +42,15 @@ namespace LIMS.WebApp.Controllers
         [HttpGet("GetLaboratory/{id}")]
         public async Task<LaboratoryResponse> GetLabById(int id)
         {
+            try
+            {
             var labData = await _mediator.Send(new GetLaboratoryByIdQuery(id));
             return labData;
+        }
+            catch (Exception ex)
+            {
+                throw new BadHttpRequestException("Bad Request", ex);
+            }
         }
 
 
