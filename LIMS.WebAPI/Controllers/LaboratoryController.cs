@@ -1,9 +1,6 @@
 ﻿using LIMS.Application.Commands.Laboratory;
-using LIMS.Application.Handlers.Laboratory.LaboratoryQueryHandlers;
-using LIMS.Application.Queries.Instrument;
 using LIMS.Application.Queries.Laboratory;
 using LIMS.Application.Responses;
-using LIMS.Domain.Models;
 using LIMS.WebAPI.Controllers;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
