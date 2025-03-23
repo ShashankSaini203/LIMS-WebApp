@@ -47,7 +47,12 @@ namespace LIMS.WebAPI.Controllers
             }
         }
 
-        [HttpPost("")]
+        [HttpPost("UpdateTechnician")]
+        public async Task<TechnicianResponse> UpdateTechnician(UpdateTechnicianCommand updateTechnicianCommand)
+        {
+            var updatedTechnician = await _mediator.Send(updateTechnicianCommand);
+            return updatedTechnician;
+        }
 
         [HttpDelete("DeleteTechnician")]
         public async Task<Unit> DeleteTechnician(DeleteTechnicianCommand deleteTechnicianCommand)
