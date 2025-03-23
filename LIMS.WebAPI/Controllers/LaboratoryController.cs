@@ -57,8 +57,15 @@ namespace LIMS.WebApp.Controllers
         [HttpPost("UpdateLab")]
         public async Task<LaboratoryResponse> UpdateLab(UpdateLaboratoryCommand updatedLab)
         {
+            try
+            {
             var updatedLabResult = await _mediator.Send(updatedLab);
             return updatedLabResult;
+        }
+            catch (Exception ex)
+            {
+                throw new BadHttpRequestException("Bad Request", ex);
+            }
         }
 
         [HttpDelete("DeleteLab")]
