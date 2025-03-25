@@ -15,8 +15,15 @@ namespace LIMS.WebAPI.Controllers
         [HttpGet("GetAllTechnicians")]
         public async Task<IEnumerable<TechnicianResponse>> GetAllTechnicians()
         {
-            var response = await _mediator.Send(new GetAllTechniciansQuery());
-            return response;
+            try
+            {
+                var response = await _mediator.Send(new GetAllTechniciansQuery());
+                return response;
+            }
+            catch (Exception ex)
+            {
+                throw new BadHttpRequestException("Bad Request", ex);
+            }
         }
 
         [HttpGet("/{id}")]
@@ -50,8 +57,15 @@ namespace LIMS.WebAPI.Controllers
         [HttpPost("UpdateTechnician")]
         public async Task<TechnicianResponse> UpdateTechnician(UpdateTechnicianCommand updateTechnicianCommand)
         {
-            var updatedTechnician = await _mediator.Send(updateTechnicianCommand);
-            return updatedTechnician;
+            try
+            {
+                var updatedTechnician = await _mediator.Send(updateTechnicianCommand);
+                return updatedTechnician;
+            }
+            catch (Exception ex)
+            {
+                throw new BadHttpRequestException("Bad Request", ex);
+            }
         }
 
         [HttpDelete("DeleteTechnician")]
