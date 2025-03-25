@@ -17,7 +17,6 @@ namespace LIMS.WebApp.Controllers
         [Route("GetAllLaboratories")]
         public async Task<IEnumerable<LaboratoryResponse>> GetAllLabs()
         {
-            // Fetch all laboratories to display in the table
             var laboratories = await _mediator.Send(new GetAllLaboratoriesQuery());
             return laboratories;
         }
