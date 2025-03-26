@@ -4,11 +4,11 @@ namespace LIMS.Application.Commands.Instrument
 {
     public class DeleteInstrumentCommand : IRequest<Unit>
     {
-        public int Id { get; set; }
+        public int InstrumentId { get; set; }
 
-        public DeleteInstrumentCommand(int Id)
+        public DeleteInstrumentCommand(int instrumentId)
         {
-            this.Id = Id;
+            InstrumentId = instrumentId;
         }
     }
 }
