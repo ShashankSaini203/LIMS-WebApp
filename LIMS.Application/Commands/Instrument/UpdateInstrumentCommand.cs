@@ -5,7 +5,7 @@ namespace LIMS.Application.Commands.Instrument
 {
     public class UpdateInstrumentCommand : IRequest<InstrumentResponse>
     {
-        public string InstrumentId { get; set; }
+        public int InstrumentId { get; set; }
         public string? Name { get; set; }
         public string? Manufacturer { get; set; }
         public int? Quantity { get; set; }
