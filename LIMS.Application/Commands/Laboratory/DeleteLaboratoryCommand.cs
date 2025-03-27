@@ -4,11 +4,11 @@ namespace LIMS.Application.Commands.Laboratory
 {
     public class DeleteLaboratoryCommand : IRequest<Unit>
     {
-        public int Id { get; set; }
+        public int LaboratoryId { get; set; }
 
-        public DeleteLaboratoryCommand(int Id)
+        public DeleteLaboratoryCommand(int laboratoryId)
         {
-            this.Id = Id;
+            LaboratoryId = laboratoryId;
         }
     }
 }
