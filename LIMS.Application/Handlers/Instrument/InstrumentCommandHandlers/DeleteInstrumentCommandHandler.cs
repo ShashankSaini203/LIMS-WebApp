@@ -20,7 +20,7 @@ namespace LIMS.Application.Handlers.Instrument.InstrumentCommandHandlers
 
         public async Task<Unit> Handle(DeleteInstrumentCommand request, CancellationToken cancellationToken)
         {
-            var entityToDelete = await _instrumentQueryRepository.GetAsyncById(request.Id, DataTables.InstrumentTable, DataColumns.InstrumentId);
+            var entityToDelete = await _instrumentQueryRepository.GetAsyncById(request.InstrumentId, DataTables.InstrumentTable, DataColumns.InstrumentId);
 
             if (entityToDelete != null)
             {
