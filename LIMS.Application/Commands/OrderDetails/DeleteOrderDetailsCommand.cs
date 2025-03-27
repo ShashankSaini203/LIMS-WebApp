@@ -4,11 +4,11 @@ namespace LIMS.Application.Commands.OrderDetails
 {
     public class DeleteOrderDetailsCommand : IRequest<Unit>
     {
-        public int Id { get; set; }
+        public int OrderId { get; set; }
 
-        public DeleteOrderDetailsCommand(int Id)
+        public DeleteOrderDetailsCommand(int orderId)
         {
-            this.Id = Id;
+            OrderId = orderId;
         }
     }
 }
