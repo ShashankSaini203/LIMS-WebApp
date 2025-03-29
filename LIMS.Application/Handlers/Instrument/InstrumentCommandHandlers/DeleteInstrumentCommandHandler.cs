@@ -22,7 +22,11 @@ namespace LIMS.Application.Handlers.Instrument.InstrumentCommandHandlers
         {
             var entityToDelete = await _instrumentQueryRepository.GetAsyncById(request.InstrumentId, DataTables.InstrumentTable, DataColumns.InstrumentId);
 
-            if (entityToDelete != null)
+            if (entityToDelete == null)
+            {
+                throw new Exception($"No Instrument with Id {request.InstrumentId} found");
+            }
+            else
             {
                 var instrumentEntity = AutoMapperConfiguration.Mapper.Map<Domain.Models.Instrument>(entityToDelete);
                 if (instrumentEntity == null)
