@@ -21,7 +21,11 @@ namespace LIMS.Application.Handlers.Laboratory.LaboratoryCommandHandlers
         public async Task<Unit> Handle(DeleteLaboratoryCommand request, CancellationToken cancellationToken)
         {
             var entityToDelete = await _labQueryRepository.GetAsyncById(request.LaboratoryId, DataTables.LaboratoryTable, DataColumns.LaboratoryId);
-            if (entityToDelete != null)
+            if (entityToDelete == null)
+            {
+                throw new Exception($"No Laboratory with Id {request.LaboratoryId} found");
+            }
+            else
             {
                 var laboratoryEntity = AutoMapperConfiguration.Mapper.Map<Domain.Models.Laboratory>(entityToDelete);
                 if (laboratoryEntity == null)
