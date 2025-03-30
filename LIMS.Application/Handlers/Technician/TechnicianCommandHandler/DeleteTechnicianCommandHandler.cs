@@ -21,7 +21,11 @@ namespace LIMS.Application.Handlers.Technician.TechnicianCommandHandler
         {
             var technicianEntityToDelete = await _technicianQueryRepository.GetAsyncById(request.TechnicianId, Domain.Common.DataTables.TechnicianTable, Domain.Common.DataColumns.TechnicianId);
 
-            if (technicianEntityToDelete != null)
+            if (technicianEntityToDelete == null)
+            {
+                throw new Exception($"No Technician with Id {request.TechnicianId} found");
+            }
+            else
             {
                 await _technicianCommandRepository.DeleteAsync(technicianEntityToDelete);
             }
