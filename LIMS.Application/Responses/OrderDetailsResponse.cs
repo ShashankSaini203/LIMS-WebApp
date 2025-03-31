@@ -11,6 +11,7 @@
         public DateTime DeliveryDate { get; set; }
         public string OrderedBy { get; set; }
         public string AdditionalNotes { get; set; }
+        private const string DefaultStatus = "Pending";
         public string Status => DefaultStatus;
     }
 }
