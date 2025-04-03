@@ -4,7 +4,11 @@ using MediatR;
 
 namespace LIMS.Application.Handlers.OrderDetails.OrderDetailsQueryHandler
 {
-    public class GetAllOrderDetailsQueryHandler : IRequestHandler<GetAllOrderDetailsQuery, OrderDetailsResponse>
+    public class GetAllOrderDetailsQueryHandler : IRequestHandler<GetAllOrderDetailsQuery, IEnumerable<OrderDetailsResponse>>
     {
+        public Task<OrderDetailsResponse> Handle(GetAllOrderDetailsQuery request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
