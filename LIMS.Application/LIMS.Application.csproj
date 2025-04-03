@@ -15,4 +15,8 @@
     <ProjectReference Include="..\LIMS.Domain\LIMS.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Handlers\OrderDetails\OrderDetailsCommandHandler\" />
+  </ItemGroup>
+
 </Project>
