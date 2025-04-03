@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using LIMS.Application.Queries.OrderDetails;
+using LIMS.Application.Responses;
+using MediatR;
 
 namespace LIMS.Application.Handlers.OrderDetails.OrderDetailsQueryHandler
 {
-    internal class GetAllOrderDetailsQueryHandler
+    public class GetAllOrderDetailsQueryHandler : IRequestHandler<GetAllOrderDetailsQuery, OrderDetailsResponse>
     {
     }
 }
