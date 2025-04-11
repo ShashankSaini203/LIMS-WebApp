@@ -1,5 +1,6 @@
 ﻿using LIMS.Application.Queries.OrderDetails;
 using LIMS.Application.Responses;
+using LIMS.Domain.Common;
 using LIMS.Domain.Interfaces.Repository.Query;
 using MediatR;
 
@@ -15,7 +16,7 @@ namespace LIMS.Application.Handlers.OrderDetails.OrderDetailsQueryHandler
 
         public async Task<IEnumerable<OrderDetailsResponse>> Handle(GetAllOrderDetailsQuery request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var allOrderDetails = await _orderDetailsQueryRepository.GetAllAsync(tableName: DataTables.OrderDetailTable);
         }
     }
 }
