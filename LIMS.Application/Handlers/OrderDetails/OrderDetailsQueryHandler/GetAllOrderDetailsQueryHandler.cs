@@ -13,7 +13,7 @@ namespace LIMS.Application.Handlers.OrderDetails.OrderDetailsQueryHandler
             _orderDetailsQueryRepository = orderDetailsQueryRepository;
         }
 
-        Task<IEnumerable<OrderDetailsResponse>> IRequestHandler<GetAllOrderDetailsQuery, IEnumerable<OrderDetailsResponse>>.Handle(GetAllOrderDetailsQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<OrderDetailsResponse>> Handle(GetAllOrderDetailsQuery request, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
