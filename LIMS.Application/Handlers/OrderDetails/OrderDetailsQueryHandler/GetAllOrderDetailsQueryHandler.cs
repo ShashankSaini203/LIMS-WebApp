@@ -1,4 +1,5 @@
-﻿using LIMS.Application.Queries.OrderDetails;
+﻿using LIMS.Application.Mappers;
+using LIMS.Application.Queries.OrderDetails;
 using LIMS.Application.Responses;
 using LIMS.Domain.Common;
 using LIMS.Domain.Interfaces.Repository.Query;
@@ -17,6 +18,14 @@ namespace LIMS.Application.Handlers.OrderDetails.OrderDetailsQueryHandler
         public async Task<IEnumerable<OrderDetailsResponse>> Handle(GetAllOrderDetailsQuery request, CancellationToken cancellationToken)
         {
             var allOrderDetails = await _orderDetailsQueryRepository.GetAllAsync(tableName: DataTables.OrderDetailTable);
+            var mappedAllOrderDetails = AutoMapperConfiguration.Mapper.Map<IEnumerable<OrderDetailsResponse>>(allOrderDetails);
+
+            if (mappedAllOrderDetails != null)
+            {
+                return mappedAllOrderDetails;
+            }
+            else
+                throw new ApplicationException("Unable to map due to an issue with mapper.", ex);
         }
     }
 }
