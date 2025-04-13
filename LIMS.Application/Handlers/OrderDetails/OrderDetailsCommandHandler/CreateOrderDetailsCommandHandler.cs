@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LIMS.Application.Handlers.OrderDetails.OrderDetailsCommandHandler
 {
-    internal class CreateOrderDetailCommandHandler
+    internal class CreateOrderDetailsCommandHandler
     {
     }
 }
