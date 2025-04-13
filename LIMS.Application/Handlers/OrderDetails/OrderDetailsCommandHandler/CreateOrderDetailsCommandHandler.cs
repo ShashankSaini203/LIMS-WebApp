@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using LIMS.Application.Responses;
+using MediatR;
 
 namespace LIMS.Application.Handlers.OrderDetails.OrderDetailsCommandHandler
 {
-    internal class CreateOrderDetailsCommandHandler
+    public class CreateOrderDetailsCommandHandler : IRequestHandler<CreateOrderDetailsCommandHandler, OrderDetailsResponse>
     {
+        public Task<OrderDetailsResponse> Handle(CreateOrderDetailsCommandHandler request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
