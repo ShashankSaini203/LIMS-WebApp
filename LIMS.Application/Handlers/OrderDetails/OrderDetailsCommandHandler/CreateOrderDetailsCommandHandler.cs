@@ -1,4 +1,5 @@
 ﻿using LIMS.Application.Commands.OrderDetails;
+using LIMS.Application.Mappers;
 using LIMS.Application.Responses;
 using LIMS.Domain.Interfaces.Repository.Commands;
 using MediatR;
@@ -13,9 +14,9 @@ namespace LIMS.Application.Handlers.OrderDetails.OrderDetailsCommandHandler
             _orderDetailsCommandRepository = orderDetailsCommandRepository;
         }
 
-        public Task<OrderDetailsResponse> Handle(CreateOrderDetailsCommand request, CancellationToken cancellationToken)
+        public async Task<OrderDetailsResponse> Handle(CreateOrderDetailsCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var createOrderDetailsRequest = AutoMapperConfiguration.Mapper.Map<CreateOrderDetailsCommand, LIMS.Domain.Models.OrderDetails>(request);
         }
     }
 }
