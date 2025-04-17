@@ -22,8 +22,7 @@ namespace LIMS.Application.Handlers.OrderDetails.OrderDetailsCommandHandler
                 throw new ApplicationException("Unable to map due to an issue with mapper.");
             }
             var response = await _orderDetailsCommandRepository.CreateAsync(createOrderDetailsEntity);
-            var mappedResponse = AutoMapperConfiguration.Mapper.Map<Domain.Models.OrderDetails, OrderDetailsResponse>(response);
-            return mappedResponse;
+            return AutoMapperConfiguration.Mapper.Map<Domain.Models.OrderDetails, OrderDetailsResponse>(response);
         }
     }
 }
