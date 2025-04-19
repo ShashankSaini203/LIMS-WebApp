@@ -19,7 +19,7 @@ namespace LIMS.Application.Handlers.Laboratory.LaboratoryCommandHandlers
         {
             var laboratoryEntity = AutoMapperConfiguration.Mapper.Map<Domain.Models.Laboratory>(request);
 
-            if (laboratoryEntity == null)
+            if (laboratoryEntity is null)
             {
                 throw new ApplicationException("Unable to map due to an issue with mapper.");
             }
