@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
 
 namespace LIMS.WebAPI.Controllers
 {
@@ -8,11 +7,6 @@ namespace LIMS.WebAPI.Controllers
         public OrderDetailsController(IMediator mediator) : base(mediator)
         {
 
-        }
-
-        public IActionResult Index()
-        {
-            return View();
         }
     }
 }
