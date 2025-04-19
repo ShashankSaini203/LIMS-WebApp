@@ -22,7 +22,7 @@ namespace LIMS.Application.Handlers.Instrument.InstrumentCommandHandlers
         {
             var instrumentEntity = AutoMapperConfiguration.Mapper.Map<Domain.Models.Instrument>(request);
 
-            if (instrumentEntity == null)
+            if (instrumentEntity is null)
             {
                 throw new ApplicationException("Unable to map due to an issue with mapper.");
             }
