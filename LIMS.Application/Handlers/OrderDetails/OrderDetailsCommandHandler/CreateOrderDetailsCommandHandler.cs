@@ -16,7 +16,7 @@ namespace LIMS.Application.Handlers.OrderDetails.OrderDetailsCommandHandler
 
         public async Task<OrderDetailsResponse> Handle(CreateOrderDetailsCommand request, CancellationToken cancellationToken)
         {
-            var createOrderDetailsEntity = AutoMapperConfiguration.Mapper.Map<CreateOrderDetailsCommand, Domain.Models.OrderDetails>(request)
+            var createOrderDetailsEntity = AutoMapperConfiguration.Mapper.Map<CreateOrderDetailsCommand, Domain.Models.OrderDetails>(request);
 
             if (createOrderDetailsEntity is null)
             {
