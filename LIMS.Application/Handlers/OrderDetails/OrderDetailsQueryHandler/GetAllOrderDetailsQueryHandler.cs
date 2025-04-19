@@ -25,7 +25,7 @@ namespace LIMS.Application.Handlers.OrderDetails.OrderDetailsQueryHandler
                 return mappedAllOrderDetails;
             }
             else
-                throw new ApplicationException("Unable to map due to an issue with mapper.", ex);
+                throw new ApplicationException("Unable to map due to an issue with mapper.");
         }
     }
 }
