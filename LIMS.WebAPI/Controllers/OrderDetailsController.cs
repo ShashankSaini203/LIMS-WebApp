@@ -6,7 +6,6 @@ namespace LIMS.WebAPI.Controllers
     {
         public OrderDetailsController(IMediator mediator) : base(mediator)
         {
-
         }
     }
 }
