@@ -1,4 +1,5 @@
-﻿using LIMS.Application.Queries.OrderDetails;
+﻿using LIMS.Application.Commands.OrderDetails;
+using LIMS.Application.Queries.OrderDetails;
 using LIMS.Application.Responses;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -18,6 +19,9 @@ namespace LIMS.WebAPI.Controllers
             return allOrderDetails;
         }
 
-
+        [HttpPost("CreateOrderDetails")]
+        public async Task<OrderDetailsResponse> CreateOrderDetails(CreateOrderDetailsCommand createOrderDetailsCommand)
+        { 
+        }
     }
 }
