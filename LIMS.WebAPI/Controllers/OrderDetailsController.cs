@@ -1,5 +1,5 @@
 ﻿using LIMS.Application.Queries.OrderDetails;
-using LIMS.Domain.Models;
+using LIMS.Application.Responses;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,7 +12,7 @@ namespace LIMS.WebAPI.Controllers
         }
 
         [HttpGet("GetAllOrderDetails")]
-        public async Task<IEnumerable<OrderDetails>> GetAllOrderDetails()
+        public async Task<IEnumerable<OrderDetailsResponse>> GetAllOrderDetails()
         {
             var allOrderDetails = await _mediator.Send(new GetAllOrderDetailsQuery());
             return allOrderDetails;
