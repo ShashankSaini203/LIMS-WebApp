@@ -14,6 +14,10 @@ namespace LIMS.WebAPI.Controllers
         [HttpGet("GetAllOrderDetails")]
         public async Task<IEnumerable<OrderDetails>> GetAllOrderDetails()
         {
+            var allOrderDetails = await _mediator.Send(new GetAllOrderDetailsQuery());
+            return allOrderDetails;
         }
+
+
     }
 }
