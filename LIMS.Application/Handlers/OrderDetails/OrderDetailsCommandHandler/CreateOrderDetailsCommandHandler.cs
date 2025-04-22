@@ -9,6 +9,7 @@ namespace LIMS.Application.Handlers.OrderDetails.OrderDetailsCommandHandler
     public class CreateOrderDetailsCommandHandler : IRequestHandler<CreateOrderDetailsCommand, OrderDetailsResponse>
     {
         private readonly IOrderDetailsCommandRepository _orderDetailsCommandRepository;
+
         public CreateOrderDetailsCommandHandler(IOrderDetailsCommandRepository orderDetailsCommandRepository)
         {
             _orderDetailsCommandRepository = orderDetailsCommandRepository;
