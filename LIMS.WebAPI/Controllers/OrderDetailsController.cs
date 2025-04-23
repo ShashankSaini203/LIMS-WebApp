@@ -21,7 +21,9 @@ namespace LIMS.WebAPI.Controllers
 
         [HttpPost("CreateOrderDetails")]
         public async Task<OrderDetailsResponse> CreateOrderDetails(CreateOrderDetailsCommand createOrderDetailsCommand)
-        { 
+        {
+            var response = await _mediator.Send(createOrderDetailsCommand);
+            return response;
         }
     }
 }
