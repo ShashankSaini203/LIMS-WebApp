@@ -1,6 +1,9 @@
-﻿namespace LIMS.Application.Handlers.OrderDetails.OrderDetailsCommandHandler
+﻿using LIMS.Application.Commands.OrderDetails;
+using MediatR;
+
+namespace LIMS.Application.Handlers.OrderDetails.OrderDetailsCommandHandler
 {
-    internal class DeleteOrderDetailsCommandHandler
+    public class DeleteOrderDetailsCommandHandler : IRequestHandler<DeleteOrderDetailsCommand, Unit>
     {
     }
 }
