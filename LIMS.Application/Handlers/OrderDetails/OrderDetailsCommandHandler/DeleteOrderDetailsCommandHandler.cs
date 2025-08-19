@@ -1,6 +1,6 @@
 ﻿namespace LIMS.Application.Handlers.OrderDetails.OrderDetailsCommandHandler
 {
-    internal class 
+    internal class DeleteOrderDetailsCommandHandler
     {
     }
 }
