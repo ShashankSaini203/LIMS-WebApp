@@ -10,6 +10,11 @@ namespace LIMS.Application.Handlers.OrderDetails.OrderDetailsCommandHandler
         private IOrderDetailsCommandRepository _orderDetailsCommandRepository;
         private IOrderDetailsQueryRepository _orderDetailsQueryRepository;
 
+        public DeleteOrderDetailsCommandHandler(IOrderDetailsCommandRepository orderDetailsCommandRepository, IOrderDetailsQueryRepository orderDetailsQueryRepository)
+        {
+            _orderDetailsCommandRepository = orderDetailsCommandRepository;
+            _orderDetailsQueryRepository = orderDetailsQueryRepository;
+        }
         Task<Unit> IRequestHandler<DeleteOrderDetailsCommand, Unit>.Handle(DeleteOrderDetailsCommand request, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
