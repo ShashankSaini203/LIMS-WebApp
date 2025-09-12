@@ -19,3 +19,12 @@ Default connection strings:
 - LocalDBConnection (MSSQL LocalDB): `Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=LIMS_db;Integrated Security=True;...`
 
 To switch between SQLite and LocalDB, update `LIMS.WebAPI/Program.cs` where the DbContext is configured.
+
+## Build and run
+From repository root:
+
+- Build: `dotnet build LIMS.WebApp.sln`
+- Run the API: `dotnet run --project LIMS.WebAPI` (by default runs with HTTPS)
+
+When running in Development environment, Swagger UI is available (Program.cs enables UseSwagger and UseSwaggerUI for Development).
+
