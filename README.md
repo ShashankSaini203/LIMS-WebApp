@@ -28,3 +28,32 @@ From repository root:
 
 When running in Development environment, Swagger UI is available (Program.cs enables UseSwagger and UseSwaggerUI for Development).
 
+## API Endpoints (summary)
+Base path: controllers are conventional; actions use explicit routes as shown below.
+
+- InstrumentController
+  - GET  /GetAllInstruments
+  - GET  /GetInstrument/{id}
+  - POST /CreateInstrument
+  - POST /UpdateInstrument
+  - DELETE /DeleteInstrument/{id}
+
+- LaboratoryController
+  - GET  /GetAllLaboratories
+  - GET  /GetLaboratory/{id}
+  - POST /CreateLab
+  - POST /UpdateLab
+  - DELETE /DeleteLab?id={id}
+
+- OrderDetailsController
+  - GET  /GetAllOrderDetails
+  - POST /CreateOrderDetails
+
+- TechnicianController
+  - GET  /GetAllTechnicians
+  - GET  /{id}
+  - POST /CreateTechnician
+  - POST /UpdateTechnician
+  - DELETE /DeleteTechnician (expects parameters as model)
+
+Note: Some controllers use custom routes or default controller routing. Check `LIMS.WebAPI/Controllers` for exact signatures.
