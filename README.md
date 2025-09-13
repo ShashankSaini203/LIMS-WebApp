@@ -57,3 +57,24 @@ Base path: controllers are conventional; actions use explicit routes as shown be
   - DELETE /DeleteTechnician (expects parameters as model)
 
 Note: Some controllers use custom routes or default controller routing. Check `LIMS.WebAPI/Controllers` for exact signatures.
+
+## Database
+- EF Core migrations are in `LIMS.Infrastructure/Migrations`.
+- A SQLite DB (`LIMS.db`) is included under `LIMS.Infrastructure/Database/SQLiteDB` for convenience.
+
+## Development notes
+- Uses Autofac for DI container (registered in `Program.cs` via ApplicationModule).
+- Uses MediatR for CQRS-style commands/queries.
+- Mapping configured in `LIMS.Application.Mappers` via AutoMapper profiles.
+
+## Tests
+No test projects were detected in the solution root. If you add tests, document how to run them here.
+
+## Contributing
+- Fork the repository, create a branch, and open a pull request with a descriptive title and description.
+
+## License
+Add a license file if you intend to open-source this repository.
+
+---
+Generated README: basic overview and usage instructions. For deeper documentation (ER diagrams, sequence flows, DTO schemas), add docs/ or extend this file.
