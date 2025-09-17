@@ -37,6 +37,15 @@ namespace LIMS.WebAPI
             RegisterLaboratoryDependencies(builder);
             RegisterInstrumentDependencies(builder);
             RegisterTechnicianDependencies(builder);
+            RegisterOrderDetailsDependencies(builder);
+        }
+
+        private void RegisterOrderDetailsDependencies(ContainerBuilder builder)
+        {
+            #region OrderDetails Repository
+            builder.RegisterType<OrderDetailsCommandRepository>().As<IOrderDetailsCommandRepository>().InstancePerLifetimeScope();
+            builder.RegisterType<OrderDetailsQueryRepository>().As<IOrderDetailsQueryRepository>().InstancePerLifetimeScope();
+            #endregion
         }
 
         private void RegisterLaboratoryDependencies(ContainerBuilder builder)
@@ -81,9 +90,9 @@ namespace LIMS.WebAPI
             #region Technician Handlers
             builder.RegisterType<CreateTechnicianCommandHandler>().As<IRequestHandler<CreateTechnicianCommand, TechnicianResponse>>().InstancePerLifetimeScope();
             builder.RegisterType<UpdateTechnicianCommandHandler>().As<IRequestHandler<UpdateTechnicianCommand, TechnicianResponse>>().InstancePerLifetimeScope();
-            //builder.RegisterType<DeleteTechnicianCommandHandler>().As<IRequestHandler<DeleteTechnicianCommand, Unit>>().InstancePerLifetimeScope();
             builder.RegisterType<GetAllTechniciansQueryHandler>().As<IRequestHandler<GetAllTechniciansQuery, IEnumerable<TechnicianResponse>>>().InstancePerLifetimeScope();
-            //builder.RegisterType<GetTechnicianByIdQueryHandler>().As<IRequestHandler<GetTechnicianByIdQuery, TechnicianResponse>>().InstancePerLifetimeScope();
+            builder.RegisterType<DeleteTechnicianCommandHandler>().As<IRequestHandler<DeleteTechnicianCommand, Unit>>().InstancePerLifetimeScope();
+            builder.RegisterType<GetTechnicianByIdQueryHandler>().As<IRequestHandler<GetTechnicianByIdQuery, TechnicianResponse>>().InstancePerLifetimeScope();
             #endregion
         }
 
