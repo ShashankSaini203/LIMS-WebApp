@@ -21,6 +21,8 @@ using LIMS.Application.Handlers.Technician.TechnicianCommandHandler;
 using LIMS.Application.Handlers.Laboratory.LaboratoryQueryHandlers;
 using LIMS.Application.Handlers.Instrument.InstrumentQueryHandler;
 using LIMS.Application.Handlers.Technician.TechnicianQueryHandler;
+using LIMS.Application.Handlers.OrderDetails.OrderDetailsCommandHandler;
+using LIMS.Application.Handlers.OrderDetails.OrderDetailsQueryHandler;
 
 namespace LIMS.WebAPI
 {
