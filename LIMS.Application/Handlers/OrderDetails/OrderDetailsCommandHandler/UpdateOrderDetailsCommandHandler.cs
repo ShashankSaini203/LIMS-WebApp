@@ -8,7 +8,16 @@ using MediatR;
 
 namespace LIMS.Application.Handlers.OrderDetails.OrderDetailsCommandHandler
 {
-    internal class UpdateOrderDetailsCommandHandler
+    public class UpdateOrderDetailsCommandHandler : IRequestHandler<UpdateOrderDetailsCommand, OrderDetailsResponse>
     {
+        private readonly IOrderDetailsCommandRepository _orderDetailsCommandRepository;
+        private readonly IOrderDetailsQueryRepository _orderDetailsQueryRepository;
+
+        public UpdateOrderDetailsCommandHandler(IOrderDetailsCommandRepository orderDetailsCommandRepository, IOrderDetailsQueryRepository orderDetailsQueryRepository)
+        {
+            _orderDetailsCommandRepository = orderDetailsCommandRepository;
+            _orderDetailsQueryRepository = orderDetailsQueryRepository;
+        }
     }
 }
+
