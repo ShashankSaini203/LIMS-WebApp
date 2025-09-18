@@ -46,6 +46,14 @@ namespace LIMS.WebAPI
             builder.RegisterType<OrderDetailsCommandRepository>().As<IOrderDetailsCommandRepository>().InstancePerLifetimeScope();
             builder.RegisterType<OrderDetailsQueryRepository>().As<IOrderDetailsQueryRepository>().InstancePerLifetimeScope();
             #endregion
+
+            #region OrderDetails Handlers
+            builder.RegisterType<CreateOrderDetailsCommandHandler>().As<IRequestHandler<CreateOrderDetailsCommand, OrderDetailsResponse>>().InstancePerLifetimeScope();
+            builder.RegisterType<UpdateOrderDetailsCommandHandler>().As<IRequestHandler<UpdateOrderDetailsCommand, OrderDetailsResponse>>().InstancePerLifetimeScope();
+            builder.RegisterType<DeleteOrderDetailsCommandHandler>().As<IRequestHandler<DeleteOrderDetailsCommand, Unit>>().InstancePerLifetimeScope();
+            builder.RegisterType<GetAllOrderDetailsQueryHandler>().As<IRequestHandler<GetAllOrderDetailsQuery, IEnumerable<OrderDetailsResponse>>>().InstancePerLifetimeScope();
+            builder.RegisterType<GetOrderDetailsByIdQueryHandler>().As<IRequestHandler<GetOrderDetailsByIdQuery, OrderDetailsResponse>>().InstancePerLifetimeScope();
+            #endregion
         }
 
         private void RegisterLaboratoryDependencies(ContainerBuilder builder)
