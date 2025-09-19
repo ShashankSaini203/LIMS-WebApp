@@ -28,7 +28,10 @@ namespace LIMS.Application.Handlers.OrderDetails.OrderDetailsCommandHandler
             }
 
             var orderEntity = AutoMapperConfiguration.Mapper.Map<Domain.Models.OrderDetails>(request);
-
+            if (orderEntity == null)
+            {
+                throw new ApplicationException("Unable to map due to an issue with mapper.");
+            }
 
             var updated = await _orderDetailsCommandRepository.UpdateAsync(orderEntity);
             return AutoMapperConfiguration.Mapper.Map<OrderDetailsResponse>(updated);
