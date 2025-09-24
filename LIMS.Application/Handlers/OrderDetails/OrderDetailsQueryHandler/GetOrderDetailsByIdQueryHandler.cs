@@ -20,6 +20,11 @@ namespace LIMS.Application.Handlers.OrderDetails.OrderDetailsQueryHandler
         {
             var orderEntity = await _orderDetailsQueryRepository.GetAsyncById(request.OrderId, DataTables.OrderDetailTable, DataColumns.OrderId);
 
+            if (orderEntity == null)
+            {
+                throw new Exception($"No OrderDetails found with Id {request.OrderId}");
+            }
+
             return AutoMapperConfiguration.Mapper.Map<OrderDetailsResponse>(orderEntity);
         }
     }
