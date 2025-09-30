@@ -25,7 +25,7 @@ namespace LIMS.Application.Handlers.Technician.TechnicianCommandHandler
                 throw new ApplicationException("Unable to map due to an issue with mapper.");
             }
 
-            var result = _technicianCommandRepository.UpdateAsync(technicianEntity);
+            var result = await _technicianCommandRepository.UpdateAsync(technicianEntity);
             var mappedResult = AutoMapperConfiguration.Mapper.Map<TechnicianResponse>(result);
 
             if (mappedResult == null)
