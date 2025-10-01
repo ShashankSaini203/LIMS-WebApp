@@ -18,9 +18,10 @@ namespace LIMS.Application.Handlers.Technician.TechnicianQueryHandler
         public async Task<TechnicianResponse> Handle(GetTechnicianByIdQuery request, CancellationToken cancellationToken)
         {
             var technicianEntity = await _technicianQueryRepository.GetAsyncById(request.TechnicianId, Domain.Common.DataTables.TechnicianTable, Domain.Common.DataColumns.TechnicianId);
-            {
-                var technicianEntity = AutoMapperConfiguration.Mapper.Map<TechnicianResponse>(request);
 
+            if (technicianEntity == null)
+            {
+                throw new Exception($"No technician found with Id {request.TechnicianId}");
             }
             catch (Exception ex)
             {
