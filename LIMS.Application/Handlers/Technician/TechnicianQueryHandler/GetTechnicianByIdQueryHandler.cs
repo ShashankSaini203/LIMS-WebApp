@@ -15,9 +15,9 @@ namespace LIMS.Application.Handlers.Technician.TechnicianQueryHandler
             _technicianQueryRepository = technicianQueryRepository;
         }
 
-        public Task<TechnicianResponse> Handle(GetTechnicianByIdQuery request, CancellationToken cancellationToken)
+        public async Task<TechnicianResponse> Handle(GetTechnicianByIdQuery request, CancellationToken cancellationToken)
         {
-            try
+            var technicianEntity = await _technicianQueryRepository.GetAsyncById(request.TechnicianId, Domain.Common.DataTables.TechnicianTable, Domain.Common.DataColumns.TechnicianId);
             {
                 var technicianEntity = AutoMapperConfiguration.Mapper.Map<TechnicianResponse>(request);
 
@@ -25,7 +25,7 @@ namespace LIMS.Application.Handlers.Technician.TechnicianQueryHandler
             catch (Exception ex)
             {
 
-            }
+            return AutoMapperConfiguration.Mapper.Map<TechnicianResponse>(technicianEntity);
             throw new NotImplementedException();
         }
     }
