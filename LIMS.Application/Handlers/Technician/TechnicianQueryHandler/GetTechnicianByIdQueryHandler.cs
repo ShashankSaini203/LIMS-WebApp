@@ -23,11 +23,8 @@ namespace LIMS.Application.Handlers.Technician.TechnicianQueryHandler
             {
                 throw new Exception($"No technician found with Id {request.TechnicianId}");
             }
-            catch (Exception ex)
-            {
 
             return AutoMapperConfiguration.Mapper.Map<TechnicianResponse>(technicianEntity);
-            throw new NotImplementedException();
         }
     }
 }
