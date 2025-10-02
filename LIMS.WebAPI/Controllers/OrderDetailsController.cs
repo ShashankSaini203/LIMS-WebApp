@@ -32,5 +32,19 @@ namespace LIMS.WebAPI.Controllers
                 throw new BadHttpRequestException("Bad Request", ex);
             }
         }
+
+        [HttpGet("GetOrderDetails/{id}")]
+        public async Task<OrderDetailsResponse> GetOrderDetailsById(int id)
+        {
+            try
+            {
+                var response = await _mediator.Send(new GetOrderDetailsByIdQuery(id));
+                return response;
+            }
+            catch (Exception ex)
+            {
+                throw new BadHttpRequestException("Bad Request", ex);
+            }
+        }
     }
 }
