@@ -46,5 +46,19 @@ namespace LIMS.WebAPI.Controllers
                 throw new BadHttpRequestException("Bad Request", ex);
             }
         }
+
+        [HttpPost("UpdateOrderDetails")]
+        public async Task<OrderDetailsResponse> UpdateOrderDetails(UpdateOrderDetailsCommand updateOrderDetailsCommand)
+        {
+            try
+            {
+                var response = await _mediator.Send(updateOrderDetailsCommand);
+                return response;
+            }
+            catch (Exception ex)
+            {
+                throw new BadHttpRequestException("Bad Request", ex);
+            }
+        }
     }
 }
