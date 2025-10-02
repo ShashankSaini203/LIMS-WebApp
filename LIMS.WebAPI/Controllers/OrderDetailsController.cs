@@ -60,5 +60,19 @@ namespace LIMS.WebAPI.Controllers
                 throw new BadHttpRequestException("Bad Request", ex);
             }
         }
+
+        [HttpDelete("DeleteOrderDetails/{id}")]
+        public async Task<string> DeleteOrderDetails(int id)
+        {
+            try
+            {
+                await _mediator.Send(new DeleteOrderDetailsCommand(id));
+                return "OrderDetails deleted successfully!";
+            }
+            catch (Exception ex)
+            {
+                throw new BadHttpRequestException("Bad Request", ex);
+            }
+        }
     }
 }
