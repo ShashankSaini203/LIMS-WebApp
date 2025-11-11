@@ -26,7 +26,7 @@ namespace LIMS.WebAPI.Controllers
             }
         }
 
-        [HttpGet("/{id}")]
+        [HttpGet("GetTechnician/{id}")]
         public async Task<TechnicianResponse> GetTechnicianById(int id)
         {
             try
@@ -68,11 +68,12 @@ namespace LIMS.WebAPI.Controllers
             }
         }
 
-        [HttpDelete("DeleteTechnician")]
-        public async Task<Unit> DeleteTechnician(DeleteTechnicianCommand deleteTechnicianCommand)
+        [HttpDelete("DeleteTechnician/{id}")]
+        public async Task<Unit> DeleteTechnician(int id)
         {
             try
             {
+                var deleteTechnicianCommand = new DeleteTechnicianCommand(id);
                 var technicianDeleted = await _mediator.Send(deleteTechnicianCommand);
                 return technicianDeleted;
             }
