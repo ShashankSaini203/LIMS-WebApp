@@ -9,8 +9,11 @@ using System.Threading.Tasks;
 
 namespace LIMS.Application.Handlers.CalibrationRecord.CalibrationRecordCommandHandler
 {
-    public class CreateCalibrationRecordCommandHandler
+    public class CreateCalibrationRecordCommandHandler : IRequestHandler<CreateCalibrationRecordCommand, CalibrationRecordResponse>
     {
-
+        Task<CalibrationRecordResponse> IRequestHandler<CreateCalibrationRecordCommand, CalibrationRecordResponse>.Handle(CreateCalibrationRecordCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
