@@ -11,6 +11,7 @@ namespace LIMS.Application.Handlers.CalibrationRecord.CalibrationRecordCommandHa
 {
     public class CreateCalibrationRecordCommandHandler : IRequestHandler<CreateCalibrationRecordCommand, CalibrationRecordResponse>
     {
+        private 
         Task<CalibrationRecordResponse> IRequestHandler<CreateCalibrationRecordCommand, CalibrationRecordResponse>.Handle(CreateCalibrationRecordCommand request, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
