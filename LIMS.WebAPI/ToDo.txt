@@ -15,3 +15,7 @@ Add fluent validations instead of Model states
 Use consistent patterns (e.g., /api/instruments, /api/instruments/{id}) and HTTP verbs to improve discoverability and client expectations.
 
 Add endpoints supporting paging, sorting and filtering for lists (instruments, labs, technicians, orders). Improves performance and usability for large datasets.
+
+•	Bulk create/update/delete endpoints for instruments/orders to support CSV imports or admin workflows
+•	Endpoints to assign/unassign technicians to instruments or labs (e.g., POST /instruments/{id}/assign-technician).
+•	Upload/download endpoints for calibration certificates, manuals, order attachments (store in blob or filesystem).
