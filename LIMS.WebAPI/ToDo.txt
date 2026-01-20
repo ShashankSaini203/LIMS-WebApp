@@ -12,5 +12,6 @@ If we dont want to add a technician to be added to the lab just now, then we can
 
 Add fluent validations instead of Model states
 
-Add caching
+Use consistent patterns (e.g., /api/instruments, /api/instruments/{id}) and HTTP verbs to improve discoverability and client expectations.
 
+Add endpoints supporting paging, sorting and filtering for lists (instruments, labs, technicians, orders). Improves performance and usability for large datasets.
