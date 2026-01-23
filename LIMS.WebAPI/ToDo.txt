@@ -19,3 +19,9 @@ Add endpoints supporting paging, sorting and filtering for lists (instruments, l
 •	Bulk create/update/delete endpoints for instruments/orders to support CSV imports or admin workflows
 •	Endpoints to assign/unassign technicians to instruments or labs (e.g., POST /instruments/{id}/assign-technician).
 •	Upload/download endpoints for calibration certificates, manuals, order attachments (store in blob or filesystem).
+•	CalibrationRecord: richer model - Include fields: certifiedBy, certificateFileUrl, nextDueDate, status, measuredValues, tolerances, traceability metadata.
+•	Inventory model for Laboratory - Track stock levels, reorder thresholds, suppliers, procurement history.
+•	Instrument status/lifecycle - Add status enum (Active, InService, CalibrationDue, Retired) and lastCalibrationDate, maintenanceSchedule.
+•	Add CreatedBy/CreatedAt/UpdatedBy/UpdatedAt and soft-delete flags instead of hard delete for recoverability.
+•	Add JWT based auth, role-based access (Admin, Technician, Viewer) and secure sensitive endpoints (delete, update).
+•	/health, readiness, and Prometheus metrics (important for production).
